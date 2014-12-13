@@ -17,6 +17,7 @@
 @property (nonatomic, strong) JANUser *user;
 @property (nonatomic, strong) JANQiitaUserInfo *myQiitaUserInfo;
 @property (nonatomic, strong) NSArray *rivalsQiitaUserInfo;
+@property (nonatomic, strong) NSArray *myQiitaStocks;
 @property (nonatomic, strong) JANQiitaUserInfoService *userInfoService;
 @property (nonatomic, strong) JANStockService *stockService;
 @property (strong, nonatomic) IBOutlet UITableView *qiitaListView;
@@ -49,6 +50,14 @@
                                                });                                               ;
                                            }
                                             failedHandler:^{}];
+    [self.stockService retrieveStocksWithUserId:@"bOb_sTrane"
+                                 successHandler:^(NSArray *stocks) {
+                                     self.myQiitaStocks = stocks;
+                                     dispatch_async(dispatch_get_main_queue(), ^{
+                                         [self.qiitaListView reloadData];
+                                     });
+                                 }
+                                  failedHandler:^{}];
 }
 
 - (void)didReceiveMemoryWarning {
