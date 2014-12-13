@@ -7,16 +7,57 @@
 //
 
 #import "QiitaListViewController.h"
+#import "JANUser.h"
+#import "JANQiitaUserInfo.h"
+#import "JANQiitaUserInfoService.h"
+#import "JANStockService.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface QiitaListViewController () <UITableViewDelegate, UITableViewDataSource>
-
+@property (nonatomic, strong) JANUser *user;
+@property (nonatomic, strong) JANQiitaUserInfo *myQiitaUserInfo;
+@property (nonatomic, strong) NSArray *rivalsQiitaUserInfo;
+@property (nonatomic, strong) NSArray *myQiitaStocks;
+@property (nonatomic, strong) JANQiitaUserInfoService *userInfoService;
+@property (nonatomic, strong) JANStockService *stockService;
+@property (strong, nonatomic) IBOutlet UITableView *qiitaListView;
 @end
 
 @implementation QiitaListViewController
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.userInfoService = [[JANQiitaUserInfoService alloc] init];
+        self.stockService    = [[JANStockService alloc] init];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.userInfoService retrieveQiitaUserInfoWithUserId:@"bOb_sTrane"
+                                           successHandler:^(JANQiitaUserInfo *qiitaUserInfo){
+                                               self.myQiitaUserInfo = qiitaUserInfo;
+                                               dispatch_async(dispatch_get_main_queue(), ^{
+                                                   [self.qiitaListView reloadData];
+                                               });                                               ;
+                                           }
+                                            failedHandler:^{}];
+    [self.stockService retrieveStocksWithUserId:@"bOb_sTrane"
+                                 successHandler:^(NSArray *stocks) {
+                                     self.myQiitaStocks = stocks;
+                                     dispatch_async(dispatch_get_main_queue(), ^{
+                                         [self.qiitaListView reloadData];
+                                     });
+                                 }
+                                  failedHandler:^{}];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,7 +99,20 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                       reuseIdentifier:CellIdentifier];
     }
-    cell.textLabel.text = @"hoge";
+    if (indexPath.section == 0) {
+        if (self.myQiitaUserInfo) {
+            cell.textLabel.text = self.myQiitaUserInfo.qiitaId;
+            
+            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.myQiitaUserInfo.qiitaId]
+                              placeholderImage:nil];
+             
+//            [cell.myImageView setImageWithURL:[NSURL URLWithString:thumbUrl]
+//                             placeholderImage:nil
+//                                    completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType){
+//                                        [self.myImageView setImageWithURL:[NSURL URLWithString:fullUrl] placeholderImage:image];
+//                                    }];
+        }
+    }
     
     return cell;
 }
