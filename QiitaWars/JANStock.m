@@ -9,5 +9,13 @@
 #import "JANStock.h"
 
 @implementation JANStock
-
+- (id)initWithCoder:(NSCoder *)coder {
+    if (self = [super init]) {
+        self.data = [coder decodeObjectForKey:@"data"];
+    }
+    return self;
+}
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject:_data forKey:@"data"];
+}
 @end

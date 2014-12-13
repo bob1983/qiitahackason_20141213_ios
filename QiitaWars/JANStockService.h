@@ -17,11 +17,8 @@ typedef void(^StockServiceFailedHandler)();
                          successHandler:(StockServiceRetrieveSuccessHandler)successHandler
                           failedHandler:(StockServiceFailedHandler)failedHandler;
 
-- (void)saveParsedString:(NSString*) parsedString;
-- (NSUInteger)stockCount;
-
-
 - (void)saveStock:(JANStock*) stock;
-- (NSArray *)loadStacks;
-- (void)saveStacks:(NSArray*)stocks;
+- (JANStock *)lastStock;
+- (NSArray *)loadStocks;
+- (void)saveStocks:(NSArray*)stocks;
 @end

@@ -19,4 +19,11 @@ typedef void(^QiitaUserInfoServiceRetrieveFailedHandler)();
                          successHandler:(QiitaUserInfoServiceRetrieveSuccessHandler)successHandler
                           failedHandler:(QiitaUserInfoServiceRetrieveFailedHandler)failedHandler;
 
+- (void)saveQiitaUserInfo:(JANQiitaUserInfo*) qiitaUserInfo;
+- (JANQiitaUserInfo*)lastQiitaUserInfo;
+
+
+- (NSArray *)loadQiitaUserInfos;
+- (void)saveQiitaUserInfos:(NSArray*)QiitaUserInfos;
+
 @end
