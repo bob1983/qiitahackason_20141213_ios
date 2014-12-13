@@ -1,0 +1,10 @@
+PODS:
+  - JSONKit-NoWarning (1.2)
+
+DEPENDENCIES:
+  - JSONKit-NoWarning
+
+SPEC CHECKSUMS:
+  JSONKit-NoWarning: fc8d6dd8ec65e303867d1bd274632fc60a4a8ab9
+
+COCOAPODS: 0.34.1
