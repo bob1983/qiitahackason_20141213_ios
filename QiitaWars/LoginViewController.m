@@ -6,17 +6,18 @@
 //  Copyright (c) 2014年 bob. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "LoginViewController.h"
 
-@interface ViewController ()
+@interface LoginViewController ()
 
 @end
 
-@implementation ViewController
+@implementation LoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.title = @"ログイン";
 }
 
 - (void)didReceiveMemoryWarning {
