@@ -72,18 +72,18 @@
 		E4BE16C61A3C1CF6000FE3BE /* QiitaWarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QiitaWarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4BE16CB1A3C1CF6000FE3BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4BE16CC1A3C1CF6000FE3BE /* QiitaWarsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QiitaWarsTests.m; sourceTree = "<group>"; };
-		E4BE16D61A3C1E3D000FE3BE /* JANQiitaUserInfoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JANQiitaUserInfoService.h; path = ../JANQiitaUserInfoService.h; sourceTree = "<group>"; };
-		E4BE16D71A3C1E3D000FE3BE /* JANQiitaUserInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JANQiitaUserInfoService.m; path = ../JANQiitaUserInfoService.m; sourceTree = "<group>"; };
-		E4BE16D81A3C1E3D000FE3BE /* JANStock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JANStock.h; path = ../JANStock.h; sourceTree = "<group>"; };
-		E4BE16D91A3C1E3D000FE3BE /* JANStock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JANStock.m; path = ../JANStock.m; sourceTree = "<group>"; };
-		E4BE16DA1A3C1E3D000FE3BE /* JANStockService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JANStockService.h; path = ../JANStockService.h; sourceTree = "<group>"; };
-		E4BE16DB1A3C1E3D000FE3BE /* JANStockService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JANStockService.m; path = ../JANStockService.m; sourceTree = "<group>"; };
-		E4BE16DC1A3C1E3D000FE3BE /* JANUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JANUserService.h; path = ../JANUserService.h; sourceTree = "<group>"; };
-		E4BE16DD1A3C1E3D000FE3BE /* JANUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JANUserService.m; path = ../JANUserService.m; sourceTree = "<group>"; };
-		E4BE16E31A3C1E61000FE3BE /* JANQiitaUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANQiitaUserInfo.h; sourceTree = "<group>"; };
-		E4BE16E41A3C1E61000FE3BE /* JANQiitaUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANQiitaUserInfo.m; sourceTree = "<group>"; };
-		E4BE16E51A3C1E61000FE3BE /* JANUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANUser.h; sourceTree = "<group>"; };
-		E4BE16E61A3C1E61000FE3BE /* JANUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANUser.m; sourceTree = "<group>"; };
+		E4BE16D61A3C1E3D000FE3BE /* JANQiitaUserInfoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JANQiitaUserInfoService.h; path = Services/JANQiitaUserInfoService.h; sourceTree = "<group>"; };
+		E4BE16D71A3C1E3D000FE3BE /* JANQiitaUserInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JANQiitaUserInfoService.m; path = Services/JANQiitaUserInfoService.m; sourceTree = "<group>"; };
+		E4BE16D81A3C1E3D000FE3BE /* JANStock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JANStock.h; path = Services/JANStock.h; sourceTree = "<group>"; };
+		E4BE16D91A3C1E3D000FE3BE /* JANStock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JANStock.m; path = Services/JANStock.m; sourceTree = "<group>"; };
+		E4BE16DA1A3C1E3D000FE3BE /* JANStockService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JANStockService.h; path = Services/JANStockService.h; sourceTree = "<group>"; };
+		E4BE16DB1A3C1E3D000FE3BE /* JANStockService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JANStockService.m; path = Services/JANStockService.m; sourceTree = "<group>"; };
+		E4BE16DC1A3C1E3D000FE3BE /* JANUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JANUserService.h; path = Services/JANUserService.h; sourceTree = "<group>"; };
+		E4BE16DD1A3C1E3D000FE3BE /* JANUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JANUserService.m; path = Services/JANUserService.m; sourceTree = "<group>"; };
+		E4BE16E31A3C1E61000FE3BE /* JANQiitaUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JANQiitaUserInfo.h; path = ModelObjects/JANQiitaUserInfo.h; sourceTree = "<group>"; };
+		E4BE16E41A3C1E61000FE3BE /* JANQiitaUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JANQiitaUserInfo.m; path = ModelObjects/JANQiitaUserInfo.m; sourceTree = "<group>"; };
+		E4BE16E51A3C1E61000FE3BE /* JANUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JANUser.h; path = ModelObjects/JANUser.h; sourceTree = "<group>"; };
+		E4BE16E61A3C1E61000FE3BE /* JANUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JANUser.m; path = ModelObjects/JANUser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
