@@ -10,7 +10,18 @@
 
 @implementation QiitaListTableViewCell
 
-- (void)awakeFromNib {
++ (NSString *)identifier
+{
+    static NSString *_identifier;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _identifier = NSStringFromClass([self class]);
+    });
+    return _identifier;
+}
+
+- (void)awakeFromNib
+{
     // Initialization code
     CGRect frame = _contributeCountBackImageView.frame;
     frame.size.width = _contributeCountLabel.frame.size.width;

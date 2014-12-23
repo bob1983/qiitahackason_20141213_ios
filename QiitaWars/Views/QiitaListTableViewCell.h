@@ -22,5 +22,5 @@
 - (void)setContributeCount:(NSInteger)contributeCount;
 - (void)setTotalValue:(NSInteger)totalValue;
 
-
++ (NSString *)identifier;
 @end

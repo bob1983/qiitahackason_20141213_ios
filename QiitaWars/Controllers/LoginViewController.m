@@ -56,7 +56,15 @@
 
 //カメラボタンが押されたときに呼ばれるメソッド
 -(void)hoge:(UIBarButtonItem*)b{
-    [self.navigationController pushViewController:[[QiitaListViewController alloc] init] animated:YES];
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Checkout" bundle:nil];
+//    UBCheckoutViewController *controller = [storyboard instantiateInitialViewController];
+//    controller.delegate = self;
+//    controller.checkout = self.checkout;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"QiitaListController"
+                                                         bundle:[NSBundle mainBundle]];
+    QiitaListViewController *controller = [storyboard instantiateInitialViewController];
+    [self.navigationController pushViewController:controller
+                                         animated:YES];
 }
 
 

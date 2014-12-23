@@ -27,25 +27,36 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 @end
 
 @implementation QiitaListViewController
-- (instancetype)init
+
+//- (instancetype)init
+//{
+//    self = [super init];
+//    if (self) {
+//        self.userInfoService = [[JANQiitaUserInfoService alloc] init];
+//        self.stockService    = [[JANStockService alloc] init];
+//        
+//    }
+//    return self;
+//}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super init];
+    self = [super initWithCoder:aDecoder];
     if (self) {
         self.userInfoService = [[JANQiitaUserInfoService alloc] init];
         self.stockService    = [[JANStockService alloc] init];
-        
     }
     return self;
 }
 
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    // カスタマイズしたセルをテーブルビューにセット
-    UINib *nib = [UINib nibWithNibName:QiitaLIstTableViewCellIdentifier bundle:nil];
-    [self.qiitaListView registerNib:nib forCellReuseIdentifier:@"Cell"];
-
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -99,14 +110,16 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     return 1;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    NSString *CellIdentifier = [QiitaListTableViewCell identifier];
     
     QiitaListTableViewCell *cell = [self.qiitaListView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     }
+    
     if (indexPath.section == 0) {
         if (self.myQiitaUserInfo) {
             cell.accountNameLabel.text = self.myQiitaUserInfo.qiitaId;
