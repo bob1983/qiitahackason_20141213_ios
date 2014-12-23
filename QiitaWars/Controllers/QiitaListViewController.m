@@ -12,7 +12,7 @@
 #import "JANQiitaUserInfoService.h"
 #import "JANStockService.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-#import "QiitaLIstTableViewCell.h"
+#import "QiitaListTableViewCell.h"
 
 static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewCell";
 
@@ -103,7 +103,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 {
     static NSString *CellIdentifier = @"Cell";
     
-    QiitaLIstTableViewCell *cell = [self.qiitaListView dequeueReusableCellWithIdentifier:CellIdentifier];
+    QiitaListTableViewCell *cell = [self.qiitaListView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     }

@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 bob. All rights reserved.
 //
 
-#import "QiitaLIstTableViewCell.h"
+#import "QiitaListTableViewCell.h"
 
-@implementation QiitaLIstTableViewCell
+@implementation QiitaListTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code

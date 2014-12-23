@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QiitaLIstTableViewCell : UITableViewCell
+@interface QiitaListTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
 @property (weak, nonatomic) IBOutlet UILabel *accountNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalValueLabel;

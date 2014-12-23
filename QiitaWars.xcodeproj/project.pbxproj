@@ -15,7 +15,7 @@
 		BF67D9D41A3C2834004B53B5 /* stockIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9D11A3C2834004B53B5 /* stockIcon@2x.png */; };
 		BF67D9D61A3C28FF004B53B5 /* QiitaLIstTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9D51A3C28FF004B53B5 /* QiitaLIstTableViewCell.xib */; };
 		BF67D9D81A3C2AC7004B53B5 /* postArticleIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9D71A3C2AC7004B53B5 /* postArticleIcon@2x.png */; };
-		BF67D9DB1A3C2B0F004B53B5 /* QiitaLIstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF67D9DA1A3C2B0F004B53B5 /* QiitaLIstTableViewCell.m */; };
+		BF67D9DB1A3C2B0F004B53B5 /* QiitaListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF67D9DA1A3C2B0F004B53B5 /* QiitaListTableViewCell.m */; };
 		BF67D9E01A3C4073004B53B5 /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9DD1A3C4073004B53B5 /* splash@2x.png */; };
 		BF67D9E11A3C4073004B53B5 /* concept@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9DE1A3C4073004B53B5 /* concept@2x.png */; };
 		BF67D9E31A3C4542004B53B5 /* concept1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9E21A3C4542004B53B5 /* concept1@2x.png */; };
@@ -56,8 +56,8 @@
 		BF67D9D11A3C2834004B53B5 /* stockIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stockIcon@2x.png"; sourceTree = "<group>"; };
 		BF67D9D51A3C28FF004B53B5 /* QiitaLIstTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QiitaLIstTableViewCell.xib; sourceTree = "<group>"; };
 		BF67D9D71A3C2AC7004B53B5 /* postArticleIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "postArticleIcon@2x.png"; sourceTree = "<group>"; };
-		BF67D9D91A3C2B0F004B53B5 /* QiitaLIstTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiitaLIstTableViewCell.h; sourceTree = "<group>"; };
-		BF67D9DA1A3C2B0F004B53B5 /* QiitaLIstTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiitaLIstTableViewCell.m; sourceTree = "<group>"; };
+		BF67D9D91A3C2B0F004B53B5 /* QiitaListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiitaListTableViewCell.h; sourceTree = "<group>"; };
+		BF67D9DA1A3C2B0F004B53B5 /* QiitaListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiitaListTableViewCell.m; sourceTree = "<group>"; };
 		BF67D9DD1A3C4073004B53B5 /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@2x.png"; sourceTree = "<group>"; };
 		BF67D9DE1A3C4073004B53B5 /* concept@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "concept@2x.png"; sourceTree = "<group>"; };
 		BF67D9E21A3C4542004B53B5 /* concept1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "concept1@2x.png"; sourceTree = "<group>"; };
@@ -129,8 +129,8 @@
 		BF53DA961A49480300BE276C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				BF67D9D91A3C2B0F004B53B5 /* QiitaLIstTableViewCell.h */,
-				BF67D9DA1A3C2B0F004B53B5 /* QiitaLIstTableViewCell.m */,
+				BF67D9D91A3C2B0F004B53B5 /* QiitaListTableViewCell.h */,
+				BF67D9DA1A3C2B0F004B53B5 /* QiitaListTableViewCell.m */,
 				BF53DA9A1A494CAE00BE276C /* LoginViewController.storyboard */,
 				BF53DA9C1A494CD800BE276C /* QiitaListController.storyboard */,
 			);
@@ -408,7 +408,7 @@
 			files = (
 				E4BE16E11A3C1E3D000FE3BE /* JANUserService.m in Sources */,
 				E4BE16E71A3C1E61000FE3BE /* JANQiitaUserInfo.m in Sources */,
-				BF67D9DB1A3C2B0F004B53B5 /* QiitaLIstTableViewCell.m in Sources */,
+				BF67D9DB1A3C2B0F004B53B5 /* QiitaListTableViewCell.m in Sources */,
 				E4BE16E81A3C1E61000FE3BE /* JANUser.m in Sources */,
 				E4BE16B91A3C1CF6000FE3BE /* LoginViewController.m in Sources */,
 				E4BE16DF1A3C1E3D000FE3BE /* JANStock.m in Sources */,
