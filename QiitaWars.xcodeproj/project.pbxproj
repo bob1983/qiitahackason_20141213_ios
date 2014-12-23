@@ -72,14 +72,14 @@
 		E4BE16C61A3C1CF6000FE3BE /* QiitaWarsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QiitaWarsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4BE16CB1A3C1CF6000FE3BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4BE16CC1A3C1CF6000FE3BE /* QiitaWarsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QiitaWarsTests.m; sourceTree = "<group>"; };
-		E4BE16D61A3C1E3D000FE3BE /* JANQiitaUserInfoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANQiitaUserInfoService.h; sourceTree = "<group>"; };
-		E4BE16D71A3C1E3D000FE3BE /* JANQiitaUserInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANQiitaUserInfoService.m; sourceTree = "<group>"; };
-		E4BE16D81A3C1E3D000FE3BE /* JANStock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANStock.h; sourceTree = "<group>"; };
-		E4BE16D91A3C1E3D000FE3BE /* JANStock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANStock.m; sourceTree = "<group>"; };
-		E4BE16DA1A3C1E3D000FE3BE /* JANStockService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANStockService.h; sourceTree = "<group>"; };
-		E4BE16DB1A3C1E3D000FE3BE /* JANStockService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANStockService.m; sourceTree = "<group>"; };
-		E4BE16DC1A3C1E3D000FE3BE /* JANUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANUserService.h; sourceTree = "<group>"; };
-		E4BE16DD1A3C1E3D000FE3BE /* JANUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANUserService.m; sourceTree = "<group>"; };
+		E4BE16D61A3C1E3D000FE3BE /* JANQiitaUserInfoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JANQiitaUserInfoService.h; path = ../JANQiitaUserInfoService.h; sourceTree = "<group>"; };
+		E4BE16D71A3C1E3D000FE3BE /* JANQiitaUserInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JANQiitaUserInfoService.m; path = ../JANQiitaUserInfoService.m; sourceTree = "<group>"; };
+		E4BE16D81A3C1E3D000FE3BE /* JANStock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JANStock.h; path = ../JANStock.h; sourceTree = "<group>"; };
+		E4BE16D91A3C1E3D000FE3BE /* JANStock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JANStock.m; path = ../JANStock.m; sourceTree = "<group>"; };
+		E4BE16DA1A3C1E3D000FE3BE /* JANStockService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JANStockService.h; path = ../JANStockService.h; sourceTree = "<group>"; };
+		E4BE16DB1A3C1E3D000FE3BE /* JANStockService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JANStockService.m; path = ../JANStockService.m; sourceTree = "<group>"; };
+		E4BE16DC1A3C1E3D000FE3BE /* JANUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JANUserService.h; path = ../JANUserService.h; sourceTree = "<group>"; };
+		E4BE16DD1A3C1E3D000FE3BE /* JANUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JANUserService.m; path = ../JANUserService.m; sourceTree = "<group>"; };
 		E4BE16E31A3C1E61000FE3BE /* JANQiitaUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANQiitaUserInfo.h; sourceTree = "<group>"; };
 		E4BE16E41A3C1E61000FE3BE /* JANQiitaUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANQiitaUserInfo.m; sourceTree = "<group>"; };
 		E4BE16E51A3C1E61000FE3BE /* JANUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANUser.h; sourceTree = "<group>"; };
@@ -122,6 +122,52 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BF53DA961A49480300BE276C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BF67D9D91A3C2B0F004B53B5 /* QiitaLIstTableViewCell.h */,
+				BF67D9DA1A3C2B0F004B53B5 /* QiitaLIstTableViewCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		BF53DA971A49480B00BE276C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E4BE16B71A3C1CF6000FE3BE /* LoginViewController.h */,
+				E4BE16B81A3C1CF6000FE3BE /* LoginViewController.m */,
+				E43AC9B91A3C2438003A2DFD /* QiitaListViewController.h */,
+				E43AC9BA1A3C2438003A2DFD /* QiitaListViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		BF53DA981A49483C00BE276C /* ModelObjects */ = {
+			isa = PBXGroup;
+			children = (
+				E4BE16E31A3C1E61000FE3BE /* JANQiitaUserInfo.h */,
+				E4BE16E41A3C1E61000FE3BE /* JANQiitaUserInfo.m */,
+				E4BE16E51A3C1E61000FE3BE /* JANUser.h */,
+				E4BE16E61A3C1E61000FE3BE /* JANUser.m */,
+			);
+			name = ModelObjects;
+			sourceTree = "<group>";
+		};
+		BF53DA991A49485B00BE276C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E4BE16D61A3C1E3D000FE3BE /* JANQiitaUserInfoService.h */,
+				E4BE16D71A3C1E3D000FE3BE /* JANQiitaUserInfoService.m */,
+				E4BE16D81A3C1E3D000FE3BE /* JANStock.h */,
+				E4BE16D91A3C1E3D000FE3BE /* JANStock.m */,
+				E4BE16DA1A3C1E3D000FE3BE /* JANStockService.h */,
+				E4BE16DB1A3C1E3D000FE3BE /* JANStockService.m */,
+				E4BE16DC1A3C1E3D000FE3BE /* JANUserService.h */,
+				E4BE16DD1A3C1E3D000FE3BE /* JANUserService.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		BF67D9CE1A3C281F004B53B5 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,28 +206,16 @@
 		E4BE16AF1A3C1CF6000FE3BE /* QiitaWars */ = {
 			isa = PBXGroup;
 			children = (
+				BF53DA971A49480B00BE276C /* Controllers */,
+				BF53DA961A49480300BE276C /* Views */,
 				BF67D9CE1A3C281F004B53B5 /* Resource */,
 				E4BE16E21A3C1E61000FE3BE /* Models */,
-				E4BE16D61A3C1E3D000FE3BE /* JANQiitaUserInfoService.h */,
-				E4BE16D71A3C1E3D000FE3BE /* JANQiitaUserInfoService.m */,
-				E4BE16D81A3C1E3D000FE3BE /* JANStock.h */,
-				E4BE16D91A3C1E3D000FE3BE /* JANStock.m */,
-				E4BE16DA1A3C1E3D000FE3BE /* JANStockService.h */,
-				E4BE16DB1A3C1E3D000FE3BE /* JANStockService.m */,
-				E4BE16DC1A3C1E3D000FE3BE /* JANUserService.h */,
-				E4BE16DD1A3C1E3D000FE3BE /* JANUserService.m */,
 				E4BE16B41A3C1CF6000FE3BE /* AppDelegate.h */,
 				E4BE16B51A3C1CF6000FE3BE /* AppDelegate.m */,
-				E4BE16B71A3C1CF6000FE3BE /* LoginViewController.h */,
-				E4BE16B81A3C1CF6000FE3BE /* LoginViewController.m */,
-				E43AC9B91A3C2438003A2DFD /* QiitaListViewController.h */,
-				E43AC9BA1A3C2438003A2DFD /* QiitaListViewController.m */,
-				E43AC9BB1A3C2438003A2DFD /* QiitaListViewController.xib */,
 				E4BE16BD1A3C1CF6000FE3BE /* Images.xcassets */,
-				E4BE16B01A3C1CF6000FE3BE /* Supporting Files */,
+				E43AC9BB1A3C2438003A2DFD /* QiitaListViewController.xib */,
 				BF67D9D51A3C28FF004B53B5 /* QiitaLIstTableViewCell.xib */,
-				BF67D9D91A3C2B0F004B53B5 /* QiitaLIstTableViewCell.h */,
-				BF67D9DA1A3C2B0F004B53B5 /* QiitaLIstTableViewCell.m */,
+				E4BE16B01A3C1CF6000FE3BE /* Supporting Files */,
 			);
 			path = QiitaWars;
 			sourceTree = "<group>";
@@ -215,10 +249,8 @@
 		E4BE16E21A3C1E61000FE3BE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E4BE16E31A3C1E61000FE3BE /* JANQiitaUserInfo.h */,
-				E4BE16E41A3C1E61000FE3BE /* JANQiitaUserInfo.m */,
-				E4BE16E51A3C1E61000FE3BE /* JANUser.h */,
-				E4BE16E61A3C1E61000FE3BE /* JANUser.m */,
+				BF53DA991A49485B00BE276C /* Services */,
+				BF53DA981A49483C00BE276C /* ModelObjects */,
 			);
 			path = Models;
 			sourceTree = "<group>";
