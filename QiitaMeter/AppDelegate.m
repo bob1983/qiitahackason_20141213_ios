@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "LoginViewController.h"
 
 @interface AppDelegate ()
 @end
@@ -18,8 +17,13 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:[[LoginViewController alloc] init]];
-    self.window.rootViewController = navController;
+    NSString *initialViewControllerName = @"LoginViewController";
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:initialViewControllerName
+                                                         bundle:[NSBundle mainBundle]];
+    UIViewController *initialViewController = [storyboard instantiateInitialViewController];
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:initialViewController];
+    self.window.rootViewController = navigationController;
+    
     [self.window makeKeyAndVisible];
     
     // Override point for customization after application launch.
