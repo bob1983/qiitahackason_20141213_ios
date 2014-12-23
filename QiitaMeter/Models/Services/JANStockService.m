@@ -8,6 +8,7 @@
 
 #import "JANStockService.h"
 #import "JANStock.h"
+#import "JANQiitaConnector.h"
 
 #define STOCKS @"stocks"
 
@@ -17,24 +18,9 @@
                    failedHandler:(StockServiceFailedHandler)failedHandler
 
 {
-    
-    NSString *baseUrl     = @"https://qiita.com/api/v2/users/";
-    NSString *urlStr      = [NSString stringWithFormat:@"%@%@%@", baseUrl, userId, @"/stocks?page=1&per_page=100"];
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlStr]];
-    
-    [NSURLConnection sendAsynchronousRequest:request
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response,
-                                               NSData *data,
-                                               NSError *connectionError) {
-                               if (connectionError) {
-                                   return;
-                               }
-                               NSArray *stocks = [self stocksFromRetrievedData:data];
-                               if (successHandler){
-                                   successHandler(stocks);
-                               }
-                           }];
+    [JANQiitaConnector retrieveStocksWithUserId:userId
+                                 successHandler:successHandler
+                                  failedHandler:failedHandler];
 }
 
 - (NSArray *)stocksFromRetrievedData:(NSData *)data

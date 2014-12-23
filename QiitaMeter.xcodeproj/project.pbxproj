@@ -10,6 +10,8 @@
 		1BE2E2DD77D51FCA65AA0189 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2A0CA0E3E7C0DAAE6614BA /* libPods.a */; };
 		BF53DA9B1A494CAE00BE276C /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF53DA9A1A494CAE00BE276C /* LoginViewController.storyboard */; };
 		BF53DA9D1A494CD800BE276C /* QiitaListController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF53DA9C1A494CD800BE276C /* QiitaListController.storyboard */; };
+		BF53DAAA1A4995AA00BE276C /* JANNetworkInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = BF53DAA71A4995AA00BE276C /* JANNetworkInterface.m */; };
+		BF53DAAB1A4995AA00BE276C /* JANQiitaConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = BF53DAA91A4995AA00BE276C /* JANQiitaConnector.m */; };
 		BF67D9D21A3C2834004B53B5 /* followerIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9CF1A3C2834004B53B5 /* followerIcon@2x.png */; };
 		BF67D9D31A3C2834004B53B5 /* qiitaMeterLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9D01A3C2834004B53B5 /* qiitaMeterLogo@2x.png */; };
 		BF67D9D41A3C2834004B53B5 /* stockIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9D11A3C2834004B53B5 /* stockIcon@2x.png */; };
@@ -51,6 +53,10 @@
 		BF2A0CA0E3E7C0DAAE6614BA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF53DA9A1A494CAE00BE276C /* LoginViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		BF53DA9C1A494CD800BE276C /* QiitaListController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QiitaListController.storyboard; sourceTree = "<group>"; };
+		BF53DAA61A4995AA00BE276C /* JANNetworkInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JANNetworkInterface.h; path = Connectors/JANNetworkInterface.h; sourceTree = "<group>"; };
+		BF53DAA71A4995AA00BE276C /* JANNetworkInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JANNetworkInterface.m; path = Connectors/JANNetworkInterface.m; sourceTree = "<group>"; };
+		BF53DAA81A4995AA00BE276C /* JANQiitaConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JANQiitaConnector.h; path = Connectors/JANQiitaConnector.h; sourceTree = "<group>"; };
+		BF53DAA91A4995AA00BE276C /* JANQiitaConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JANQiitaConnector.m; path = Connectors/JANQiitaConnector.m; sourceTree = "<group>"; };
 		BF67D9CF1A3C2834004B53B5 /* followerIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "followerIcon@2x.png"; sourceTree = "<group>"; };
 		BF67D9D01A3C2834004B53B5 /* qiitaMeterLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qiitaMeterLogo@2x.png"; sourceTree = "<group>"; };
 		BF67D9D11A3C2834004B53B5 /* stockIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stockIcon@2x.png"; sourceTree = "<group>"; };
@@ -183,6 +189,17 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		BF53DAA51A49959F00BE276C /* Connectors */ = {
+			isa = PBXGroup;
+			children = (
+				BF53DAA61A4995AA00BE276C /* JANNetworkInterface.h */,
+				BF53DAA71A4995AA00BE276C /* JANNetworkInterface.m */,
+				BF53DAA81A4995AA00BE276C /* JANQiitaConnector.h */,
+				BF53DAA91A4995AA00BE276C /* JANQiitaConnector.m */,
+			);
+			name = Connectors;
+			sourceTree = "<group>";
+		};
 		BF67D9CE1A3C281F004B53B5 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +279,7 @@
 		E4BE16E21A3C1E61000FE3BE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BF53DAA51A49959F00BE276C /* Connectors */,
 				BF53DA991A49485B00BE276C /* Services */,
 				BF53DA981A49483C00BE276C /* ModelObjects */,
 			);
@@ -414,6 +432,8 @@
 			files = (
 				E4BE16E11A3C1E3D000FE3BE /* JANUserService.m in Sources */,
 				E41710261A497EA7005D86A9 /* JANBaseViewController.m in Sources */,
+				BF53DAAA1A4995AA00BE276C /* JANNetworkInterface.m in Sources */,
+				BF53DAAB1A4995AA00BE276C /* JANQiitaConnector.m in Sources */,
 				E4BE16E71A3C1E61000FE3BE /* JANQiitaUserInfo.m in Sources */,
 				BF67D9DB1A3C2B0F004B53B5 /* QiitaListTableViewCell.m in Sources */,
 				E4BE16E81A3C1E61000FE3BE /* JANUser.m in Sources */,
