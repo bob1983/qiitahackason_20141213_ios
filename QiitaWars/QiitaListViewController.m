@@ -12,6 +12,9 @@
 #import "JANQiitaUserInfoService.h"
 #import "JANStockService.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "QiitaLIstTableViewCell.h"
+
+static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewCell";
 
 @interface QiitaListViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, strong) JANUser *user;
@@ -30,6 +33,7 @@
     if (self) {
         self.userInfoService = [[JANQiitaUserInfoService alloc] init];
         self.stockService    = [[JANStockService alloc] init];
+        
     }
     return self;
 }
@@ -37,6 +41,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    // カスタマイズしたセルをテーブルビューにセット
+    UINib *nib = [UINib nibWithNibName:QiitaLIstTableViewCellIdentifier bundle:nil];
+    [self.qiitaListView registerNib:nib forCellReuseIdentifier:@"Cell"];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -67,15 +76,15 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    return 130;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (section == 0) {
-        return @"Your activitie";
+        return @"マイQiitaメーター";
     }
-    return @"Rivals activity";
+    return @"みんなのQiitaメーター";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -92,27 +101,36 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"hoge";
+    static NSString *CellIdentifier = @"Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    QiitaLIstTableViewCell *cell = [self.qiitaListView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:CellIdentifier];
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     }
     if (indexPath.section == 0) {
         if (self.myQiitaUserInfo) {
-            cell.textLabel.text = self.myQiitaUserInfo.qiitaId;
+            cell.accountNameLabel.text = self.myQiitaUserInfo.qiitaId;
+            [cell setStockCount:[self.myQiitaStocks count]];
+            [cell setFolloeesCount:self.myQiitaUserInfo.followeesCount];
+            [cell setContributeCount:self.myQiitaUserInfo.itemsCount];
             
-            [cell.imageView sd_setImageWithURL:[NSURL URLWithString:self.myQiitaUserInfo.qiitaId]
-                              placeholderImage:nil];
-             
-//            [cell.myImageView setImageWithURL:[NSURL URLWithString:thumbUrl]
-//                             placeholderImage:nil
-//                                    completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType){
-//                                        [self.myImageView setImageWithURL:[NSURL URLWithString:fullUrl] placeholderImage:image];
-//                                    }];
-        }
+            [cell setTotalValue:[self.myQiitaStocks count] + self.myQiitaUserInfo.followeesCount + self.myQiitaUserInfo.itemsCount];
+            
+            [cell.userImageView sd_setImageWithURL:[NSURL URLWithString:self.myQiitaUserInfo.profileImageUrl]
+                             placeholderImage:nil
+                                    completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
+                                        [cell.userImageView setImage:image];
+                                    }];
     }
+        } else {
+            cell.accountNameLabel.text = @"ging";
+            [cell setStockCount:12];
+            [cell setFolloeesCount:3];
+            [cell setContributeCount:7];
+            
+            [cell setTotalValue:22];
+            [cell.userImageView setImage:[UIImage imageNamed:@"icon.jpg"]];
+        }
     
     return cell;
 }
