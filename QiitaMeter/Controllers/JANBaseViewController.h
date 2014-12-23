@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ * 全てのViewContollerはこのViewControllerを継承して使用する
+ */
 @interface JANBaseViewController : UIViewController
 
 @end
