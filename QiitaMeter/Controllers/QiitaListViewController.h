@@ -6,8 +6,8 @@
 //  Copyright (c) 2014年 bob. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "JANBaseViewController.h"
 
-@interface QiitaListViewController : UIViewController
+@interface QiitaListViewController : JANBaseViewController
 
 @end

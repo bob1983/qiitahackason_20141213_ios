@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 bob. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "JANBaseViewController.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : JANBaseViewController
 
 
 @end
