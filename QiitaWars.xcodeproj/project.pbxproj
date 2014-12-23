@@ -14,7 +14,6 @@
 		BF67D9D61A3C28FF004B53B5 /* QiitaLIstTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9D51A3C28FF004B53B5 /* QiitaLIstTableViewCell.xib */; };
 		BF67D9D81A3C2AC7004B53B5 /* postArticleIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9D71A3C2AC7004B53B5 /* postArticleIcon@2x.png */; };
 		BF67D9DB1A3C2B0F004B53B5 /* QiitaLIstTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF67D9DA1A3C2B0F004B53B5 /* QiitaLIstTableViewCell.m */; };
-		BF67D9DF1A3C4073004B53B5 /* concept1毎め@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9DC1A3C4073004B53B5 /* concept1毎め@2x.png */; };
 		BF67D9E01A3C4073004B53B5 /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9DD1A3C4073004B53B5 /* splash@2x.png */; };
 		BF67D9E11A3C4073004B53B5 /* concept@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9DE1A3C4073004B53B5 /* concept@2x.png */; };
 		BF67D9E31A3C4542004B53B5 /* concept1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9E21A3C4542004B53B5 /* concept1@2x.png */; };
@@ -55,7 +54,6 @@
 		BF67D9D71A3C2AC7004B53B5 /* postArticleIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "postArticleIcon@2x.png"; sourceTree = "<group>"; };
 		BF67D9D91A3C2B0F004B53B5 /* QiitaLIstTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiitaLIstTableViewCell.h; sourceTree = "<group>"; };
 		BF67D9DA1A3C2B0F004B53B5 /* QiitaLIstTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiitaLIstTableViewCell.m; sourceTree = "<group>"; };
-		BF67D9DC1A3C4073004B53B5 /* concept1毎め@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "concept1毎め@2x.png"; sourceTree = "<group>"; };
 		BF67D9DD1A3C4073004B53B5 /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@2x.png"; sourceTree = "<group>"; };
 		BF67D9DE1A3C4073004B53B5 /* concept@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "concept@2x.png"; sourceTree = "<group>"; };
 		BF67D9E21A3C4542004B53B5 /* concept1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "concept1@2x.png"; sourceTree = "<group>"; };
@@ -128,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				BF67D9E41A3C4725004B53B5 /* icon.jpg */,
-				BF67D9DC1A3C4073004B53B5 /* concept1毎め@2x.png */,
 				BF67D9E21A3C4542004B53B5 /* concept1@2x.png */,
 				BF67D9DD1A3C4073004B53B5 /* splash@2x.png */,
 				BF67D9DE1A3C4073004B53B5 /* concept@2x.png */,
@@ -310,7 +307,6 @@
 			files = (
 				BF67D9D41A3C2834004B53B5 /* stockIcon@2x.png in Resources */,
 				BF67D9D31A3C2834004B53B5 /* qiitaMeterLogo@2x.png in Resources */,
-				BF67D9DF1A3C4073004B53B5 /* concept1毎め@2x.png in Resources */,
 				BF67D9D81A3C2AC7004B53B5 /* postArticleIcon@2x.png in Resources */,
 				BF67D9E51A3C4725004B53B5 /* icon.jpg in Resources */,
 				E4BE16BE1A3C1CF6000FE3BE /* Images.xcassets in Resources */,
