@@ -7,7 +7,6 @@
 //
 
 #import "JANQiitaUserInfoService.h"
-#import <JSONKit-NoWarning/JSONKit.h>
 #import "JANQiitaUserInfo.h"
 
 #define QIITA_USER_INFO @"QIITA_USER_INFO"
@@ -40,15 +39,18 @@
 
 - (JANQiitaUserInfo *)janQiitaUserInfoFromRetrievedData:(NSData *)data
 {
-    NSDictionary *dict = [data objectFromJSONData];
+    NSError *error;
+    NSDictionary *parsedData = [NSJSONSerialization JSONObjectWithData:data
+                                                               options:NSJSONReadingMutableContainers
+                                                                 error:&error];
     
     JANQiitaUserInfo *qiitaUserInfo = [[JANQiitaUserInfo alloc] init];
-    qiitaUserInfo.name = dict[@"name"];
-    qiitaUserInfo.qiitaId = dict[@"id"];
-    qiitaUserInfo.profileImageUrl = dict[@"profile_image_url"];
-    qiitaUserInfo.followersCount = [dict[@"followers_count"] integerValue];
-    qiitaUserInfo.followeesCount = [dict[@"followees_count"] integerValue];
-    qiitaUserInfo.itemsCount = [dict[@"items_count"] integerValue];
+    qiitaUserInfo.name = parsedData[@"name"];
+    qiitaUserInfo.qiitaId = parsedData[@"id"];
+    qiitaUserInfo.profileImageUrl = parsedData[@"profile_image_url"];
+    qiitaUserInfo.followersCount = [parsedData[@"followers_count"] integerValue];
+    qiitaUserInfo.followeesCount = [parsedData[@"followees_count"] integerValue];
+    qiitaUserInfo.itemsCount = [parsedData[@"items_count"] integerValue];
     return qiitaUserInfo;
 }
 - (void)saveQiitaUserInfo:(JANQiitaUserInfo*) qiitaUserInfo

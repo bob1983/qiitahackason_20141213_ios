@@ -7,7 +7,6 @@
 //
 
 #import "JANStockService.h"
-#import <JSONKit-NoWarning/JSONKit.h>
 #import "JANStock.h"
 
 #define STOCKS @"stocks"
@@ -40,10 +39,13 @@
 
 - (NSArray *)stocksFromRetrievedData:(NSData *)data
 {
-    NSArray *arr = [data objectFromJSONData];
+    NSError *error;
+    NSArray *parsedData = [NSJSONSerialization JSONObjectWithData:data
+                                                          options:NSJSONReadingMutableContainers
+                                                            error:&error];
     NSMutableArray *stocks = [NSMutableArray array];
     
-    for (id stock in arr) {
+    for (id stock in parsedData) {
         [stocks addObject:stock];
     }
     
