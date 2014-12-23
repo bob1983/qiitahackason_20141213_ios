@@ -15,11 +15,10 @@
 
 @implementation LoginViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     
-//    self.navigationController.navigationBarHidden = YES;
-    // Do any additional setup after loading the view, typically from a nib.
     self.title = @"ログイン";
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * 3, scrollView.frame.size.height - 60);

@@ -10,29 +10,52 @@
 
 
 @interface IntroductionViewController ()
+@property (weak, nonatomic) IBOutlet UIScrollView *introductionScrollView;
 
 @end
 
 @implementation IntroductionViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.view.backgroundColor = [UIColor greenColor];
+
+    
+    
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"splash"]];
+    [imageView setFrame:CGRectMake(imageView.frame.size.width*0,
+                                   0,
+                                   imageView.frame.size.width,
+                                   imageView.frame.size.height)];
+    [self.introductionScrollView addSubview:imageView];
+    
+    imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"concept1"]];
+    [imageView setFrame:CGRectMake(imageView.frame.size.width*1,
+                                   0,
+                                   imageView.frame.size.width,
+                                   imageView.frame.size.height)];
+    [self.introductionScrollView addSubview:imageView];
+    
+    imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"concept"]];
+    [imageView setFrame:CGRectMake(imageView.frame.size.width*2,
+                                   0,
+                                   imageView.frame.size.width,
+                                   imageView.frame.size.height)];
+    [self.introductionScrollView addSubview:imageView];
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+     self.introductionScrollView.contentSize = CGSizeMake(CGRectGetWidth(self.introductionScrollView.frame) * 3,
+                                                         CGRectGetHeight(self.introductionScrollView.frame));
 }
-*/
 
 @end
