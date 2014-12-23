@@ -20,6 +20,8 @@
 		BF67D9E31A3C4542004B53B5 /* concept1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9E21A3C4542004B53B5 /* concept1@2x.png */; };
 		BF67D9E51A3C4725004B53B5 /* icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9E41A3C4725004B53B5 /* icon.jpg */; };
 		E41710261A497EA7005D86A9 /* JANBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E41710251A497EA7005D86A9 /* JANBaseViewController.m */; };
+		E41710291A498133005D86A9 /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E41710281A498133005D86A9 /* IntroductionViewController.m */; };
+		E417102B1A4981D1005D86A9 /* IntroductionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E417102A1A4981D1005D86A9 /* IntroductionViewController.storyboard */; };
 		E43AC9BC1A3C2438003A2DFD /* QiitaListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E43AC9BA1A3C2438003A2DFD /* QiitaListViewController.m */; };
 		E4BE16B31A3C1CF6000FE3BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BE16B21A3C1CF6000FE3BE /* main.m */; };
 		E4BE16B61A3C1CF6000FE3BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BE16B51A3C1CF6000FE3BE /* AppDelegate.m */; };
@@ -61,6 +63,9 @@
 		BF67D9E41A3C4725004B53B5 /* icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon.jpg; sourceTree = "<group>"; };
 		E41710241A497EA7005D86A9 /* JANBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANBaseViewController.h; sourceTree = "<group>"; };
 		E41710251A497EA7005D86A9 /* JANBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANBaseViewController.m; sourceTree = "<group>"; };
+		E41710271A498133005D86A9 /* IntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionViewController.h; sourceTree = "<group>"; };
+		E41710281A498133005D86A9 /* IntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroductionViewController.m; sourceTree = "<group>"; };
+		E417102A1A4981D1005D86A9 /* IntroductionViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IntroductionViewController.storyboard; sourceTree = "<group>"; };
 		E43AC9B91A3C2438003A2DFD /* QiitaListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiitaListViewController.h; sourceTree = "<group>"; };
 		E43AC9BA1A3C2438003A2DFD /* QiitaListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiitaListViewController.m; sourceTree = "<group>"; };
 		E4BE16AD1A3C1CF6000FE3BE /* QiitaMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QiitaMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +136,7 @@
 				BF67D9D91A3C2B0F004B53B5 /* QiitaListTableViewCell.h */,
 				BF67D9DA1A3C2B0F004B53B5 /* QiitaListTableViewCell.m */,
 				BF53DA9A1A494CAE00BE276C /* LoginViewController.storyboard */,
+				E417102A1A4981D1005D86A9 /* IntroductionViewController.storyboard */,
 				BF53DA9C1A494CD800BE276C /* QiitaListController.storyboard */,
 			);
 			path = Views;
@@ -141,6 +147,8 @@
 			children = (
 				E41710241A497EA7005D86A9 /* JANBaseViewController.h */,
 				E41710251A497EA7005D86A9 /* JANBaseViewController.m */,
+				E41710271A498133005D86A9 /* IntroductionViewController.h */,
+				E41710281A498133005D86A9 /* IntroductionViewController.m */,
 				E4BE16B71A3C1CF6000FE3BE /* LoginViewController.h */,
 				E4BE16B81A3C1CF6000FE3BE /* LoginViewController.m */,
 				E43AC9B91A3C2438003A2DFD /* QiitaListViewController.h */,
@@ -343,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF67D9D41A3C2834004B53B5 /* stockIcon@2x.png in Resources */,
+				E417102B1A4981D1005D86A9 /* IntroductionViewController.storyboard in Resources */,
 				BF67D9D31A3C2834004B53B5 /* qiitaMeterLogo@2x.png in Resources */,
 				BF67D9D81A3C2AC7004B53B5 /* postArticleIcon@2x.png in Resources */,
 				BF53DA9D1A494CD800BE276C /* QiitaListController.storyboard in Resources */,
@@ -408,6 +417,7 @@
 				E4BE16E71A3C1E61000FE3BE /* JANQiitaUserInfo.m in Sources */,
 				BF67D9DB1A3C2B0F004B53B5 /* QiitaListTableViewCell.m in Sources */,
 				E4BE16E81A3C1E61000FE3BE /* JANUser.m in Sources */,
+				E41710291A498133005D86A9 /* IntroductionViewController.m in Sources */,
 				E4BE16B91A3C1CF6000FE3BE /* LoginViewController.m in Sources */,
 				E4BE16DF1A3C1E3D000FE3BE /* JANStock.m in Sources */,
 				E4BE16E01A3C1E3D000FE3BE /* JANStockService.m in Sources */,
