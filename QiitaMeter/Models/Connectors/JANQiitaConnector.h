@@ -14,6 +14,8 @@ typedef void(^JANQiitaConnectorFailedHandler)();
 @interface JANQiitaConnector : NSObject
 
 + (void)retrieveStocksWithUserId:(NSString *)userId
+                            page:(NSInteger)page
+                         perPage:(NSInteger)perPage
                   successHandler:(JANQiitaConnectorSuccessHandler)successHandler
                    failedHandler:(JANQiitaConnectorFailedHandler)failedHandler;
 @end

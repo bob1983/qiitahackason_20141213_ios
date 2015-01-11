@@ -18,9 +18,46 @@
                    failedHandler:(StockServiceFailedHandler)failedHandler
 
 {
+    [self _retrieveStocksWithUserId:userId
+                               page:1
+                            perPage:100
+                     successHandler:successHandler
+                      failedHandler:failedHandler];
+}
+- (void)_retrieveStocksWithUserId:(NSString *)userId
+                             page:(NSInteger)page
+                          perPage:(NSInteger)perPage
+                  successHandler:(StockServiceRetrieveSuccessHandler)successHandler
+                   failedHandler:(StockServiceFailedHandler)failedHandler
+
+{
+    NSLog(@"page:%ld, perPage:%ld", page, perPage);
+    static NSMutableArray *stockary;
     [JANQiitaConnector retrieveStocksWithUserId:userId
-                                 successHandler:successHandler
-                                  failedHandler:failedHandler];
+                               page:page
+                            perPage:perPage
+                     successHandler:^(NSArray *stocks) {
+                         if (page == 1) {
+                             stockary = [NSMutableArray arrayWithArray:stocks];
+                         } else {
+                             [stockary addObjectsFromArray:stocks];
+                         }
+                         NSLog(@"count:%ld", stocks.count);
+                         if (stocks.count == perPage) {
+                             NSLog(@"%ld以上", perPage * page);
+                             [self _retrieveStocksWithUserId:userId
+                                                        page:page+1
+                                                     perPage:perPage
+                                              successHandler:successHandler
+                                               failedHandler:failedHandler];
+                             
+                         } else {
+                             if (successHandler) {
+                                 successHandler(stockary);
+                             }
+                         }
+                     }
+                      failedHandler:failedHandler];
 }
 
 - (NSArray *)stocksFromRetrievedData:(NSData *)data

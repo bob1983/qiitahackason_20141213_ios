@@ -25,6 +25,7 @@
                                                                       URLString:[[NSURL URLWithString:URLString] absoluteString]
                                                                      parameters:parameters
                                                                           error:nil];
+    NSLog(@"%@", request.URL);
     request.timeoutInterval = timeoutInterval;
     request.cachePolicy = cachePolicy;
     AFHTTPRequestOperation *operation = [manager HTTPRequestOperationWithRequest:request
