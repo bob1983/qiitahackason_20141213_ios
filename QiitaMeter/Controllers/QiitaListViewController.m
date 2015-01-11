@@ -61,6 +61,13 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    UIBarButtonItem* dataUpdateButton = [[UIBarButtonItem alloc]
+                                         initWithTitle:@"更新"
+                                         style:UIBarButtonItemStylePlain
+                                         target:self
+                                         action:@selector(updateQiitaListRequest)];
+    self.navigationItem.rightBarButtonItem = dataUpdateButton;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -138,6 +145,10 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     return cell;
 }
 
+- (void)updateQiitaListRequest
+{
+    [JANDataService dataUpdateRequest:nil];
+}
 
 - (void)updateViewWithQiitaUserInfo:(NSNotification *)dic
 {
