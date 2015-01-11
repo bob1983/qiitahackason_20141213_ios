@@ -15,6 +15,7 @@
 #import "QiitaListTableViewCell.h"
 #import "JANDataService.h"
 #import "JANStock.h"
+#import "JANPointService.h"
 
 static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewCell";
 
@@ -25,6 +26,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 @property (nonatomic, strong) JANStock *myQiitaStocks;
 @property (nonatomic, strong) JANQiitaUserInfoService *userInfoService;
 @property (nonatomic, strong) JANStockService *stockService;
+@property (nonatomic, assign) NSInteger myPoint;
 @property (strong, nonatomic) IBOutlet UITableView *qiitaListView;
 @end
 
@@ -49,6 +51,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
         self.stockService    = [[JANStockService alloc] init];
         self.myQiitaUserInfo = [JANQiitaUserInfoService lastQiitaUserInfo];
         self.myQiitaStocks = [JANStockService lastStock];
+        self.myPoint = [JANPointService makePointWithlastPoints:[[JANPoints alloc] init] secondPoints:nil];
     }
     return self;
 }
@@ -61,6 +64,13 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    UIBarButtonItem* dataUpdateButton = [[UIBarButtonItem alloc]
+                                         initWithTitle:@"更新"
+                                         style:UIBarButtonItemStylePlain
+                                         target:self
+                                         action:@selector(updateQiitaListRequest)];
+    self.navigationItem.rightBarButtonItem = dataUpdateButton;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -117,7 +127,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
             [cell setFolloeesCount:self.myQiitaUserInfo.followeesCount];
             [cell setContributeCount:self.myQiitaUserInfo.itemsCount];
             
-            [cell setTotalValue:[self.myQiitaStocks count] + self.myQiitaUserInfo.followeesCount + self.myQiitaUserInfo.itemsCount];
+            [cell setTotalValue:self.myPoint];
             
             [cell.userImageView sd_setImageWithURL:[NSURL URLWithString:self.myQiitaUserInfo.profileImageUrl]
                                   placeholderImage:nil
@@ -138,17 +148,31 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     return cell;
 }
 
+- (void)updateQiitaListRequest
+{
+    [JANDataService dataUpdateRequest:nil];
+}
 
 - (void)updateViewWithQiitaUserInfo:(NSNotification *)dic
 {
     JANQiitaUserInfo *qiitaUserInfo = [[dic userInfo] objectForKey:QIITA_USER_INFO_NOTIFICATION_KEY];
     self.myQiitaUserInfo = qiitaUserInfo;
+    
+    self.myPoint = [JANPointService makePointWithlastPoints:[[JANPoints alloc] init] secondPoints:nil];
+    
     [self.qiitaListView reloadData];
 }
 - (void)updateViewWithStock:(NSNotification *)dic
 {
     JANStock *stock = [[dic userInfo] objectForKey:STOCK_NOTIFICATION_KEY];
     self.myQiitaStocks = stock;
+    
+    self.myPoint = [JANPointService makePointWithlastPoints:[[JANPoints alloc] init] secondPoints:nil];
+    
     [self.qiitaListView reloadData];
+}
+- (void)updateViewWithPoint:(NSNotification *)dic
+{
+    
 }
 @end
