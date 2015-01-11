@@ -13,7 +13,7 @@
 #define STOCKS @"stocks"
 
 @implementation JANStockService
-- (void)retrieveStocksWithUserId:(NSString *)userId
++ (void)retrieveStocksWithUserId:(NSString *)userId
                   successHandler:(StockServiceRetrieveSuccessHandler)successHandler
                    failedHandler:(StockServiceFailedHandler)failedHandler
 
@@ -24,7 +24,7 @@
                      successHandler:successHandler
                       failedHandler:failedHandler];
 }
-- (void)_retrieveStocksWithUserId:(NSString *)userId
++ (void)_retrieveStocksWithUserId:(NSString *)userId
                              page:(NSInteger)page
                           perPage:(NSInteger)perPage
                   successHandler:(StockServiceRetrieveSuccessHandler)successHandler
@@ -53,11 +53,20 @@
                              
                          } else {
                              if (successHandler) {
-                                 successHandler(stockary);
+                                 successHandler([self janStockFromRetrievedArray:stockary]);
                              }
                          }
                      }
                       failedHandler:failedHandler];
+}
+
+
++ (JANStock *)janStockFromRetrievedArray :(NSArray *)stocks
+{
+    JANStock *stock = [[JANStock alloc] init];
+//    stock.data = stocks;
+    stock.count = stocks.count;
+    return stock;
 }
 
 - (NSArray *)stocksFromRetrievedData:(NSData *)data
@@ -76,7 +85,7 @@
 }
 
 
-- (void)saveStock:(JANStock*) stock
++ (void)saveStock:(JANStock*) stock
 {
     NSData* data = [NSKeyedArchiver archivedDataWithRootObject:stock];
     
@@ -86,14 +95,14 @@
     
 }
 
--(JANStock *)lastStock
++ (JANStock *)lastStock
 {
     NSArray *stocks = [self loadStocks];
     NSData* data = (NSData*)[stocks lastObject];
     return [NSKeyedUnarchiver unarchiveObjectWithData:data];
 }
 
--(NSArray *)loadStocks
++ (NSArray *)loadStocks
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSArray *stocks = [userDefaults objectForKey:STOCKS];
@@ -103,7 +112,7 @@
     return [NSArray array];
 }
 
-- (void)saveStocks:(NSArray*)stocks
++ (void)saveStocks:(NSArray*)stocks
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:stocks forKey:STOCKS];

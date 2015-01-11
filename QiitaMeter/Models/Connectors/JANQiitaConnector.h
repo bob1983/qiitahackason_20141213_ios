@@ -8,14 +8,23 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^JANQiitaConnectorSuccessHandler)(NSArray *);
+@class JANQiitaUserInfo;
+
+typedef void(^JANQiitaConnectorStocksSuccessHandler)(NSArray *);
 typedef void(^JANQiitaConnectorFailedHandler)();
+
+typedef void(^JANQiitaConnectorUserInfoSuccessHandler)(NSDictionary *);
 
 @interface JANQiitaConnector : NSObject
 
 + (void)retrieveStocksWithUserId:(NSString *)userId
                             page:(NSInteger)page
                          perPage:(NSInteger)perPage
-                  successHandler:(JANQiitaConnectorSuccessHandler)successHandler
+                  successHandler:(JANQiitaConnectorStocksSuccessHandler)successHandler
                    failedHandler:(JANQiitaConnectorFailedHandler)failedHandler;
+
+
++ (void)retrieveQiitaUserInfoWithUserId:(NSString *)userId
+                         successHandler:(JANQiitaConnectorUserInfoSuccessHandler)successHandler
+                          failedHandler:(JANQiitaConnectorFailedHandler)failedHandler;
 @end

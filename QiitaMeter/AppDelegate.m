@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 
+#import "JANDataService.h"
+
 @interface AppDelegate ()
 @end
 
@@ -25,6 +27,8 @@
     self.window.rootViewController = navigationController;
     
     [self.window makeKeyAndVisible];
+    
+    [JANDataService dataUpdateRequest:nil];
     
     // Override point for customization after application launch.
     return YES;

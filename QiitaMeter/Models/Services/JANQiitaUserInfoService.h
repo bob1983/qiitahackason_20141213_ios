@@ -15,15 +15,16 @@ typedef void(^QiitaUserInfoServiceRetrieveFailedHandler)();
 @interface JANQiitaUserInfoService : NSObject
 
 // TODO: 多分公開する必要ない。というか別のクラスでやるべき
-- (void)retrieveQiitaUserInfoWithUserId:(NSString *)userId
++ (void)retrieveQiitaUserInfoWithUserId:(NSString *)userId
                          successHandler:(QiitaUserInfoServiceRetrieveSuccessHandler)successHandler
                           failedHandler:(QiitaUserInfoServiceRetrieveFailedHandler)failedHandler;
 
-- (void)saveQiitaUserInfo:(JANQiitaUserInfo*) qiitaUserInfo;
-- (JANQiitaUserInfo*)lastQiitaUserInfo;
++ (JANQiitaUserInfo *)janQiitaUserInfoFromRetrievedDictionary :(NSDictionary *)dic;
++ (void)saveQiitaUserInfo:(JANQiitaUserInfo*) qiitaUserInfo;
++ (JANQiitaUserInfo*)lastQiitaUserInfo;
 
 
-- (NSArray *)loadQiitaUserInfos;
-- (void)saveQiitaUserInfos:(NSArray*)QiitaUserInfos;
++ (NSArray *)loadQiitaUserInfos;
++ (void)saveQiitaUserInfos:(NSArray*)QiitaUserInfos;
 
 @end

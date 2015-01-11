@@ -8,6 +8,8 @@
 
 #import "JANBaseViewController.h"
 
-@interface QiitaListViewController : JANBaseViewController
+#import "JANDataService.h"
+
+@interface QiitaListViewController : JANBaseViewController <JANDataServiceViewUpdateObserver>
 
 @end

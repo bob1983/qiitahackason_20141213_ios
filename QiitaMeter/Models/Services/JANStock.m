@@ -12,10 +12,13 @@
 - (id)initWithCoder:(NSCoder *)coder {
     if (self = [super init]) {
         self.data = [coder decodeObjectForKey:@"data"];
+        self.count = (NSUInteger)[coder decodeIntegerForKey:@"count"];
     }
     return self;
 }
+
 - (void)encodeWithCoder:(NSCoder *)coder {
     [coder encodeObject:_data forKey:@"data"];
+    [coder encodeInteger:(NSInteger)_count forKey:@"count"];
 }
 @end

@@ -9,16 +9,17 @@
 #import <Foundation/Foundation.h>
 @class JANStock;
 
-typedef void(^StockServiceRetrieveSuccessHandler)(NSArray *);
+typedef void(^StockServiceRetrieveSuccessHandler)(JANStock *);
 typedef void(^StockServiceFailedHandler)();
 
 @interface JANStockService : NSObject
-- (void)retrieveStocksWithUserId:(NSString *)userId
++ (void)retrieveStocksWithUserId:(NSString *)userId
                          successHandler:(StockServiceRetrieveSuccessHandler)successHandler
                           failedHandler:(StockServiceFailedHandler)failedHandler;
 
-- (void)saveStock:(JANStock*) stock;
-- (JANStock *)lastStock;
-- (NSArray *)loadStocks;
-- (void)saveStocks:(NSArray*)stocks;
++ (JANStock *)janStockFromRetrievedArray :(NSArray *)stocks;
++ (void)saveStock:(JANStock*) stock;
++ (JANStock *)lastStock;
++ (NSArray *)loadStocks;
++ (void)saveStocks:(NSArray*)stocks;
 @end

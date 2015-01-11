@@ -13,6 +13,8 @@
 #import "JANStockService.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "QiitaListTableViewCell.h"
+#import "JANDataService.h"
+#import "JANStock.h"
 
 static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewCell";
 
@@ -20,7 +22,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 @property (nonatomic, strong) JANUser *user;
 @property (nonatomic, strong) JANQiitaUserInfo *myQiitaUserInfo;
 @property (nonatomic, strong) NSArray *rivalsQiitaUserInfo;
-@property (nonatomic, strong) NSArray *myQiitaStocks;
+@property (nonatomic, strong) JANStock *myQiitaStocks;
 @property (nonatomic, strong) JANQiitaUserInfoService *userInfoService;
 @property (nonatomic, strong) JANStockService *stockService;
 @property (strong, nonatomic) IBOutlet UITableView *qiitaListView;
@@ -45,6 +47,8 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     if (self) {
         self.userInfoService = [[JANQiitaUserInfoService alloc] init];
         self.stockService    = [[JANStockService alloc] init];
+        self.myQiitaUserInfo = [JANQiitaUserInfoService lastQiitaUserInfo];
+        self.myQiitaStocks = [JANStockService lastStock];
     }
     return self;
 }
@@ -62,22 +66,8 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.userInfoService retrieveQiitaUserInfoWithUserId:@"bOb_sTrane"
-                                           successHandler:^(JANQiitaUserInfo *qiitaUserInfo){
-                                               self.myQiitaUserInfo = qiitaUserInfo;
-                                               dispatch_async(dispatch_get_main_queue(), ^{
-                                                   [self.qiitaListView reloadData];
-                                               });                                               ;
-                                           }
-                                            failedHandler:^{}];
-    [self.stockService retrieveStocksWithUserId:@"bOb_sTrane"
-                                 successHandler:^(NSArray *stocks) {
-                                     self.myQiitaStocks = stocks;
-                                     dispatch_async(dispatch_get_main_queue(), ^{
-                                         [self.qiitaListView reloadData];
-                                     });
-                                 }
-                                  failedHandler:^{}];
+    [JANDataService setViewUpdateToObserver:self];
+    [JANDataService dataUpdateRequest:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -107,7 +97,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     if (section == 0) {
         return 1;
     }
-    return 1;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -120,7 +110,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     }
     
-    if (indexPath.section == 0) {
+//    if (indexPath.section == 0) {
         if (self.myQiitaUserInfo) {
             cell.accountNameLabel.text = self.myQiitaUserInfo.qiitaId;
             [cell setStockCount:[self.myQiitaStocks count]];
@@ -130,22 +120,35 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
             [cell setTotalValue:[self.myQiitaStocks count] + self.myQiitaUserInfo.followeesCount + self.myQiitaUserInfo.itemsCount];
             
             [cell.userImageView sd_setImageWithURL:[NSURL URLWithString:self.myQiitaUserInfo.profileImageUrl]
-                             placeholderImage:nil
-                                    completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
-                                        [cell.userImageView setImage:image];
-                                    }];
-    }
-        } else {
-            cell.accountNameLabel.text = @"ging";
-            [cell setStockCount:12];
-            [cell setFolloeesCount:3];
-            [cell setContributeCount:7];
-            
-            [cell setTotalValue:22];
-            [cell.userImageView setImage:[UIImage imageNamed:@"icon.jpg"]];
+                                  placeholderImage:nil
+                                         completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
+                                             [cell.userImageView setImage:image];
+                                         }];
         }
+//    } else {
+//        cell.accountNameLabel.text = @"ging";
+//        [cell setStockCount:12];
+//        [cell setFolloeesCount:3];
+//        [cell setContributeCount:7];
+//        
+//        [cell setTotalValue:22];
+//        [cell.userImageView setImage:[UIImage imageNamed:@"icon.jpg"]];
+//    }
     
     return cell;
 }
 
+
+- (void)updateViewWithQiitaUserInfo:(NSNotification *)dic
+{
+    JANQiitaUserInfo *qiitaUserInfo = [[dic userInfo] objectForKey:QIITA_USER_INFO_NOTIFICATION_KEY];
+    self.myQiitaUserInfo = qiitaUserInfo;
+    [self.qiitaListView reloadData];
+}
+- (void)updateViewWithStock:(NSNotification *)dic
+{
+    JANStock *stock = [[dic userInfo] objectForKey:STOCK_NOTIFICATION_KEY];
+    self.myQiitaStocks = stock;
+    [self.qiitaListView reloadData];
+}
 @end
