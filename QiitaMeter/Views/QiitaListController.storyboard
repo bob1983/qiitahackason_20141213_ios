@@ -103,6 +103,10 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="followerIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="7ih-uL-jd7">
                                                     <rect key="frame" x="258" y="51" width="32" height="25"/>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ggQ-M1-9lm" customClass="JANGaugeView">
+                                                    <rect key="frame" x="143" y="115" width="177" height="13"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="IXh-y5-cVw" secondAttribute="trailing" constant="1" id="G5s-ax-qK4"/>
@@ -117,7 +121,7 @@
                                             <outlet property="contributeCountBackImageView" destination="9nA-1S-M9F" id="EG5-Gy-7jk"/>
                                             <outlet property="contributeCountLabel" destination="0G4-Qd-GYd" id="LXb-t1-DyZ"/>
                                             <outlet property="folloeesCountLavel" destination="Ue0-hr-aPf" id="Vb2-0a-czO"/>
-                                            <outlet property="gaugeImageView" destination="FEM-8F-ZMy" id="gsx-Ck-pOU"/>
+                                            <outlet property="gaugeView" destination="ggQ-M1-9lm" id="MvY-vw-j5B"/>
                                             <outlet property="stockCountLabel" destination="Rg1-dU-eI6" id="sQF-Nl-CWc"/>
                                             <outlet property="totalValueLabel" destination="OLt-le-AXK" id="s1c-pj-kuY"/>
                                             <outlet property="userImageView" destination="Y6c-Xb-eRZ" id="8ow-VS-78p"/>
@@ -145,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7JW-U3-C3f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="119" y="273"/>
+            <point key="canvasLocation" x="119" y="268"/>
         </scene>
     </scenes>
     <resources>
