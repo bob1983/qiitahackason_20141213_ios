@@ -23,14 +23,9 @@
 		BF61B5A01A63E1A8004B914E /* JANGaugeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF61B59F1A63E1A8004B914E /* JANGaugeView.m */; };
 		BF61B5A21A63E828004B914E /* config.tmp.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF61B5A11A63E828004B914E /* config.tmp.plist */; };
 		BF67D9D21A3C2834004B53B5 /* followerIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9CF1A3C2834004B53B5 /* followerIcon@2x.png */; };
-		BF67D9D31A3C2834004B53B5 /* qiitaMeterLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9D01A3C2834004B53B5 /* qiitaMeterLogo@2x.png */; };
 		BF67D9D41A3C2834004B53B5 /* stockIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9D11A3C2834004B53B5 /* stockIcon@2x.png */; };
 		BF67D9D81A3C2AC7004B53B5 /* postArticleIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9D71A3C2AC7004B53B5 /* postArticleIcon@2x.png */; };
 		BF67D9DB1A3C2B0F004B53B5 /* QiitaListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF67D9DA1A3C2B0F004B53B5 /* QiitaListTableViewCell.m */; };
-		BF67D9E01A3C4073004B53B5 /* splash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9DD1A3C4073004B53B5 /* splash@2x.png */; };
-		BF67D9E11A3C4073004B53B5 /* concept@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9DE1A3C4073004B53B5 /* concept@2x.png */; };
-		BF67D9E31A3C4542004B53B5 /* concept1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9E21A3C4542004B53B5 /* concept1@2x.png */; };
-		BF67D9E51A3C4725004B53B5 /* icon.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9E41A3C4725004B53B5 /* icon.jpg */; };
 		E41710261A497EA7005D86A9 /* JANBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E41710251A497EA7005D86A9 /* JANBaseViewController.m */; };
 		E41710291A498133005D86A9 /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E41710281A498133005D86A9 /* IntroductionViewController.m */; };
 		E417102B1A4981D1005D86A9 /* IntroductionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E417102A1A4981D1005D86A9 /* IntroductionViewController.storyboard */; };
@@ -85,15 +80,10 @@
 		BF61B59F1A63E1A8004B914E /* JANGaugeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANGaugeView.m; sourceTree = "<group>"; };
 		BF61B5A11A63E828004B914E /* config.tmp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.tmp.plist; sourceTree = "<group>"; };
 		BF67D9CF1A3C2834004B53B5 /* followerIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "followerIcon@2x.png"; sourceTree = "<group>"; };
-		BF67D9D01A3C2834004B53B5 /* qiitaMeterLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qiitaMeterLogo@2x.png"; sourceTree = "<group>"; };
 		BF67D9D11A3C2834004B53B5 /* stockIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stockIcon@2x.png"; sourceTree = "<group>"; };
 		BF67D9D71A3C2AC7004B53B5 /* postArticleIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "postArticleIcon@2x.png"; sourceTree = "<group>"; };
 		BF67D9D91A3C2B0F004B53B5 /* QiitaListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiitaListTableViewCell.h; sourceTree = "<group>"; };
 		BF67D9DA1A3C2B0F004B53B5 /* QiitaListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiitaListTableViewCell.m; sourceTree = "<group>"; };
-		BF67D9DD1A3C4073004B53B5 /* splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash@2x.png"; sourceTree = "<group>"; };
-		BF67D9DE1A3C4073004B53B5 /* concept@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "concept@2x.png"; sourceTree = "<group>"; };
-		BF67D9E21A3C4542004B53B5 /* concept1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "concept1@2x.png"; sourceTree = "<group>"; };
-		BF67D9E41A3C4725004B53B5 /* icon.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = icon.jpg; sourceTree = "<group>"; };
 		E41710241A497EA7005D86A9 /* JANBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANBaseViewController.h; sourceTree = "<group>"; };
 		E41710251A497EA7005D86A9 /* JANBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANBaseViewController.m; sourceTree = "<group>"; };
 		E41710271A498133005D86A9 /* IntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionViewController.h; sourceTree = "<group>"; };
@@ -252,13 +242,8 @@
 		BF67D9CE1A3C281F004B53B5 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				BF67D9E41A3C4725004B53B5 /* icon.jpg */,
-				BF67D9E21A3C4542004B53B5 /* concept1@2x.png */,
-				BF67D9DD1A3C4073004B53B5 /* splash@2x.png */,
-				BF67D9DE1A3C4073004B53B5 /* concept@2x.png */,
 				BF67D9D71A3C2AC7004B53B5 /* postArticleIcon@2x.png */,
 				BF67D9CF1A3C2834004B53B5 /* followerIcon@2x.png */,
-				BF67D9D01A3C2834004B53B5 /* qiitaMeterLogo@2x.png */,
 				BF67D9D11A3C2834004B53B5 /* stockIcon@2x.png */,
 				BF61B5961A6372A2004B914E /* config.plist */,
 				BF61B5A11A63E828004B914E /* config.tmp.plist */,
@@ -423,16 +408,11 @@
 				BF61B5971A6372A2004B914E /* config.plist in Resources */,
 				BF67D9D41A3C2834004B53B5 /* stockIcon@2x.png in Resources */,
 				E417102B1A4981D1005D86A9 /* IntroductionViewController.storyboard in Resources */,
-				BF67D9D31A3C2834004B53B5 /* qiitaMeterLogo@2x.png in Resources */,
 				BF67D9D81A3C2AC7004B53B5 /* postArticleIcon@2x.png in Resources */,
 				BF53DA9D1A494CD800BE276C /* QiitaListController.storyboard in Resources */,
-				BF67D9E51A3C4725004B53B5 /* icon.jpg in Resources */,
 				BF61B5A21A63E828004B914E /* config.tmp.plist in Resources */,
 				E4BE16BE1A3C1CF6000FE3BE /* Images.xcassets in Resources */,
-				BF67D9E31A3C4542004B53B5 /* concept1@2x.png in Resources */,
-				BF67D9E11A3C4073004B53B5 /* concept@2x.png in Resources */,
 				BF53DA9B1A494CAE00BE276C /* LoginViewController.storyboard in Resources */,
-				BF67D9E01A3C4073004B53B5 /* splash@2x.png in Resources */,
 				BF67D9D21A3C2834004B53B5 /* followerIcon@2x.png in Resources */,
 				BF61B58D1A636285004B914E /* OauthViewController.storyboard in Resources */,
 			);

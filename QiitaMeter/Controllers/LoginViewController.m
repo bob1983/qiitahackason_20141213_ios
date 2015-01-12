@@ -21,29 +21,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.title = @"イントロ";
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
-    scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * 3, scrollView.frame.size.height - 60);
-    
-    [scrollView setPagingEnabled:YES];
-
-    
-    
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"splash"]];
-    [imageView setFrame:CGRectMake(imageView.frame.size.width*0, 0, imageView.frame.size.width, imageView.frame.size.height)];
-    [scrollView addSubview:imageView];
-    
-    imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"concept1"]];
-    [imageView setFrame:CGRectMake(imageView.frame.size.width*1, 0, imageView.frame.size.width, imageView.frame.size.height)];
-    [scrollView addSubview:imageView];
-    
-    imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"concept"]];
-    [imageView setFrame:CGRectMake(imageView.frame.size.width*2, 0, imageView.frame.size.width, imageView.frame.size.height)];
-    [scrollView addSubview:imageView];
-
-    [self.view addSubview:scrollView];
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated
