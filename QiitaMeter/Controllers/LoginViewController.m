@@ -49,6 +49,10 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [self setUpnavigationBarButton];
+    
+    if ([[JANUserService loadUser] accessTokens]) {
+        [self openListViewController:nil];
+    }
 }
 
 //カメラボタンが押されたときに呼ばれるメソッド
@@ -57,7 +61,7 @@
                                                          bundle:[NSBundle mainBundle]];
     QiitaListViewController *controller = [storyboard instantiateInitialViewController];
     [self.navigationController pushViewController:controller
-                                         animated:YES];
+                                         animated:NO];
 }
 
 - (void)openOauthViewController

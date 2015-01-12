@@ -75,6 +75,8 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
                                          target:self
                                          action:@selector(updateQiitaListRequest)];
     self.navigationItem.rightBarButtonItem = dataUpdateButton;
+    
+    [self setLogoutBarButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -87,6 +89,28 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setLogoutBarButton
+{
+    UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc]
+                   initWithTitle:@"Logout"
+                   style:UIBarButtonItemStylePlain
+                   target:self
+                   action:@selector(logout)];
+
+    self.navigationItem.leftBarButtonItem = leftBtn;
+}
+
+- (void)logout
+{
+    [JANDataService setViewUpdateToObserver:self];
+    [JANDataService logoutRequest:nil];
+}
+
+- (void)updateViewWithLogout:(NSNotification *)dic
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
