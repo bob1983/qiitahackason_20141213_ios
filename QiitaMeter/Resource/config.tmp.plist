@@ -3,8 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>client_id</key>
-	<string>&lt;&lt;client_id&gt;&gt;</string>
+	<string>client_id</string>
 	<key>client_secret</key>
-	<string>&lt;&lt;client_secret&gt;&gt;</string>
+	<string>client_secret</string>
 </dict>
 </plist>

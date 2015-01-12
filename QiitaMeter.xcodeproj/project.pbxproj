@@ -21,6 +21,7 @@
 		BF61B59A1A63CEF9004B914E /* JANPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = BF61B5991A63CEF9004B914E /* JANPoint.m */; };
 		BF61B59D1A63CF15004B914E /* JANQiitaCount.m in Sources */ = {isa = PBXBuildFile; fileRef = BF61B59C1A63CF15004B914E /* JANQiitaCount.m */; };
 		BF61B5A01A63E1A8004B914E /* JANGaugeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF61B59F1A63E1A8004B914E /* JANGaugeView.m */; };
+		BF61B5A21A63E828004B914E /* config.tmp.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF61B5A11A63E828004B914E /* config.tmp.plist */; };
 		BF67D9D21A3C2834004B53B5 /* followerIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9CF1A3C2834004B53B5 /* followerIcon@2x.png */; };
 		BF67D9D31A3C2834004B53B5 /* qiitaMeterLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9D01A3C2834004B53B5 /* qiitaMeterLogo@2x.png */; };
 		BF67D9D41A3C2834004B53B5 /* stockIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9D11A3C2834004B53B5 /* stockIcon@2x.png */; };
@@ -82,6 +83,7 @@
 		BF61B59C1A63CF15004B914E /* JANQiitaCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANQiitaCount.m; sourceTree = "<group>"; };
 		BF61B59E1A63E1A8004B914E /* JANGaugeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANGaugeView.h; sourceTree = "<group>"; };
 		BF61B59F1A63E1A8004B914E /* JANGaugeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANGaugeView.m; sourceTree = "<group>"; };
+		BF61B5A11A63E828004B914E /* config.tmp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.tmp.plist; sourceTree = "<group>"; };
 		BF67D9CF1A3C2834004B53B5 /* followerIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "followerIcon@2x.png"; sourceTree = "<group>"; };
 		BF67D9D01A3C2834004B53B5 /* qiitaMeterLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qiitaMeterLogo@2x.png"; sourceTree = "<group>"; };
 		BF67D9D11A3C2834004B53B5 /* stockIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stockIcon@2x.png"; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				BF67D9D01A3C2834004B53B5 /* qiitaMeterLogo@2x.png */,
 				BF67D9D11A3C2834004B53B5 /* stockIcon@2x.png */,
 				BF61B5961A6372A2004B914E /* config.plist */,
+				BF61B5A11A63E828004B914E /* config.tmp.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -424,6 +427,7 @@
 				BF67D9D81A3C2AC7004B53B5 /* postArticleIcon@2x.png in Resources */,
 				BF53DA9D1A494CD800BE276C /* QiitaListController.storyboard in Resources */,
 				BF67D9E51A3C4725004B53B5 /* icon.jpg in Resources */,
+				BF61B5A21A63E828004B914E /* config.tmp.plist in Resources */,
 				E4BE16BE1A3C1CF6000FE3BE /* Images.xcassets in Resources */,
 				BF67D9E31A3C4542004B53B5 /* concept1@2x.png in Resources */,
 				BF67D9E11A3C4073004B53B5 /* concept@2x.png in Resources */,
