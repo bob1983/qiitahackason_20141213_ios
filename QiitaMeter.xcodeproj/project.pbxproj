@@ -611,6 +611,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = genqi;
+				PROVISIONING_PROFILE = "03970866-f5f4-4137-a307-a6b6302154e4";
 			};
 			name = Release;
 		};
