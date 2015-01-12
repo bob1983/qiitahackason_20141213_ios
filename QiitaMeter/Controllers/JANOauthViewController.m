@@ -38,6 +38,7 @@
         } failedHandler:^(){
             
         }];
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         return NO;
     }
     return YES;
