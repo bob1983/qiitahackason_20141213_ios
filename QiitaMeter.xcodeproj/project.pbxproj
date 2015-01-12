@@ -101,7 +101,7 @@
 		E417102A1A4981D1005D86A9 /* IntroductionViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IntroductionViewController.storyboard; sourceTree = "<group>"; };
 		E43AC9B91A3C2438003A2DFD /* QiitaListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiitaListViewController.h; sourceTree = "<group>"; };
 		E43AC9BA1A3C2438003A2DFD /* QiitaListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiitaListViewController.m; sourceTree = "<group>"; };
-		E4BE16AD1A3C1CF6000FE3BE /* QiitaMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QiitaMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4BE16AD1A3C1CF6000FE3BE /* genqi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = genqi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4BE16B11A3C1CF6000FE3BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4BE16B21A3C1CF6000FE3BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E4BE16B41A3C1CF6000FE3BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -280,7 +280,7 @@
 		E4BE16AE1A3C1CF6000FE3BE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E4BE16AD1A3C1CF6000FE3BE /* QiitaMeter.app */,
+				E4BE16AD1A3C1CF6000FE3BE /* genqi.app */,
 				E4BE16C61A3C1CF6000FE3BE /* QiitaMeterTests.xctest */,
 			);
 			name = Products;
@@ -357,7 +357,7 @@
 			);
 			name = QiitaMeter;
 			productName = QiitaMeter;
-			productReference = E4BE16AD1A3C1CF6000FE3BE /* QiitaMeter.app */;
+			productReference = E4BE16AD1A3C1CF6000FE3BE /* genqi.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E4BE16C51A3C1CF6000FE3BE /* QiitaMeterTests */ = {
@@ -610,10 +610,11 @@
 			baseConfigurationReference = EA4E0CD543FDFC62F867C042 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "QiitaMeter/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = QiitaMeter;
+				PRODUCT_NAME = genqi;
 			};
 			name = Debug;
 		};
@@ -622,10 +623,11 @@
 			baseConfigurationReference = 6766AF90B45CBB888ADD6844 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = "QiitaMeter/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = QiitaMeter;
+				PRODUCT_NAME = genqi;
 			};
 			name = Release;
 		};
