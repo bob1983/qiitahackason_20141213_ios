@@ -34,6 +34,7 @@
         NSString *code = [request.URL.uq_queryDictionary valueForKey:@"code"];
         [JANQiitaConnector retrieveQiitaAccessTokensWithCode:code successHandler:^(NSString *accessToekns){
             [JANUserService saveAccessTokens:accessToekns];
+            [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
         } failedHandler:^(){
             
         }];

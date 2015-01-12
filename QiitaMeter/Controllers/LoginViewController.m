@@ -65,8 +65,8 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"OauthViewController"
                                                          bundle:[NSBundle mainBundle]];
     JANOauthViewController *controller = [storyboard instantiateInitialViewController];
-    [self.navigationController pushViewController:controller
-                                         animated:YES];
+    
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 - (void)logout

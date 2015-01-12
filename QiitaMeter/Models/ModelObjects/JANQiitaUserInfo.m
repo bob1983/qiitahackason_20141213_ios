@@ -28,4 +28,11 @@
     [coder encodeInteger:_followeesCount forKey:@"followeesCount"];
     [coder encodeInteger:_itemsCount forKey:@"itemsCount"];
 }
+- (NSString *)accountName
+{
+    if ([_name length]) {
+        return _name;
+    }
+    return _qiitaId;
+}
 @end

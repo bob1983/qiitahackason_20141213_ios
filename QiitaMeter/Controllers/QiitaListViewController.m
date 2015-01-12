@@ -65,6 +65,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.title = [self.myQiitaUserInfo accountName];
     UIBarButtonItem* dataUpdateButton = [[UIBarButtonItem alloc]
                                          initWithTitle:@"更新"
                                          style:UIBarButtonItemStylePlain
@@ -159,6 +160,8 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     self.myQiitaUserInfo = qiitaUserInfo;
     
     self.myPoint = [JANPointService makePointWithlastPoints:[[JANPoints alloc] init] secondPoints:nil];
+    
+    self.title = [self.myQiitaUserInfo accountName];
     
     [self.qiitaListView reloadData];
 }

@@ -15,4 +15,5 @@
 @property (nonatomic)       NSUInteger followersCount;
 @property (nonatomic)       NSUInteger followeesCount;
 @property (nonatomic)       NSUInteger itemsCount;
+- (NSString *)accountName;
 @end
