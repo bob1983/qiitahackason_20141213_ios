@@ -14,6 +14,14 @@
 		BF53DAAB1A4995AA00BE276C /* JANQiitaConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = BF53DAA91A4995AA00BE276C /* JANQiitaConnector.m */; };
 		BF61B5721A624A63004B914E /* JANDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = BF61B5711A624A63004B914E /* JANDataService.m */; };
 		BF61B58B1A628158004B914E /* JANPointService.m in Sources */ = {isa = PBXBuildFile; fileRef = BF61B58A1A628158004B914E /* JANPointService.m */; };
+		BF61B58D1A636285004B914E /* OauthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF61B58C1A636285004B914E /* OauthViewController.storyboard */; };
+		BF61B5901A636377004B914E /* JANOauthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF61B58F1A636377004B914E /* JANOauthViewController.m */; };
+		BF61B5951A63690B004B914E /* JANConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = BF61B5941A63690A004B914E /* JANConfig.m */; };
+		BF61B5971A6372A2004B914E /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF61B5961A6372A2004B914E /* config.plist */; };
+		BF61B59A1A63CEF9004B914E /* JANPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = BF61B5991A63CEF9004B914E /* JANPoint.m */; };
+		BF61B59D1A63CF15004B914E /* JANQiitaCount.m in Sources */ = {isa = PBXBuildFile; fileRef = BF61B59C1A63CF15004B914E /* JANQiitaCount.m */; };
+		BF61B5A01A63E1A8004B914E /* JANGaugeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF61B59F1A63E1A8004B914E /* JANGaugeView.m */; };
+		BF61B5A21A63E828004B914E /* config.tmp.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF61B5A11A63E828004B914E /* config.tmp.plist */; };
 		BF67D9D21A3C2834004B53B5 /* followerIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9CF1A3C2834004B53B5 /* followerIcon@2x.png */; };
 		BF67D9D31A3C2834004B53B5 /* qiitaMeterLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9D01A3C2834004B53B5 /* qiitaMeterLogo@2x.png */; };
 		BF67D9D41A3C2834004B53B5 /* stockIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9D11A3C2834004B53B5 /* stockIcon@2x.png */; };
@@ -63,6 +71,19 @@
 		BF61B5711A624A63004B914E /* JANDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANDataService.m; sourceTree = "<group>"; };
 		BF61B5891A628158004B914E /* JANPointService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANPointService.h; sourceTree = "<group>"; };
 		BF61B58A1A628158004B914E /* JANPointService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANPointService.m; sourceTree = "<group>"; };
+		BF61B58C1A636285004B914E /* OauthViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OauthViewController.storyboard; sourceTree = "<group>"; };
+		BF61B58E1A636377004B914E /* JANOauthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANOauthViewController.h; sourceTree = "<group>"; };
+		BF61B58F1A636377004B914E /* JANOauthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANOauthViewController.m; sourceTree = "<group>"; };
+		BF61B5931A63690A004B914E /* JANConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JANConfig.h; path = Config/JANConfig.h; sourceTree = "<group>"; };
+		BF61B5941A63690A004B914E /* JANConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JANConfig.m; path = Config/JANConfig.m; sourceTree = "<group>"; };
+		BF61B5961A6372A2004B914E /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
+		BF61B5981A63CEF9004B914E /* JANPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANPoint.h; sourceTree = "<group>"; };
+		BF61B5991A63CEF9004B914E /* JANPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANPoint.m; sourceTree = "<group>"; };
+		BF61B59B1A63CF15004B914E /* JANQiitaCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANQiitaCount.h; sourceTree = "<group>"; };
+		BF61B59C1A63CF15004B914E /* JANQiitaCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANQiitaCount.m; sourceTree = "<group>"; };
+		BF61B59E1A63E1A8004B914E /* JANGaugeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANGaugeView.h; sourceTree = "<group>"; };
+		BF61B59F1A63E1A8004B914E /* JANGaugeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANGaugeView.m; sourceTree = "<group>"; };
+		BF61B5A11A63E828004B914E /* config.tmp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.tmp.plist; sourceTree = "<group>"; };
 		BF67D9CF1A3C2834004B53B5 /* followerIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "followerIcon@2x.png"; sourceTree = "<group>"; };
 		BF67D9D01A3C2834004B53B5 /* qiitaMeterLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "qiitaMeterLogo@2x.png"; sourceTree = "<group>"; };
 		BF67D9D11A3C2834004B53B5 /* stockIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stockIcon@2x.png"; sourceTree = "<group>"; };
@@ -150,6 +171,9 @@
 				BF53DA9A1A494CAE00BE276C /* LoginViewController.storyboard */,
 				E417102A1A4981D1005D86A9 /* IntroductionViewController.storyboard */,
 				BF53DA9C1A494CD800BE276C /* QiitaListController.storyboard */,
+				BF61B58C1A636285004B914E /* OauthViewController.storyboard */,
+				BF61B59E1A63E1A8004B914E /* JANGaugeView.h */,
+				BF61B59F1A63E1A8004B914E /* JANGaugeView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -165,6 +189,8 @@
 				E4BE16B81A3C1CF6000FE3BE /* LoginViewController.m */,
 				E43AC9B91A3C2438003A2DFD /* QiitaListViewController.h */,
 				E43AC9BA1A3C2438003A2DFD /* QiitaListViewController.m */,
+				BF61B58E1A636377004B914E /* JANOauthViewController.h */,
+				BF61B58F1A636377004B914E /* JANOauthViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -176,6 +202,10 @@
 				E4BE16E41A3C1E61000FE3BE /* JANQiitaUserInfo.m */,
 				E4BE16E51A3C1E61000FE3BE /* JANUser.h */,
 				E4BE16E61A3C1E61000FE3BE /* JANUser.m */,
+				BF61B5981A63CEF9004B914E /* JANPoint.h */,
+				BF61B5991A63CEF9004B914E /* JANPoint.m */,
+				BF61B59B1A63CF15004B914E /* JANQiitaCount.h */,
+				BF61B59C1A63CF15004B914E /* JANQiitaCount.m */,
 			);
 			path = ModelObjects;
 			sourceTree = "<group>";
@@ -210,6 +240,15 @@
 			name = Connectors;
 			sourceTree = "<group>";
 		};
+		BF61B5921A6368DF004B914E /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				BF61B5931A63690A004B914E /* JANConfig.h */,
+				BF61B5941A63690A004B914E /* JANConfig.m */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
 		BF67D9CE1A3C281F004B53B5 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +260,8 @@
 				BF67D9CF1A3C2834004B53B5 /* followerIcon@2x.png */,
 				BF67D9D01A3C2834004B53B5 /* qiitaMeterLogo@2x.png */,
 				BF67D9D11A3C2834004B53B5 /* stockIcon@2x.png */,
+				BF61B5961A6372A2004B914E /* config.plist */,
+				BF61B5A11A63E828004B914E /* config.tmp.plist */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -289,6 +330,7 @@
 		E4BE16E21A3C1E61000FE3BE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BF61B5921A6368DF004B914E /* Config */,
 				BF53DAA51A49959F00BE276C /* Connectors */,
 				BF53DA991A49485B00BE276C /* Services */,
 				BF53DA981A49483C00BE276C /* ModelObjects */,
@@ -378,18 +420,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF61B5971A6372A2004B914E /* config.plist in Resources */,
 				BF67D9D41A3C2834004B53B5 /* stockIcon@2x.png in Resources */,
 				E417102B1A4981D1005D86A9 /* IntroductionViewController.storyboard in Resources */,
 				BF67D9D31A3C2834004B53B5 /* qiitaMeterLogo@2x.png in Resources */,
 				BF67D9D81A3C2AC7004B53B5 /* postArticleIcon@2x.png in Resources */,
 				BF53DA9D1A494CD800BE276C /* QiitaListController.storyboard in Resources */,
 				BF67D9E51A3C4725004B53B5 /* icon.jpg in Resources */,
+				BF61B5A21A63E828004B914E /* config.tmp.plist in Resources */,
 				E4BE16BE1A3C1CF6000FE3BE /* Images.xcassets in Resources */,
 				BF67D9E31A3C4542004B53B5 /* concept1@2x.png in Resources */,
 				BF67D9E11A3C4073004B53B5 /* concept@2x.png in Resources */,
 				BF53DA9B1A494CAE00BE276C /* LoginViewController.storyboard in Resources */,
 				BF67D9E01A3C4073004B53B5 /* splash@2x.png in Resources */,
 				BF67D9D21A3C2834004B53B5 /* followerIcon@2x.png in Resources */,
+				BF61B58D1A636285004B914E /* OauthViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,10 +485,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF61B5951A63690B004B914E /* JANConfig.m in Sources */,
 				E4BE16E11A3C1E3D000FE3BE /* JANUserService.m in Sources */,
 				E41710261A497EA7005D86A9 /* JANBaseViewController.m in Sources */,
 				BF53DAAA1A4995AA00BE276C /* JANNetworkInterface.m in Sources */,
 				BF53DAAB1A4995AA00BE276C /* JANQiitaConnector.m in Sources */,
+				BF61B5901A636377004B914E /* JANOauthViewController.m in Sources */,
 				E4BE16E71A3C1E61000FE3BE /* JANQiitaUserInfo.m in Sources */,
 				BF67D9DB1A3C2B0F004B53B5 /* QiitaListTableViewCell.m in Sources */,
 				E4BE16E81A3C1E61000FE3BE /* JANUser.m in Sources */,
@@ -454,6 +501,9 @@
 				E4BE16E01A3C1E3D000FE3BE /* JANStockService.m in Sources */,
 				E4BE16DE1A3C1E3D000FE3BE /* JANQiitaUserInfoService.m in Sources */,
 				E4BE16B61A3C1CF6000FE3BE /* AppDelegate.m in Sources */,
+				BF61B5A01A63E1A8004B914E /* JANGaugeView.m in Sources */,
+				BF61B59D1A63CF15004B914E /* JANQiitaCount.m in Sources */,
+				BF61B59A1A63CEF9004B914E /* JANPoint.m in Sources */,
 				E4BE16B31A3C1CF6000FE3BE /* main.m in Sources */,
 				E43AC9BC1A3C2438003A2DFD /* QiitaListViewController.m in Sources */,
 				BF61B5721A624A63004B914E /* JANDataService.m in Sources */,

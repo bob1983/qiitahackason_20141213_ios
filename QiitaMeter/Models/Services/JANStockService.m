@@ -99,7 +99,10 @@
 {
     NSArray *stocks = [self loadStocks];
     NSData* data = (NSData*)[stocks lastObject];
-    return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    if (data) {
+        return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    }
+    return [[JANStock alloc] init];
 }
 
 + (NSArray *)loadStocks

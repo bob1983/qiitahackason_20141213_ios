@@ -10,4 +10,5 @@
 
 @interface JANUser : NSObject
 @property (nonatomic, copy) NSString *accountName;
+@property (nonatomic, copy) NSString *accessTokens;
 @end

@@ -9,6 +9,7 @@
 #import "JANQiitaConnector.h"
 #import "JANNetworkInterface.h"
 #import "JANQiitaUserInfoService.h"
+#import "JANConfig.h"
 
 #define BASE_USERS_URL @"https://qiita.com/api/v2/users"
 #define USERS_URL_WITH_USER_ID(__USER_ID__) [NSString stringWithFormat:@"%@/%@", BASE_USERS_URL, __USER_ID__]
@@ -63,6 +64,69 @@
                                              }
                                          }];
 }
+
++ (void)retrieveQiitaUserInfoWithsuccessHandler:(JANQiitaConnectorUserInfoSuccessHandler)successHandler
+                                  failedHandler:(JANQiitaConnectorFailedHandler)failedHandler
+{
+    NSString *baseUrl     = [JANConfig authenticatedUserUrlString];
+    [JANNetworkInterface GETRequestWithURLString:baseUrl
+                                      parameters:nil
+                                 timeoutInterval:TIMEOUT_INTERVAL
+                                     cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                         success:^(NSHTTPURLResponse *response, id responseObject) {
+                                             //                                             NSLog(@"%@",responseObject);
+                                             if (successHandler){
+                                                 successHandler([NSDictionary dictionaryWithDictionary:responseObject]);
+                                             }
+                                         } failure:^(NSHTTPURLResponse *response, NSError *error) {
+                                             if (failedHandler) {
+                                                 failedHandler();
+                                             }
+                                         }];
+}
+
++ (void)retrieveQiitaAccessTokensWithCode:(NSString *)code
+                           successHandler:(JANQiitaConnectorAccessTokesSuccessHandler)successHandler
+                            failedHandler:(JANQiitaConnectorFailedHandler)failedHandler
+{
+    NSString *baseUrl = [JANConfig accessTokensUrlString];
+    NSDictionary *dic = [JANConfig accessTokensParamsWithCode:code];
+    [JANNetworkInterface JSONPOSTRequestWithURLString:baseUrl
+                                                 json:dic
+                                      timeoutInterval:TIMEOUT_INTERVAL
+                                          cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                              success:^(NSHTTPURLResponse *response, id responseObject) {
+                                                  NSLog(@"%@",responseObject);
+                                                  NSDictionary *dic = [NSDictionary dictionaryWithDictionary:responseObject];
+                                                  
+                                                  if (successHandler){
+                                                      successHandler([dic objectForKey:@"token"]);
+                                                  }
+                                              } failure:^(NSHTTPURLResponse *response, NSError *error) {
+                                                  if (failedHandler) {
+                                                      failedHandler();
+                                                  }
+                                              }];
+    
+}
+
++ (void)retrieveDeleteQiitaAccessTokens:(NSString *)accessTokens
+                         successHandler:(JANQiitaConnectorSuccessHandler)successHandler
+                          failedHandler:(JANQiitaConnectorFailedHandler)failedHandler
+{
+    NSString *baseUrl = [JANConfig deleteAccessTokensUrlString:accessTokens];
+    [JANNetworkInterface DELETERequestWithURLString:baseUrl parameters:nil timeoutInterval:TIMEOUT_INTERVAL cachePolicy:NSURLRequestUseProtocolCachePolicy success:^(NSHTTPURLResponse *response, id responseObject) {
+        
+        if (successHandler){
+            successHandler();
+        }
+    } failure:^(NSHTTPURLResponse *response, NSError *error) {
+        if (failedHandler) {
+            failedHandler();
+        }
+    }];
+}
+
 + (void)GETRequestWithURLString:(NSString*)baseUrl
                      parameters:(NSDictionary*)params
                         success:(id)successHandler

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dZI-tQ-qX2">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Oauth View Controller-->
+        <scene sceneID="1YE-yt-qa9">
+            <objects>
+                <viewController id="dZI-tQ-qX2" customClass="JANOauthViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="txI-Xw-pwG"/>
+                        <viewControllerLayoutGuide type="bottom" id="DVd-ii-CuV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Udb-Sh-Lji">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="odh-1q-7TE">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="cancel" id="qKz-xI-0de">
+                                        <connections>
+                                            <action selector="oauthCancel:" destination="dZI-tQ-qX2" id="vBe-gK-lnY"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DPv-gi-cSu">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="dZI-tQ-qX2" id="7Rz-Nq-FPU"/>
+                                </connections>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="odh-1q-7TE" firstAttribute="top" secondItem="DPv-gi-cSu" secondAttribute="bottom" id="DAb-oN-p16"/>
+                            <constraint firstItem="odh-1q-7TE" firstAttribute="leading" secondItem="Udb-Sh-Lji" secondAttribute="leadingMargin" constant="-16" id="FBo-SL-OMx"/>
+                            <constraint firstItem="DPv-gi-cSu" firstAttribute="leading" secondItem="Udb-Sh-Lji" secondAttribute="leadingMargin" constant="-16" id="OjM-bJ-mSZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="odh-1q-7TE" secondAttribute="trailing" constant="-16" id="Ze9-b2-4Jr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DPv-gi-cSu" secondAttribute="trailing" constant="-16" id="gmk-Cs-d4W"/>
+                            <constraint firstItem="DPv-gi-cSu" firstAttribute="top" secondItem="Udb-Sh-Lji" secondAttribute="topMargin" id="icf-wf-eib"/>
+                            <constraint firstItem="DVd-ii-CuV" firstAttribute="top" secondItem="odh-1q-7TE" secondAttribute="bottom" id="pC5-Nt-HYV"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="oauthWebView" destination="DPv-gi-cSu" id="Ecx-kH-Bc5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r8F-tI-Fb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="455" y="391"/>
+        </scene>
+    </scenes>
+</document>

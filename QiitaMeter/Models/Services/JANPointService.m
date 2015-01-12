@@ -11,44 +11,16 @@
 #import "JANQiitaUserInfoService.h"
 #import "JANStockService.h"
 #import "JANStock.h"
+#import "JANPoint.h"
+#import "JANQiitaCount.h"
 
 @implementation JANPointService
-+ (NSInteger)makePointWithlastPoints:(JANPoints *)lastPoints secondPoints:(JANPoints *)secondPoints
+
++ (JANPoint *)makePointWithLastCount:(JANQiitaCount *)lastCount secondCount:(JANQiitaCount *)seccondCounts
 {
-    return lastPoints.followeesCount + lastPoints.itemsCount + lastPoints.stockCount;
-}
-@end
-
-
-@interface JANPoints ()
-@property (nonatomic, readwrite) NSInteger stockCount;
-@property (nonatomic, readwrite) NSInteger followeesCount;
-@property (nonatomic, readwrite) NSInteger itemsCount;
-- (void)setValues;
-@end
-
-@implementation JANPoints
-- (instancetype)init
-{
-    self = [super init];
-    if (self) {
-        [self setValues];
-    }
-    return self;
-}
-
-- (instancetype)initWithUserId:(NSString *)userId
-{
-    return [self init];
-}
-
-- (void)setValues
-{
-    JANQiitaUserInfo *qiitaUserInfo = [JANQiitaUserInfoService lastQiitaUserInfo];
-    self.followeesCount = qiitaUserInfo.followeesCount;
-    self.itemsCount = qiitaUserInfo.itemsCount;
-    
-    JANStock *stock = [JANStockService lastStock];
-    self.stockCount = stock.count;
+    JANPoint *point = [[JANPoint alloc] init];
+    point.totalPoint = lastCount.followeesCount + lastCount.itemsCount + lastCount.stocksCount;
+    point.gaugePersentValue = point.totalPoint / 100.0;
+    return point;
 }
 @end

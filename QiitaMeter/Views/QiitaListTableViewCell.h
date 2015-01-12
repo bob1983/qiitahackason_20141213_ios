@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JANGaugeView.h"
 
 @interface QiitaListTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *userImageView;
@@ -16,11 +17,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *stockCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *folloeesCountLavel;
 @property (weak, nonatomic) IBOutlet UIImageView *contributeCountBackImageView;
+@property (weak, nonatomic) IBOutlet JANGaugeView *gaugeView;
+@property (weak, nonatomic) IBOutlet UIImageView *gaugeImageView;
+//@property (assign, nonatomic) float gaugePercentValue;
 
 - (void)setStockCount:(NSInteger)stockCount;
 - (void)setFolloeesCount:(NSInteger)folloeesCount;
 - (void)setContributeCount:(NSInteger)contributeCount;
 - (void)setTotalValue:(NSInteger)totalValue;
-
+- (void)setGaugePercentValue:(float)percentValue;
 + (NSString *)identifier;
 @end

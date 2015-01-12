@@ -8,8 +8,11 @@
 
 #import "LoginViewController.h"
 #import "QiitaListViewController.h"
+#import "JANOauthViewController.h"
+#import "JANUser.h"
+#import "JANUserService.h"
 
-@interface LoginViewController ()
+@interface LoginViewController ()<JANDataServiceViewUpdateObserver>
 
 @end
 
@@ -19,7 +22,7 @@
 {
     [super viewDidLoad];
     
-    self.title = @"ログイン";
+    self.title = @"イントロ";
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
     scrollView.contentSize = CGSizeMake(scrollView.frame.size.width * 3, scrollView.frame.size.height - 60);
     
@@ -38,40 +41,73 @@
     imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"concept"]];
     [imageView setFrame:CGRectMake(imageView.frame.size.width*2, 0, imageView.frame.size.width, imageView.frame.size.height)];
     [scrollView addSubview:imageView];
-    
-    
-    
+
     [self.view addSubview:scrollView];
-    
-    
-    
-    //右側にカメラボタンを表示する
-    UIBarButtonItem *btn = [[UIBarButtonItem alloc]
-                             initWithBarButtonSystemItem:UIBarButtonSystemItemPlay
-                             target:self action:@selector(hoge:)] ;
-    self.navigationItem.rightBarButtonItem = btn;
     
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self setUpnavigationBarButton];
+    
+    if ([[JANUserService loadUser] accessTokens]) {
+        [self openListViewController:nil];
+    }
+}
+
 //カメラボタンが押されたときに呼ばれるメソッド
--(void)hoge:(UIBarButtonItem*)b{
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Checkout" bundle:nil];
-//    UBCheckoutViewController *controller = [storyboard instantiateInitialViewController];
-//    controller.delegate = self;
-//    controller.checkout = self.checkout;
+-(void)openListViewController:(UIBarButtonItem*)b{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"QiitaListController"
                                                          bundle:[NSBundle mainBundle]];
     QiitaListViewController *controller = [storyboard instantiateInitialViewController];
     [self.navigationController pushViewController:controller
-                                         animated:YES];
+                                         animated:NO];
 }
 
-
-- (void)viewDidAppear:(BOOL)animated
+- (void)openOauthViewController
 {
-    [super viewDidAppear:animated];
-//    [self.navigationController pushViewController:[[QiitaListViewController alloc] init] animated:YES];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"OauthViewController"
+                                                         bundle:[NSBundle mainBundle]];
+    JANOauthViewController *controller = [storyboard instantiateInitialViewController];
+    
+    [self presentViewController:controller animated:YES completion:nil];
 }
+
+- (void)logout
+{
+    [JANDataService setViewUpdateToObserver:self];
+    [JANDataService logoutRequest:nil];
+}
+
+- (void)updateViewWithLogout:(NSNotification *)dic
+{
+    [self setUpnavigationBarButton];
+}
+
+- (void)setUpnavigationBarButton
+{
+    UIBarButtonItem *rightBtn;
+    UIBarButtonItem *leftBtn;
+    if ([[JANUserService loadUser] accessTokens]) {
+        rightBtn = [[UIBarButtonItem alloc]
+                    initWithTitle:@"List"
+                    style:UIBarButtonItemStylePlain
+                    target:self action:@selector(openListViewController:)];
+        leftBtn = [[UIBarButtonItem alloc]
+                   initWithTitle:@"Logout"
+                   style:UIBarButtonItemStylePlain
+                   target:self
+                   action:@selector(logout)];
+    } else {
+        rightBtn = [[UIBarButtonItem alloc]
+                    initWithTitle:@"Login"
+                    style:UIBarButtonItemStylePlain
+                    target:self action:@selector(openOauthViewController)];
+    }
+    self.navigationItem.rightBarButtonItem = rightBtn;
+    self.navigationItem.leftBarButtonItem = leftBtn;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
