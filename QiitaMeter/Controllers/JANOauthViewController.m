@@ -42,4 +42,7 @@
     }
     return YES;
 }
+- (IBAction)oauthCancel:(id)sender {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
 @end
