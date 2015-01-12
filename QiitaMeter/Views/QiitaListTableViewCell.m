@@ -30,26 +30,6 @@
     [_contributeCountBackImageView setFrame:frame];
 }
 
-- (void)drawRect:(CGRect)rect
-{
-    [super drawRect:rect];
-    [_gaugeView setWidth:50];
-}
-//
-//- (void)layoutIfNeeded
-//{
-//    [super layoutIfNeeded];
-//}
-//-(void)layoutSubviews
-//{
-//    
-//    
-//    [super layoutSubviews];
-//    static CGFloat width = 300;
-//    [_gaugeImageView setWidth:width * _gaugePercentValue];
-//    [super layoutSubviews];
-//}
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
@@ -78,9 +58,6 @@
 
 - (void)setGaugePercentValue:(float)percentValue
 {
-    static CGFloat width = 300;
-    [_gaugeImageView setWidth:width * percentValue];
-    [_gaugeView setWidth:width * percentValue];
     [_gaugeView setPersentValue:percentValue];
     [_gaugeView setNeedsLayout];
 }

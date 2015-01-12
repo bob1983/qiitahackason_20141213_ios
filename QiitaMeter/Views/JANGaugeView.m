@@ -46,7 +46,7 @@
     gradient = CGGradientCreateWithColors(colorspace, colors_buffer, locations);
     
     startPoint = rect.origin;
-    endPoint = CGPointMake(rect.origin.x + rect.size.width, rect.origin.y + rect.size.height * _persentValue);
+    endPoint = CGPointMake(rect.origin.x + rect.size.width * _persentValue, 0);
     
     // グラデーションをキャンバスに描画します。
     CGContextDrawLinearGradient(context, gradient, startPoint, endPoint, 0);

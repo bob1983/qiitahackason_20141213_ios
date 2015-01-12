@@ -97,16 +97,16 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="meter" translatesAutoresizingMaskIntoConstraints="NO" id="FEM-8F-ZMy">
-                                                    <rect key="frame" x="143" y="104" width="87" height="22"/>
-                                                </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="followerIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="7ih-uL-jd7">
                                                     <rect key="frame" x="258" y="51" width="32" height="25"/>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ggQ-M1-9lm" customClass="JANGaugeView">
-                                                    <rect key="frame" x="143" y="115" width="177" height="13"/>
+                                                    <rect key="frame" x="143" y="102" width="177" height="27"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="meter" translatesAutoresizingMaskIntoConstraints="NO" id="FEM-8F-ZMy">
+                                                    <rect key="frame" x="327" y="78" width="87" height="22"/>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="IXh-y5-cVw" secondAttribute="trailing" constant="1" id="G5s-ax-qK4"/>
@@ -149,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7JW-U3-C3f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="119" y="268"/>
+            <point key="canvasLocation" x="119" y="267"/>
         </scene>
     </scenes>
     <resources>

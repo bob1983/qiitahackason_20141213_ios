@@ -160,9 +160,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
             
             [cell setTotalValue:self.myPoint.totalPoint];
             
-//            dispatch_async(dispatch_get_main_queue(), ^{
-                [cell setGaugePercentValue:self.myPoint.gaugePersentValue];
-//            });
+            [cell setGaugePercentValue:self.myPoint.gaugePersentValue];
             [cell.userImageView sd_setImageWithURL:[NSURL URLWithString:self.myQiitaUserInfo.profileImageUrl]
                                   placeholderImage:nil
                                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
