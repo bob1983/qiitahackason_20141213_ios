@@ -16,6 +16,8 @@
 #import "JANDataService.h"
 #import "JANStock.h"
 #import "JANPointService.h"
+#import "JANQiitaCount.h"
+#import "JANPoint.h"
 
 static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewCell";
 
@@ -24,9 +26,10 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 @property (nonatomic, strong) JANQiitaUserInfo *myQiitaUserInfo;
 @property (nonatomic, strong) NSArray *rivalsQiitaUserInfo;
 @property (nonatomic, strong) JANStock *myQiitaStocks;
+@property (nonatomic, strong) JANPoint *myPoint;
 @property (nonatomic, strong) JANQiitaUserInfoService *userInfoService;
 @property (nonatomic, strong) JANStockService *stockService;
-@property (nonatomic, assign) NSInteger myPoint;
+//@property (nonatomic, assign) NSInteger myPoint;
 @property (strong, nonatomic) IBOutlet UITableView *qiitaListView;
 @end
 
@@ -51,7 +54,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
         self.stockService    = [[JANStockService alloc] init];
         self.myQiitaUserInfo = [JANQiitaUserInfoService lastQiitaUserInfo];
         self.myQiitaStocks = [JANStockService lastStock];
-        self.myPoint = [JANPointService makePointWithlastPoints:[[JANPoints alloc] init] secondPoints:nil];
+        self.myPoint = [JANPointService makePointWithLastCount:[[JANQiitaCount alloc] initWithQiitaUserInfo:_myQiitaUserInfo stocks:_myQiitaStocks] secondCount:nil];
     }
     return self;
 }
@@ -88,7 +91,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 130;
+    return 133;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -128,8 +131,11 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
             [cell setFolloeesCount:self.myQiitaUserInfo.followeesCount];
             [cell setContributeCount:self.myQiitaUserInfo.itemsCount];
             
-            [cell setTotalValue:self.myPoint];
+            [cell setTotalValue:self.myPoint.totalPoint];
             
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [cell setGaugePercentValue:self.myPoint.gaugePersentValue];
+            });
             [cell.userImageView sd_setImageWithURL:[NSURL URLWithString:self.myQiitaUserInfo.profileImageUrl]
                                   placeholderImage:nil
                                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
@@ -159,7 +165,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     JANQiitaUserInfo *qiitaUserInfo = [[dic userInfo] objectForKey:QIITA_USER_INFO_NOTIFICATION_KEY];
     self.myQiitaUserInfo = qiitaUserInfo;
     
-    self.myPoint = [JANPointService makePointWithlastPoints:[[JANPoints alloc] init] secondPoints:nil];
+    self.myPoint = [JANPointService makePointWithLastCount:[[JANQiitaCount alloc] initWithQiitaUserInfo:_myQiitaUserInfo stocks:_myQiitaStocks] secondCount:nil];
     
     self.title = [self.myQiitaUserInfo accountName];
     
@@ -170,12 +176,15 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     JANStock *stock = [[dic userInfo] objectForKey:STOCK_NOTIFICATION_KEY];
     self.myQiitaStocks = stock;
     
-    self.myPoint = [JANPointService makePointWithlastPoints:[[JANPoints alloc] init] secondPoints:nil];
+    self.myPoint = [JANPointService makePointWithLastCount:[[JANQiitaCount alloc] initWithQiitaUserInfo:_myQiitaUserInfo stocks:_myQiitaStocks] secondCount:nil];
     
     [self.qiitaListView reloadData];
 }
 - (void)updateViewWithPoint:(NSNotification *)dic
 {
     
+    self.myPoint = [JANPointService makePointWithLastCount:[[JANQiitaCount alloc] initWithQiitaUserInfo:_myQiitaUserInfo stocks:_myQiitaStocks] secondCount:nil];
+    
+    [self.qiitaListView reloadData];
 }
 @end

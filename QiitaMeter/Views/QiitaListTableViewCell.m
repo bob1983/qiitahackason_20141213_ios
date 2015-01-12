@@ -7,6 +7,7 @@
 //
 
 #import "QiitaListTableViewCell.h"
+#import "UIView+JMFrame.h"
 
 @implementation QiitaListTableViewCell
 
@@ -52,6 +53,12 @@
 
 -(void)setTotalValue:(NSInteger)totalValue
 {
-    _totalValueLabel.text = [NSString stringWithFormat:@"%ld Pt.", (long)totalValue];
+    _totalValueLabel.text = [NSString stringWithFormat:@"%ld", (long)totalValue];
+}
+
+- (void)setGaugePercentValue:(float)percentValue
+{
+    static CGFloat width = 300;
+    [_gaugeImageView setWidth:width * percentValue];
 }
 @end

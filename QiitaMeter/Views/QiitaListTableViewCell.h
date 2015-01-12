@@ -16,11 +16,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *stockCountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *folloeesCountLavel;
 @property (weak, nonatomic) IBOutlet UIImageView *contributeCountBackImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *gaugeImageView;
 
 - (void)setStockCount:(NSInteger)stockCount;
 - (void)setFolloeesCount:(NSInteger)folloeesCount;
 - (void)setContributeCount:(NSInteger)contributeCount;
 - (void)setTotalValue:(NSInteger)totalValue;
-
+- (void)setGaugePercentValue:(float)percentValue;
 + (NSString *)identifier;
 @end
