@@ -14,7 +14,9 @@
 #define QIITA_API_BASE_URL @"https://qiita.com/api/v2"
 
 #define QIITA_OAUTH_API_URL [NSString stringWithFormat:@"%@%@", QIITA_API_BASE_URL, @"/oauth/authorize"]
-#define QIITA_ACCESS_TOKENS_API_URL [NSString stringWithFormat:@"%@%@", QIITA_API_BASE_URL, @"/api/v2/access_tokens"] //POST
+#define QIITA_ACCESS_TOKENS_API_URL [NSString stringWithFormat:@"%@%@", QIITA_API_BASE_URL, @"/access_tokens"] //POST
+#define QIITA_AUTOENTICATED_USER_API_URL [NSString stringWithFormat:@"%@%@", QIITA_API_BASE_URL, @"/authenticated_user"]
+#define QIITA_DELETE_ACCESS_TOKENS_API_URL [NSString stringWithFormat:@"%@%@", QIITA_API_BASE_URL, @"/access_tokens"] //DELETE
 
 #define QIITA_OAUTH_REDIRECT_URL @"http://genqi.gingbear.com"
 
@@ -54,15 +56,32 @@ static NSString *qiitaClientSecret;
     return [[NSURL URLWithString:QIITA_OAUTH_REDIRECT_URL] host];
 }
 
-+ (NSURL *)accessTokensUrlWithCode:(NSString *)code
++ (NSDictionary *)accessTokensParamsWithCode:(NSString *)code
 {
-    NSDictionary *params = @{@"client_id":[self clientId],
-                             @"client_secret":[self clientSecret],
-                             @"code":code
-                             };
-    NSString *urlString = [NSString stringWithFormat:@"%@?%@", QIITA_ACCESS_TOKENS_API_URL, [params uq_URLQueryString]];
-    return [NSURL URLWithString:urlString];
+    return @{@"client_id":[self clientId],
+             @"client_secret":[self clientSecret],
+             @"code":code
+             };
 }
+
++ (NSString *)accessTokensUrlString
+{
+    return QIITA_ACCESS_TOKENS_API_URL;
+}
+
++ (NSString *)authenticatedUserUrlString
+{
+    return QIITA_AUTOENTICATED_USER_API_URL;
+}
+
++ (NSString *)deleteAccessTokensUrlString:(NSString *)accessTokens
+{
+    return [NSString stringWithFormat:@"%@/%@", QIITA_DELETE_ACCESS_TOKENS_API_URL, accessTokens];
+}
+
+
+
+
 
 + (void)setValuesFromPlist
 {

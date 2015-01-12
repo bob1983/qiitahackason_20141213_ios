@@ -9,12 +9,13 @@
 #import "JANOauthViewController.h"
 #import "JANConfig.h"
 #import "NSURL+QueryDictionary.h"
+#import "JANQiitaConnector.h"
+#import "JANUserService.h"
 
 @implementation JANOauthViewController
 - (void)viewDidLoad
 {
-    NSURL *url = //[NSURL URLWithString:@"https://qiita.com/api/v2/oauth/authorize?client_id=123430671ca22508f508bda05bb0b84d5874b8b6&scope=read_qiita"];
-    [JANConfig oauthApiUrl];
+    NSURL *url = [JANConfig oauthApiUrl];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
     [_oauthWebView loadRequest:req];
 }
@@ -29,12 +30,13 @@
 }
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
-    NSLog(@"%@", request.URL);
     if ([request.URL.host isEqualToString:[JANConfig oauthRedirectUrlString]]) {
-        NSLog(@"code:%@", request.URL.uq_queryDictionary);
         NSString *code = [request.URL.uq_queryDictionary valueForKey:@"code"];
-        NSURL *url = [JANConfig accessTokensUrlWithCode:code];
-        NSLog(@"%@", url);
+        [JANQiitaConnector retrieveQiitaAccessTokensWithCode:code successHandler:^(NSString *accessToekns){
+            [JANUserService saveAccessTokens:accessToekns];
+        } failedHandler:^(){
+            
+        }];
         return NO;
     }
     return YES;

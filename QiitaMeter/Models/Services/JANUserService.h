@@ -8,6 +8,28 @@
 
 #import <Foundation/Foundation.h>
 
-@interface JANUserService : NSObject
+@class JANUser, JANQiitaUserInfo;
 
+typedef void(^JANUserServiceRetrieveQiitaUserInfoSuccessHandler)(JANQiitaUserInfo *);
+typedef void(^JANUserServiceRetrieveSuccessHandler)();
+
+typedef void(^JANUserServiceRetrieveAccessTokensSuccessHandler)(NSString *);
+typedef void(^JANUserServiceFailedHandler)();
+
+@interface JANUserService : NSObject
++ (void)retrieveAccessTokensWithCode:(NSString *)code
+                  successHandler:(JANUserServiceRetrieveAccessTokensSuccessHandler)successHandler
+                   failedHandler:(JANUserServiceFailedHandler)failedHandler;
+
++ (void)retrieveQiitaUserInfoWithSuccessHandler:(JANUserServiceRetrieveQiitaUserInfoSuccessHandler)successHandler
+                          failedHandler:(JANUserServiceFailedHandler)failedHandler;
++ (void)retrieveDeleteAccessTokensWithSuccessHandler:(JANUserServiceRetrieveSuccessHandler)successHandler
+                                       failedHandler:(JANUserServiceFailedHandler)failedHandler;
+
++ (void)saveAccountName:(NSString *)accountName;
++ (void)saveAccessTokens:(NSString *)accessTokens;
+//+ (void)saveOauthCode:(NSString *)oauthCode;
++ (void)saveUser:(JANUser *)user;
++ (JANUser *)loadUser;
++ (void)deleteUser;
 @end

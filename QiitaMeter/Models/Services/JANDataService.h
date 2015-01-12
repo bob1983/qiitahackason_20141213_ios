@@ -16,11 +16,15 @@
 typedef void(^JANDataServiceFinishHandler)();
 
 @protocol JANDataServiceViewUpdateObserver<NSObject>;
+@optional
 - (void)updateViewWithQiitaUserInfo:(NSNotification *)dic;
 - (void)updateViewWithStock:(NSNotification *)dic;
+- (void)updateViewWithPoint:(NSNotification *)dic;
+- (void)updateViewWithLogout:(NSNotification *)dic;
 @end
 
 @interface JANDataService : NSObject
 + (void)dataUpdateRequest:(JANDataServiceFinishHandler)finishHandler;
 + (void)setViewUpdateToObserver:(id<JANDataServiceViewUpdateObserver>)observer;
++ (void)logoutRequest:(JANDataServiceFinishHandler)finishHnadler;
 @end

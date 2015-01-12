@@ -10,10 +10,14 @@
 
 @class JANQiitaUserInfo;
 
+typedef void(^JANQiitaConnectorSuccessHandler)();
+
 typedef void(^JANQiitaConnectorStocksSuccessHandler)(NSArray *);
 typedef void(^JANQiitaConnectorFailedHandler)();
 
 typedef void(^JANQiitaConnectorUserInfoSuccessHandler)(NSDictionary *);
+
+typedef void(^JANQiitaConnectorAccessTokesSuccessHandler)(NSString *);
 
 @interface JANQiitaConnector : NSObject
 
@@ -27,4 +31,17 @@ typedef void(^JANQiitaConnectorUserInfoSuccessHandler)(NSDictionary *);
 + (void)retrieveQiitaUserInfoWithUserId:(NSString *)userId
                          successHandler:(JANQiitaConnectorUserInfoSuccessHandler)successHandler
                           failedHandler:(JANQiitaConnectorFailedHandler)failedHandler;
+
+
++ (void)retrieveQiitaUserInfoWithsuccessHandler:(JANQiitaConnectorUserInfoSuccessHandler)successHandler
+                                  failedHandler:(JANQiitaConnectorFailedHandler)failedHandler;
+
+
++ (void)retrieveQiitaAccessTokensWithCode:(NSString *)code
+                           successHandler:(JANQiitaConnectorAccessTokesSuccessHandler)successHandler
+                            failedHandler:(JANQiitaConnectorFailedHandler)failedHandler;
++ (void)retrieveDeleteQiitaAccessTokens:(NSString *)accessTokens
+                         successHandler:(JANQiitaConnectorSuccessHandler)successHandler
+                          failedHandler:(JANQiitaConnectorFailedHandler)failedHandler;
+
 @end

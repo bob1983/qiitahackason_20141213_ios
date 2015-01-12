@@ -13,6 +13,9 @@
 + (NSString *)clientId;
 + (NSString *)clientSecret;
 + (NSURL *)oauthApiUrl;
-+ (NSURL *)accessTokensUrlWithCode:(NSString*)code;
++ (NSDictionary *)accessTokensParamsWithCode:(NSString*)code;
++ (NSString *)accessTokensUrlString;
 + (NSString *)oauthRedirectUrlString;
++ (NSString *)authenticatedUserUrlString;
++ (NSString *)deleteAccessTokensUrlString:(NSString *)accessTokens;
 @end

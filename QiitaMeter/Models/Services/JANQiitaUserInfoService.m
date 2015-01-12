@@ -54,7 +54,10 @@
 {
     NSArray *qiitaUserInfos = [self loadQiitaUserInfos];
     NSData* data = (NSData*)[qiitaUserInfos lastObject];
-    return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    if (data) {
+        return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    }
+    return [[JANQiitaUserInfo alloc] init];
 }
 
 + (NSArray *)loadQiitaUserInfos
