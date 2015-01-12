@@ -15,7 +15,7 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     
-    self.backgroundColor2 = [UIColor redColor];
+    self.backgroundColor2 = [UIColor colorWithRed:125.0/255 green:187.0/255 blue:45.0/255 alpha:1.0];
     self.backgroundColor = [UIColor whiteColor];
     
     CGContextRef context;
@@ -46,6 +46,7 @@
     gradient = CGGradientCreateWithColors(colorspace, colors_buffer, locations);
     
     startPoint = rect.origin;
+
     endPoint = CGPointMake(rect.origin.x + rect.size.width * _persentValue, 0);
     
     // グラデーションをキャンバスに描画します。
