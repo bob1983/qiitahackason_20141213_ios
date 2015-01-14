@@ -10,8 +10,6 @@
 #import <JSONKit-NoWarning/JSONKit.h>
 #import "JANQiitaUserInfo.h"
 
-#define QIITA_USER_INFO @"QIITA_USER_INFO"
-
 @implementation JANQiitaUserInfoService
 
 - (void)retrieveQiitaUserInfoWithUserId:(NSString *)userId
