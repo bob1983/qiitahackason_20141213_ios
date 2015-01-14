@@ -50,35 +50,40 @@
     return stocks;
 }
 
-
-- (void)saveStock:(JANStock*) stock
+-(void)saveParsedString:(NSString*)parsedString
 {
-    NSData* data = [NSKeyedArchiver archivedDataWithRootObject:stock];
-    
-    NSMutableArray *stocks = [NSMutableArray arrayWithArray:[self loadStocks]];
-    [stocks addObject:data];
-    [self saveStocks:stocks];
-    
+    NSMutableArray *stocks = [NSMutableArray arrayWithArray:[self loadStacks]];
+    [stocks addObject:parsedString];
 }
 
--(JANStock *)lastStock
+-(NSUInteger)stockCount
 {
-    NSArray *stocks = [self loadStocks];
-    NSData* data = (NSData*)[stocks lastObject];
-    return [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    NSArray *stocks = [self loadStacks];
+    NSString *lastParsedString = [stocks lastObject];
+    NSArray *stock = [lastParsedString objectFromJSONString];
+    return [stock count];
 }
 
--(NSArray *)loadStocks
+
+
+-(void)saveStock:(JANStock *)stock
+{
+    NSMutableArray *stocks = [NSMutableArray arrayWithArray:[self loadStacks]];
+    [stocks addObject:stocks];
+    [self saveStacks:stocks];
+}
+
+-(NSArray *)loadStacks
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSArray *stocks = [userDefaults objectForKey:STOCKS];
-    if (stocks) {
-        return stocks;
+    NSArray *array = [userDefaults arrayForKey:STOCKS];
+    if (array) {
+        return [userDefaults arrayForKey:STOCKS];
     }
     return [NSArray array];
 }
 
-- (void)saveStocks:(NSArray*)stocks
+-(void)saveStacks:(NSArray *)stocks
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:stocks forKey:STOCKS];
