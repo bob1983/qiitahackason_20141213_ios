@@ -20,7 +20,15 @@ PODS:
   - AFNetworking/UIKit (2.5.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - Colours (5.5.0)
+  - DateTools (1.4.3)
+  - GoogleAnalytics-iOS-SDK (3.10):
+    - GoogleAnalytics-iOS-SDK/Core (= 3.10)
+  - GoogleAnalytics-iOS-SDK/Core (3.10)
   - NSURL+QueryDictionary (1.0.3)
+  - Realm (0.90.2):
+    - Realm/Headers (= 0.90.2)
+  - Realm/Headers (0.90.2)
   - SDWebImage (3.7.1):
     - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
@@ -28,13 +36,21 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - Colours
+  - DateTools
+  - GoogleAnalytics-iOS-SDK (~> 3.10)
   - NSURL+QueryDictionary
+  - Realm
   - SDWebImage
   - UIView+JMFrame
 
 SPEC CHECKSUMS:
   AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
+  Colours: 7abeb0fdebe2da3d8bd7305aee0798375f51f5d8
+  DateTools: 7c2d233ea2d4bda3a717d0cd5f58da926a5998d0
+  GoogleAnalytics-iOS-SDK: f422062075d9ccb1ea8d783fc5ba3829461e9502
   NSURL+QueryDictionary: 1ad81be60c10e3f4d80c5c4beb7125de96aaec5e
+  Realm: e5e2a23e34e1f8c00a1484c130a9d00c1394a2af
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   UIView+JMFrame: f23f3dcad8a6192f83600c586f59a89e63bd20a8
 

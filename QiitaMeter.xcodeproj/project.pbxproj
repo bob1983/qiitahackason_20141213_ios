@@ -643,6 +643,7 @@
 		};
 		E4BE16D51A3C1CF6000FE3BE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6766AF90B45CBB888ADD6844 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
