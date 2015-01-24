@@ -20,6 +20,8 @@
 + (NSString *)accessTokensUrlString;
 + (NSString *)oauthRedirectUrlString;
 + (NSString *)authenticatedUserUrlString;
++ (NSString *)usersUrlString:(NSString *)userId;
++ (NSString *)usersStockUrlString:(NSString *)userId;
 
 + (NSString *)deleteAccessTokensUrlString:(NSString *)accessTokens;
 

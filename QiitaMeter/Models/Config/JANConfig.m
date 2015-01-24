@@ -18,6 +18,8 @@
 #define QIITA_AUTOENTICATED_USER_API_URL [NSString stringWithFormat:@"%@%@", QIITA_API_BASE_URL, @"/authenticated_user"]
 #define QIITA_DELETE_ACCESS_TOKENS_API_URL [NSString stringWithFormat:@"%@%@", QIITA_API_BASE_URL, @"/access_tokens"] //DELETE
 
+#define QIITA_USERS_API_URL [NSString stringWithFormat:@"%@%@", QIITA_API_BASE_URL, @"/users"]
+
 #define QIITA_OAUTH_REDIRECT_URL @"http://genqi.gingbear.com"
 
 #define SPECIAL_USERS @"takayosh1hasegawa/bOb_sTrane/gingbear"
@@ -81,7 +83,15 @@ static NSString *qiitaClientSecret;
     return [NSString stringWithFormat:@"%@/%@", QIITA_DELETE_ACCESS_TOKENS_API_URL, accessTokens];
 }
 
++ (NSString *)usersUrlString:(NSString *)userId
+{
+    return [NSString stringWithFormat:@"%@/%@", QIITA_USERS_API_URL, userId];
+}
 
++ (NSString *)usersStockUrlString:(NSString *)userId
+{
+    return [NSString stringWithFormat:@"%@/%@/stocks", QIITA_USERS_API_URL, userId];
+}
 
 
 

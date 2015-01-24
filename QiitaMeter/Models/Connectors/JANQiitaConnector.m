@@ -11,10 +11,6 @@
 #import "JANQiitaUserInfoService.h"
 #import "JANConfig.h"
 
-#define BASE_USERS_URL @"https://qiita.com/api/v2/users"
-#define USERS_URL_WITH_USER_ID(__USER_ID__) [NSString stringWithFormat:@"%@/%@", BASE_USERS_URL, __USER_ID__]
-#define STOCK_URL_WITH_USER_ID(__USER_ID__) [NSString stringWithFormat:@"%@/%@/stocks", BASE_USERS_URL, __USER_ID__]
-
 #define TIMEOUT_INTERVAL 10.0
 
 @implementation JANQiitaConnector
@@ -24,7 +20,7 @@
                  successHandler:(JANQiitaConnectorStocksSuccessHandler)successHandler
                   failedHandler:(JANQiitaConnectorFailedHandler)failedHandler
 {
-    NSString *baseUrl     = STOCK_URL_WITH_USER_ID(userId);
+    NSString *baseUrl     = [JANConfig usersStockUrlString:userId];
     NSDictionary *params = @{
                           @"page":[NSNumber numberWithInteger:page],
                           @"per_page":[NSNumber numberWithInteger:perPage]
@@ -48,7 +44,7 @@
                          successHandler:(JANQiitaConnectorUserInfoSuccessHandler)successHandler
                           failedHandler:(JANQiitaConnectorFailedHandler)failedHandler
 {
-    NSString *baseUrl     = USERS_URL_WITH_USER_ID(userId);
+    NSString *baseUrl     = [JANConfig usersUrlString:userId];
     [JANNetworkInterface GETRequestWithURLString:baseUrl
                                       parameters:nil
                                  timeoutInterval:TIMEOUT_INTERVAL
