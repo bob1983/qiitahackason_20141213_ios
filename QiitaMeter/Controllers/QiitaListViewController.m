@@ -69,12 +69,26 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     // Do any additional setup after loading the view from its nib.
     
     self.title = [self.myQiitaUserInfo accountName];
+    
+    UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc]
+                                       initWithImage:[[UIImage imageNamed:@"gear"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+                                       style:UIBarButtonItemStylePlain
+                                       target:self
+                                       action:@selector(updateQiitaListRequest)]; //設定画面への遷移イベントとする
+    
+    [settingsButton setBackgroundImage:[UIImage new] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+
+    //以下リロード処理。別途再利用する
+/*
     UIBarButtonItem* dataUpdateButton = [[UIBarButtonItem alloc]
                                          initWithTitle:@"更新"
                                          style:UIBarButtonItemStylePlain
                                          target:self
                                          action:@selector(updateQiitaListRequest)];
+
     self.navigationItem.rightBarButtonItem = dataUpdateButton;
+*/
+    self.navigationItem.rightBarButtonItem = settingsButton;
     
     [self setLogoutBarButton];
 }
