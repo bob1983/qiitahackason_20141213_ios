@@ -255,4 +255,21 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     
     [self.qiitaListView reloadData];
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *selectedQiitaUserId;
+    if( indexPath.section == 0 ) {
+        if( indexPath.row == 0 ) {
+            //自分のQiitaページ
+            selectedQiitaUserId = self.myQiitaUserInfo.qiitaId;
+        }
+    } else {
+        JANQiitaUserInfo *selectedQiitaUserInfo = [_rivalsQiitaUserInfo objectAtIndex:indexPath.row];
+        selectedQiitaUserId = selectedQiitaUserInfo.qiitaId;
+    }
+    // Safariで指定したURLを開く
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat: @"http://qiita.com/%@", selectedQiitaUserId]];
+    [[UIApplication sharedApplication] openURL:url];
+}
 @end
