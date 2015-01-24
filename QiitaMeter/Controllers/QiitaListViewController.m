@@ -68,7 +68,8 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    self.title = [self.myQiitaUserInfo accountName];
+    //self.title = [self.myQiitaUserInfo accountName];
+    self.navigationItem.title = @"元気？";
     
     UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc]
                                        initWithImage:[[UIImage imageNamed:@"gear"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
@@ -88,9 +89,9 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 
     self.navigationItem.rightBarButtonItem = dataUpdateButton;
 */
-    self.navigationItem.rightBarButtonItem = settingsButton;
+    self.navigationItem.leftBarButtonItem = settingsButton;
     
-    [self setLogoutBarButton];
+//    [self setLogoutBarButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -105,6 +106,8 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     // Dispose of any resources that can be recreated.
 }
 
+//ログアウトボタンは設定画面に設置する
+/*
 - (void)setLogoutBarButton
 {
     UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc]
@@ -115,6 +118,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 
     self.navigationItem.leftBarButtonItem = leftBtn;
 }
+*/
 
 - (void)logout
 {
@@ -135,9 +139,9 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if (section == 0) {
-        return @"マイQiitaメーター";
+        return @"今日のGenQi";
     }
-    return @"みんなのQiitaメーター";
+    return @"みんなのGenQi";
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -207,7 +211,8 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     
     self.myPoint = [JANPointService makePointWithLastCount:[[JANQiitaCount alloc] initWithQiitaUserInfo:_myQiitaUserInfo stocks:_myQiitaStocks] secondCount:nil];
     
-    self.title = [self.myQiitaUserInfo accountName];
+    //self.title = [self.myQiitaUserInfo accountName];
+    self.navigationItem.title = @"元気？";
     
     [self.qiitaListView reloadData];
 }
