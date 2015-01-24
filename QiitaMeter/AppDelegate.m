@@ -17,6 +17,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Google Analytics
+    GAI *gai = [GAI sharedInstance];
+    gai.trackUncaughtExceptions = YES;
+    gai.dispatchInterval = 5;
+    [[gai logger] setLogLevel:kGAILogLevelError]; // ログレベルを変えることができる
+    [gai trackerWithTrackingId:GOOGLE_ANALYTICS_ID];
+    
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     NSString *initialViewControllerName = @"LoginViewController";

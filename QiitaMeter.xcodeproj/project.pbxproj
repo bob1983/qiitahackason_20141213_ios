@@ -55,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01D3BC911A73A85700448DE8 /* QiitaMeter_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiitaMeter_Prefix.pch; sourceTree = "<group>"; };
 		6766AF90B45CBB888ADD6844 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BF2A0CA0E3E7C0DAAE6614BA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF53DA9A1A494CAE00BE276C /* LoginViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
@@ -296,6 +297,7 @@
 			children = (
 				E4BE16B11A3C1CF6000FE3BE /* Info.plist */,
 				E4BE16B21A3C1CF6000FE3BE /* main.m */,
+				01D3BC911A73A85700448DE8 /* QiitaMeter_Prefix.pch */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -539,6 +541,8 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/QiitaMeter/Supporting Files/QiitaMeter_Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -579,6 +583,8 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/QiitaMeter/Supporting Files/QiitaMeter_Prefix.pch";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -643,6 +649,7 @@
 		};
 		E4BE16D51A3C1CF6000FE3BE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6766AF90B45CBB888ADD6844 /* Pods.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
