@@ -1,1 +1,4 @@
-pod 'JSONKit-NoWarning'
+pod 'SDWebImage'
+pod 'AFNetworking'
+pod 'NSURL+QueryDictionary'
+pod 'UIView+JMFrame'

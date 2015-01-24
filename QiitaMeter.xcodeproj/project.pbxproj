@@ -1,0 +1,685 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1BE2E2DD77D51FCA65AA0189 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2A0CA0E3E7C0DAAE6614BA /* libPods.a */; };
+		BF53DA9B1A494CAE00BE276C /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF53DA9A1A494CAE00BE276C /* LoginViewController.storyboard */; };
+		BF53DA9D1A494CD800BE276C /* QiitaListController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF53DA9C1A494CD800BE276C /* QiitaListController.storyboard */; };
+		BF53DAAA1A4995AA00BE276C /* JANNetworkInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = BF53DAA71A4995AA00BE276C /* JANNetworkInterface.m */; };
+		BF53DAAB1A4995AA00BE276C /* JANQiitaConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = BF53DAA91A4995AA00BE276C /* JANQiitaConnector.m */; };
+		BF61B5721A624A63004B914E /* JANDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = BF61B5711A624A63004B914E /* JANDataService.m */; };
+		BF61B58B1A628158004B914E /* JANPointService.m in Sources */ = {isa = PBXBuildFile; fileRef = BF61B58A1A628158004B914E /* JANPointService.m */; };
+		BF61B58D1A636285004B914E /* OauthViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF61B58C1A636285004B914E /* OauthViewController.storyboard */; };
+		BF61B5901A636377004B914E /* JANOauthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF61B58F1A636377004B914E /* JANOauthViewController.m */; };
+		BF61B5951A63690B004B914E /* JANConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = BF61B5941A63690A004B914E /* JANConfig.m */; };
+		BF61B5971A6372A2004B914E /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF61B5961A6372A2004B914E /* config.plist */; };
+		BF61B59A1A63CEF9004B914E /* JANPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = BF61B5991A63CEF9004B914E /* JANPoint.m */; };
+		BF61B59D1A63CF15004B914E /* JANQiitaCount.m in Sources */ = {isa = PBXBuildFile; fileRef = BF61B59C1A63CF15004B914E /* JANQiitaCount.m */; };
+		BF61B5A01A63E1A8004B914E /* JANGaugeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF61B59F1A63E1A8004B914E /* JANGaugeView.m */; };
+		BF61B5A21A63E828004B914E /* config.tmp.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF61B5A11A63E828004B914E /* config.tmp.plist */; };
+		BF67D9D21A3C2834004B53B5 /* followerIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9CF1A3C2834004B53B5 /* followerIcon@2x.png */; };
+		BF67D9D41A3C2834004B53B5 /* stockIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9D11A3C2834004B53B5 /* stockIcon@2x.png */; };
+		BF67D9D81A3C2AC7004B53B5 /* postArticleIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9D71A3C2AC7004B53B5 /* postArticleIcon@2x.png */; };
+		BF67D9DB1A3C2B0F004B53B5 /* QiitaListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF67D9DA1A3C2B0F004B53B5 /* QiitaListTableViewCell.m */; };
+		E41710261A497EA7005D86A9 /* JANBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E41710251A497EA7005D86A9 /* JANBaseViewController.m */; };
+		E41710291A498133005D86A9 /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E41710281A498133005D86A9 /* IntroductionViewController.m */; };
+		E417102B1A4981D1005D86A9 /* IntroductionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E417102A1A4981D1005D86A9 /* IntroductionViewController.storyboard */; };
+		E43AC9BC1A3C2438003A2DFD /* QiitaListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E43AC9BA1A3C2438003A2DFD /* QiitaListViewController.m */; };
+		E4BE16B31A3C1CF6000FE3BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BE16B21A3C1CF6000FE3BE /* main.m */; };
+		E4BE16B61A3C1CF6000FE3BE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BE16B51A3C1CF6000FE3BE /* AppDelegate.m */; };
+		E4BE16B91A3C1CF6000FE3BE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BE16B81A3C1CF6000FE3BE /* LoginViewController.m */; };
+		E4BE16BE1A3C1CF6000FE3BE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4BE16BD1A3C1CF6000FE3BE /* Images.xcassets */; };
+		E4BE16CD1A3C1CF6000FE3BE /* QiitaMeterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BE16CC1A3C1CF6000FE3BE /* QiitaMeterTests.m */; };
+		E4BE16DE1A3C1E3D000FE3BE /* JANQiitaUserInfoService.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BE16D71A3C1E3D000FE3BE /* JANQiitaUserInfoService.m */; };
+		E4BE16DF1A3C1E3D000FE3BE /* JANStock.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BE16D91A3C1E3D000FE3BE /* JANStock.m */; };
+		E4BE16E01A3C1E3D000FE3BE /* JANStockService.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BE16DB1A3C1E3D000FE3BE /* JANStockService.m */; };
+		E4BE16E11A3C1E3D000FE3BE /* JANUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BE16DD1A3C1E3D000FE3BE /* JANUserService.m */; };
+		E4BE16E71A3C1E61000FE3BE /* JANQiitaUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BE16E41A3C1E61000FE3BE /* JANQiitaUserInfo.m */; };
+		E4BE16E81A3C1E61000FE3BE /* JANUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BE16E61A3C1E61000FE3BE /* JANUser.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E4BE16C71A3C1CF6000FE3BE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4BE16A51A3C1CF6000FE3BE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E4BE16AC1A3C1CF6000FE3BE;
+			remoteInfo = QiitaMeter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6766AF90B45CBB888ADD6844 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		BF2A0CA0E3E7C0DAAE6614BA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF53DA9A1A494CAE00BE276C /* LoginViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
+		BF53DA9C1A494CD800BE276C /* QiitaListController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QiitaListController.storyboard; sourceTree = "<group>"; };
+		BF53DAA61A4995AA00BE276C /* JANNetworkInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JANNetworkInterface.h; path = Connectors/JANNetworkInterface.h; sourceTree = "<group>"; };
+		BF53DAA71A4995AA00BE276C /* JANNetworkInterface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JANNetworkInterface.m; path = Connectors/JANNetworkInterface.m; sourceTree = "<group>"; };
+		BF53DAA81A4995AA00BE276C /* JANQiitaConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JANQiitaConnector.h; path = Connectors/JANQiitaConnector.h; sourceTree = "<group>"; };
+		BF53DAA91A4995AA00BE276C /* JANQiitaConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JANQiitaConnector.m; path = Connectors/JANQiitaConnector.m; sourceTree = "<group>"; };
+		BF61B5701A624A63004B914E /* JANDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANDataService.h; sourceTree = "<group>"; };
+		BF61B5711A624A63004B914E /* JANDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANDataService.m; sourceTree = "<group>"; };
+		BF61B5891A628158004B914E /* JANPointService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANPointService.h; sourceTree = "<group>"; };
+		BF61B58A1A628158004B914E /* JANPointService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANPointService.m; sourceTree = "<group>"; };
+		BF61B58C1A636285004B914E /* OauthViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OauthViewController.storyboard; sourceTree = "<group>"; };
+		BF61B58E1A636377004B914E /* JANOauthViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANOauthViewController.h; sourceTree = "<group>"; };
+		BF61B58F1A636377004B914E /* JANOauthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANOauthViewController.m; sourceTree = "<group>"; };
+		BF61B5931A63690A004B914E /* JANConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JANConfig.h; path = Config/JANConfig.h; sourceTree = "<group>"; };
+		BF61B5941A63690A004B914E /* JANConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JANConfig.m; path = Config/JANConfig.m; sourceTree = "<group>"; };
+		BF61B5961A6372A2004B914E /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
+		BF61B5981A63CEF9004B914E /* JANPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANPoint.h; sourceTree = "<group>"; };
+		BF61B5991A63CEF9004B914E /* JANPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANPoint.m; sourceTree = "<group>"; };
+		BF61B59B1A63CF15004B914E /* JANQiitaCount.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANQiitaCount.h; sourceTree = "<group>"; };
+		BF61B59C1A63CF15004B914E /* JANQiitaCount.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANQiitaCount.m; sourceTree = "<group>"; };
+		BF61B59E1A63E1A8004B914E /* JANGaugeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANGaugeView.h; sourceTree = "<group>"; };
+		BF61B59F1A63E1A8004B914E /* JANGaugeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANGaugeView.m; sourceTree = "<group>"; };
+		BF61B5A11A63E828004B914E /* config.tmp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.tmp.plist; sourceTree = "<group>"; };
+		BF67D9CF1A3C2834004B53B5 /* followerIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "followerIcon@2x.png"; sourceTree = "<group>"; };
+		BF67D9D11A3C2834004B53B5 /* stockIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stockIcon@2x.png"; sourceTree = "<group>"; };
+		BF67D9D71A3C2AC7004B53B5 /* postArticleIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "postArticleIcon@2x.png"; sourceTree = "<group>"; };
+		BF67D9D91A3C2B0F004B53B5 /* QiitaListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiitaListTableViewCell.h; sourceTree = "<group>"; };
+		BF67D9DA1A3C2B0F004B53B5 /* QiitaListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiitaListTableViewCell.m; sourceTree = "<group>"; };
+		E41710241A497EA7005D86A9 /* JANBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANBaseViewController.h; sourceTree = "<group>"; };
+		E41710251A497EA7005D86A9 /* JANBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANBaseViewController.m; sourceTree = "<group>"; };
+		E41710271A498133005D86A9 /* IntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionViewController.h; sourceTree = "<group>"; };
+		E41710281A498133005D86A9 /* IntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroductionViewController.m; sourceTree = "<group>"; };
+		E417102A1A4981D1005D86A9 /* IntroductionViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IntroductionViewController.storyboard; sourceTree = "<group>"; };
+		E43AC9B91A3C2438003A2DFD /* QiitaListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiitaListViewController.h; sourceTree = "<group>"; };
+		E43AC9BA1A3C2438003A2DFD /* QiitaListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiitaListViewController.m; sourceTree = "<group>"; };
+		E4BE16AD1A3C1CF6000FE3BE /* genqi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = genqi.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4BE16B11A3C1CF6000FE3BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4BE16B21A3C1CF6000FE3BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E4BE16B41A3C1CF6000FE3BE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E4BE16B51A3C1CF6000FE3BE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E4BE16B71A3C1CF6000FE3BE /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		E4BE16B81A3C1CF6000FE3BE /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		E4BE16BD1A3C1CF6000FE3BE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		E4BE16C61A3C1CF6000FE3BE /* QiitaMeterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QiitaMeterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4BE16CB1A3C1CF6000FE3BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4BE16CC1A3C1CF6000FE3BE /* QiitaMeterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QiitaMeterTests.m; sourceTree = "<group>"; };
+		E4BE16D61A3C1E3D000FE3BE /* JANQiitaUserInfoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANQiitaUserInfoService.h; sourceTree = "<group>"; };
+		E4BE16D71A3C1E3D000FE3BE /* JANQiitaUserInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANQiitaUserInfoService.m; sourceTree = "<group>"; };
+		E4BE16D81A3C1E3D000FE3BE /* JANStock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANStock.h; sourceTree = "<group>"; };
+		E4BE16D91A3C1E3D000FE3BE /* JANStock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANStock.m; sourceTree = "<group>"; };
+		E4BE16DA1A3C1E3D000FE3BE /* JANStockService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANStockService.h; sourceTree = "<group>"; };
+		E4BE16DB1A3C1E3D000FE3BE /* JANStockService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANStockService.m; sourceTree = "<group>"; };
+		E4BE16DC1A3C1E3D000FE3BE /* JANUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANUserService.h; sourceTree = "<group>"; };
+		E4BE16DD1A3C1E3D000FE3BE /* JANUserService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANUserService.m; sourceTree = "<group>"; };
+		E4BE16E31A3C1E61000FE3BE /* JANQiitaUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANQiitaUserInfo.h; sourceTree = "<group>"; };
+		E4BE16E41A3C1E61000FE3BE /* JANQiitaUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANQiitaUserInfo.m; sourceTree = "<group>"; };
+		E4BE16E51A3C1E61000FE3BE /* JANUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANUser.h; sourceTree = "<group>"; };
+		E4BE16E61A3C1E61000FE3BE /* JANUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANUser.m; sourceTree = "<group>"; };
+		EA4E0CD543FDFC62F867C042 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E4BE16AA1A3C1CF6000FE3BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BE2E2DD77D51FCA65AA0189 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4BE16C31A3C1CF6000FE3BE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2E6B9E43B51051F36BE42294 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EA4E0CD543FDFC62F867C042 /* Pods.debug.xcconfig */,
+				6766AF90B45CBB888ADD6844 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		58A12E8B538B855FA7FFE629 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF2A0CA0E3E7C0DAAE6614BA /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF53DA961A49480300BE276C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BF67D9D91A3C2B0F004B53B5 /* QiitaListTableViewCell.h */,
+				BF67D9DA1A3C2B0F004B53B5 /* QiitaListTableViewCell.m */,
+				BF53DA9A1A494CAE00BE276C /* LoginViewController.storyboard */,
+				E417102A1A4981D1005D86A9 /* IntroductionViewController.storyboard */,
+				BF53DA9C1A494CD800BE276C /* QiitaListController.storyboard */,
+				BF61B58C1A636285004B914E /* OauthViewController.storyboard */,
+				BF61B59E1A63E1A8004B914E /* JANGaugeView.h */,
+				BF61B59F1A63E1A8004B914E /* JANGaugeView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BF53DA971A49480B00BE276C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E41710241A497EA7005D86A9 /* JANBaseViewController.h */,
+				E41710251A497EA7005D86A9 /* JANBaseViewController.m */,
+				E41710271A498133005D86A9 /* IntroductionViewController.h */,
+				E41710281A498133005D86A9 /* IntroductionViewController.m */,
+				E4BE16B71A3C1CF6000FE3BE /* LoginViewController.h */,
+				E4BE16B81A3C1CF6000FE3BE /* LoginViewController.m */,
+				E43AC9B91A3C2438003A2DFD /* QiitaListViewController.h */,
+				E43AC9BA1A3C2438003A2DFD /* QiitaListViewController.m */,
+				BF61B58E1A636377004B914E /* JANOauthViewController.h */,
+				BF61B58F1A636377004B914E /* JANOauthViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BF53DA981A49483C00BE276C /* ModelObjects */ = {
+			isa = PBXGroup;
+			children = (
+				E4BE16E31A3C1E61000FE3BE /* JANQiitaUserInfo.h */,
+				E4BE16E41A3C1E61000FE3BE /* JANQiitaUserInfo.m */,
+				E4BE16E51A3C1E61000FE3BE /* JANUser.h */,
+				E4BE16E61A3C1E61000FE3BE /* JANUser.m */,
+				BF61B5981A63CEF9004B914E /* JANPoint.h */,
+				BF61B5991A63CEF9004B914E /* JANPoint.m */,
+				BF61B59B1A63CF15004B914E /* JANQiitaCount.h */,
+				BF61B59C1A63CF15004B914E /* JANQiitaCount.m */,
+			);
+			path = ModelObjects;
+			sourceTree = "<group>";
+		};
+		BF53DA991A49485B00BE276C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E4BE16D61A3C1E3D000FE3BE /* JANQiitaUserInfoService.h */,
+				E4BE16D71A3C1E3D000FE3BE /* JANQiitaUserInfoService.m */,
+				E4BE16D81A3C1E3D000FE3BE /* JANStock.h */,
+				E4BE16D91A3C1E3D000FE3BE /* JANStock.m */,
+				E4BE16DA1A3C1E3D000FE3BE /* JANStockService.h */,
+				E4BE16DB1A3C1E3D000FE3BE /* JANStockService.m */,
+				E4BE16DC1A3C1E3D000FE3BE /* JANUserService.h */,
+				E4BE16DD1A3C1E3D000FE3BE /* JANUserService.m */,
+				BF61B5701A624A63004B914E /* JANDataService.h */,
+				BF61B5711A624A63004B914E /* JANDataService.m */,
+				BF61B5891A628158004B914E /* JANPointService.h */,
+				BF61B58A1A628158004B914E /* JANPointService.m */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BF53DAA51A49959F00BE276C /* Connectors */ = {
+			isa = PBXGroup;
+			children = (
+				BF53DAA61A4995AA00BE276C /* JANNetworkInterface.h */,
+				BF53DAA71A4995AA00BE276C /* JANNetworkInterface.m */,
+				BF53DAA81A4995AA00BE276C /* JANQiitaConnector.h */,
+				BF53DAA91A4995AA00BE276C /* JANQiitaConnector.m */,
+			);
+			name = Connectors;
+			sourceTree = "<group>";
+		};
+		BF61B5921A6368DF004B914E /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				BF61B5931A63690A004B914E /* JANConfig.h */,
+				BF61B5941A63690A004B914E /* JANConfig.m */,
+			);
+			name = Config;
+			sourceTree = "<group>";
+		};
+		BF67D9CE1A3C281F004B53B5 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				BF67D9D71A3C2AC7004B53B5 /* postArticleIcon@2x.png */,
+				BF67D9CF1A3C2834004B53B5 /* followerIcon@2x.png */,
+				BF67D9D11A3C2834004B53B5 /* stockIcon@2x.png */,
+				BF61B5961A6372A2004B914E /* config.plist */,
+				BF61B5A11A63E828004B914E /* config.tmp.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		E4BE16A41A3C1CF6000FE3BE = {
+			isa = PBXGroup;
+			children = (
+				E4BE16AF1A3C1CF6000FE3BE /* QiitaMeter */,
+				E4BE16C91A3C1CF6000FE3BE /* QiitaMeterTests */,
+				E4BE16AE1A3C1CF6000FE3BE /* Products */,
+				58A12E8B538B855FA7FFE629 /* Frameworks */,
+				2E6B9E43B51051F36BE42294 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		E4BE16AE1A3C1CF6000FE3BE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E4BE16AD1A3C1CF6000FE3BE /* genqi.app */,
+				E4BE16C61A3C1CF6000FE3BE /* QiitaMeterTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E4BE16AF1A3C1CF6000FE3BE /* QiitaMeter */ = {
+			isa = PBXGroup;
+			children = (
+				BF53DA971A49480B00BE276C /* Controllers */,
+				BF53DA961A49480300BE276C /* Views */,
+				BF67D9CE1A3C281F004B53B5 /* Resource */,
+				E4BE16E21A3C1E61000FE3BE /* Models */,
+				E4BE16B41A3C1CF6000FE3BE /* AppDelegate.h */,
+				E4BE16B51A3C1CF6000FE3BE /* AppDelegate.m */,
+				E4BE16BD1A3C1CF6000FE3BE /* Images.xcassets */,
+				E4BE16B01A3C1CF6000FE3BE /* Supporting Files */,
+			);
+			path = QiitaMeter;
+			sourceTree = "<group>";
+		};
+		E4BE16B01A3C1CF6000FE3BE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E4BE16B11A3C1CF6000FE3BE /* Info.plist */,
+				E4BE16B21A3C1CF6000FE3BE /* main.m */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E4BE16C91A3C1CF6000FE3BE /* QiitaMeterTests */ = {
+			isa = PBXGroup;
+			children = (
+				E4BE16CC1A3C1CF6000FE3BE /* QiitaMeterTests.m */,
+				E4BE16CA1A3C1CF6000FE3BE /* Supporting Files */,
+			);
+			path = QiitaMeterTests;
+			sourceTree = "<group>";
+		};
+		E4BE16CA1A3C1CF6000FE3BE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E4BE16CB1A3C1CF6000FE3BE /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E4BE16E21A3C1E61000FE3BE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BF61B5921A6368DF004B914E /* Config */,
+				BF53DAA51A49959F00BE276C /* Connectors */,
+				BF53DA991A49485B00BE276C /* Services */,
+				BF53DA981A49483C00BE276C /* ModelObjects */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E4BE16AC1A3C1CF6000FE3BE /* QiitaMeter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4BE16D01A3C1CF6000FE3BE /* Build configuration list for PBXNativeTarget "QiitaMeter" */;
+			buildPhases = (
+				18034ECF7B143EED8EBB1D41 /* Check Pods Manifest.lock */,
+				E4BE16A91A3C1CF6000FE3BE /* Sources */,
+				E4BE16AA1A3C1CF6000FE3BE /* Frameworks */,
+				E4BE16AB1A3C1CF6000FE3BE /* Resources */,
+				7123023C18E3BD4BCAF356A1 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QiitaMeter;
+			productName = QiitaMeter;
+			productReference = E4BE16AD1A3C1CF6000FE3BE /* genqi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E4BE16C51A3C1CF6000FE3BE /* QiitaMeterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4BE16D31A3C1CF6000FE3BE /* Build configuration list for PBXNativeTarget "QiitaMeterTests" */;
+			buildPhases = (
+				E4BE16C21A3C1CF6000FE3BE /* Sources */,
+				E4BE16C31A3C1CF6000FE3BE /* Frameworks */,
+				E4BE16C41A3C1CF6000FE3BE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E4BE16C81A3C1CF6000FE3BE /* PBXTargetDependency */,
+			);
+			name = QiitaMeterTests;
+			productName = QiitaMeterTests;
+			productReference = E4BE16C61A3C1CF6000FE3BE /* QiitaMeterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E4BE16A51A3C1CF6000FE3BE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = bob;
+				TargetAttributes = {
+					E4BE16AC1A3C1CF6000FE3BE = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 8LK4XMAM8H;
+					};
+					E4BE16C51A3C1CF6000FE3BE = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = E4BE16AC1A3C1CF6000FE3BE;
+					};
+				};
+			};
+			buildConfigurationList = E4BE16A81A3C1CF6000FE3BE /* Build configuration list for PBXProject "QiitaMeter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E4BE16A41A3C1CF6000FE3BE;
+			productRefGroup = E4BE16AE1A3C1CF6000FE3BE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E4BE16AC1A3C1CF6000FE3BE /* QiitaMeter */,
+				E4BE16C51A3C1CF6000FE3BE /* QiitaMeterTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E4BE16AB1A3C1CF6000FE3BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF61B5971A6372A2004B914E /* config.plist in Resources */,
+				BF67D9D41A3C2834004B53B5 /* stockIcon@2x.png in Resources */,
+				E417102B1A4981D1005D86A9 /* IntroductionViewController.storyboard in Resources */,
+				BF67D9D81A3C2AC7004B53B5 /* postArticleIcon@2x.png in Resources */,
+				BF53DA9D1A494CD800BE276C /* QiitaListController.storyboard in Resources */,
+				BF61B5A21A63E828004B914E /* config.tmp.plist in Resources */,
+				E4BE16BE1A3C1CF6000FE3BE /* Images.xcassets in Resources */,
+				BF53DA9B1A494CAE00BE276C /* LoginViewController.storyboard in Resources */,
+				BF67D9D21A3C2834004B53B5 /* followerIcon@2x.png in Resources */,
+				BF61B58D1A636285004B914E /* OauthViewController.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4BE16C41A3C1CF6000FE3BE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		18034ECF7B143EED8EBB1D41 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7123023C18E3BD4BCAF356A1 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E4BE16A91A3C1CF6000FE3BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF61B5951A63690B004B914E /* JANConfig.m in Sources */,
+				E4BE16E11A3C1E3D000FE3BE /* JANUserService.m in Sources */,
+				E41710261A497EA7005D86A9 /* JANBaseViewController.m in Sources */,
+				BF53DAAA1A4995AA00BE276C /* JANNetworkInterface.m in Sources */,
+				BF53DAAB1A4995AA00BE276C /* JANQiitaConnector.m in Sources */,
+				BF61B5901A636377004B914E /* JANOauthViewController.m in Sources */,
+				E4BE16E71A3C1E61000FE3BE /* JANQiitaUserInfo.m in Sources */,
+				BF67D9DB1A3C2B0F004B53B5 /* QiitaListTableViewCell.m in Sources */,
+				E4BE16E81A3C1E61000FE3BE /* JANUser.m in Sources */,
+				E41710291A498133005D86A9 /* IntroductionViewController.m in Sources */,
+				E4BE16B91A3C1CF6000FE3BE /* LoginViewController.m in Sources */,
+				E4BE16DF1A3C1E3D000FE3BE /* JANStock.m in Sources */,
+				BF61B58B1A628158004B914E /* JANPointService.m in Sources */,
+				E4BE16E01A3C1E3D000FE3BE /* JANStockService.m in Sources */,
+				E4BE16DE1A3C1E3D000FE3BE /* JANQiitaUserInfoService.m in Sources */,
+				E4BE16B61A3C1CF6000FE3BE /* AppDelegate.m in Sources */,
+				BF61B5A01A63E1A8004B914E /* JANGaugeView.m in Sources */,
+				BF61B59D1A63CF15004B914E /* JANQiitaCount.m in Sources */,
+				BF61B59A1A63CEF9004B914E /* JANPoint.m in Sources */,
+				E4BE16B31A3C1CF6000FE3BE /* main.m in Sources */,
+				E43AC9BC1A3C2438003A2DFD /* QiitaListViewController.m in Sources */,
+				BF61B5721A624A63004B914E /* JANDataService.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4BE16C21A3C1CF6000FE3BE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4BE16CD1A3C1CF6000FE3BE /* QiitaMeterTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E4BE16C81A3C1CF6000FE3BE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E4BE16AC1A3C1CF6000FE3BE /* QiitaMeter */;
+			targetProxy = E4BE16C71A3C1CF6000FE3BE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		E4BE16CE1A3C1CF6000FE3BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E4BE16CF1A3C1CF6000FE3BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E4BE16D11A3C1CF6000FE3BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA4E0CD543FDFC62F867C042 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "QiitaMeter/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = genqi;
+			};
+			name = Debug;
+		};
+		E4BE16D21A3C1CF6000FE3BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6766AF90B45CBB888ADD6844 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "QiitaMeter/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = genqi;
+				PROVISIONING_PROFILE = "03970866-f5f4-4137-a307-a6b6302154e4";
+			};
+			name = Release;
+		};
+		E4BE16D41A3C1CF6000FE3BE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "QiitaMeterTests/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = QiitaMeterTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QiitaMeter.app/QiitaMeter";
+			};
+			name = Debug;
+		};
+		E4BE16D51A3C1CF6000FE3BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "QiitaMeterTests/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = QiitaMeterTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QiitaMeter.app/QiitaMeter";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E4BE16A81A3C1CF6000FE3BE /* Build configuration list for PBXProject "QiitaMeter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4BE16CE1A3C1CF6000FE3BE /* Debug */,
+				E4BE16CF1A3C1CF6000FE3BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4BE16D01A3C1CF6000FE3BE /* Build configuration list for PBXNativeTarget "QiitaMeter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4BE16D11A3C1CF6000FE3BE /* Debug */,
+				E4BE16D21A3C1CF6000FE3BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4BE16D31A3C1CF6000FE3BE /* Build configuration list for PBXNativeTarget "QiitaMeterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4BE16D41A3C1CF6000FE3BE /* Debug */,
+				E4BE16D51A3C1CF6000FE3BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E4BE16A51A3C1CF6000FE3BE /* Project object */;
+}

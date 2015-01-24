@@ -1,10 +1,41 @@
 PODS:
-  - JSONKit-NoWarning (1.2)
+  - AFNetworking (2.5.0):
+    - AFNetworking/NSURLConnection (= 2.5.0)
+    - AFNetworking/NSURLSession (= 2.5.0)
+    - AFNetworking/Reachability (= 2.5.0)
+    - AFNetworking/Security (= 2.5.0)
+    - AFNetworking/Serialization (= 2.5.0)
+    - AFNetworking/UIKit (= 2.5.0)
+  - AFNetworking/NSURLConnection (2.5.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.0)
+  - AFNetworking/Security (2.5.0)
+  - AFNetworking/Serialization (2.5.0)
+  - AFNetworking/UIKit (2.5.0):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - NSURL+QueryDictionary (1.0.3)
+  - SDWebImage (3.7.1):
+    - SDWebImage/Core (= 3.7.1)
+  - SDWebImage/Core (3.7.1)
+  - UIView+JMFrame (0.1.2)
 
 DEPENDENCIES:
-  - JSONKit-NoWarning
+  - AFNetworking
+  - NSURL+QueryDictionary
+  - SDWebImage
+  - UIView+JMFrame
 
 SPEC CHECKSUMS:
-  JSONKit-NoWarning: fc8d6dd8ec65e303867d1bd274632fc60a4a8ab9
+  AFNetworking: 0f54cb5d16ce38c1b76948faffb8d5fb705021c7
+  NSURL+QueryDictionary: 1ad81be60c10e3f4d80c5c4beb7125de96aaec5e
+  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
+  UIView+JMFrame: f23f3dcad8a6192f83600c586f59a89e63bd20a8
 
-COCOAPODS: 0.34.1
+COCOAPODS: 0.35.0
