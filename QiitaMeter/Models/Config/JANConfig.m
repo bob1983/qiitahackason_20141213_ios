@@ -20,6 +20,8 @@
 
 #define QIITA_OAUTH_REDIRECT_URL @"http://genqi.gingbear.com"
 
+#define SPECIAL_USERS @"takayosh1hasegawa/bOb_sTrane/gingbear"
+
 static NSString *qiitaClientId;
 static NSString *qiitaClientSecret;
 
@@ -112,4 +114,14 @@ static NSString *qiitaClientSecret;
     NSLog(@"%@", dict);
     return dict;
 }
+
++ (NSArray *)specialUsers
+{
+    static NSArray *spesialUsers;
+    if (!spesialUsers) {
+        spesialUsers = [SPECIAL_USERS componentsSeparatedByString:@"/"];
+    }
+    return spesialUsers;
+}
+
 @end

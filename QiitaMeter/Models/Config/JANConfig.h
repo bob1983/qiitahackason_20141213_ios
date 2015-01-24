@@ -7,15 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+/**
+ * 固定の値，構造を管理するクラス
+ * 主に，APIのURLとパラメータ，開発者のID一覧
+ */
 
 @interface JANConfig : NSObject
 + (NSString *)qiitaApiUrlString;
 + (NSString *)clientId;
 + (NSString *)clientSecret;
 + (NSURL *)oauthApiUrl;
-+ (NSDictionary *)accessTokensParamsWithCode:(NSString*)code;
 + (NSString *)accessTokensUrlString;
 + (NSString *)oauthRedirectUrlString;
 + (NSString *)authenticatedUserUrlString;
+
 + (NSString *)deleteAccessTokensUrlString:(NSString *)accessTokens;
+
++ (NSDictionary *)accessTokensParamsWithCode:(NSString*)code;
+
++ (NSArray *)specialUsers;
 @end

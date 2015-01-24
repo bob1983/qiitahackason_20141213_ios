@@ -18,6 +18,7 @@
 #import "JANPointService.h"
 #import "JANQiitaCount.h"
 #import "JANPoint.h"
+#import "JANOtherQiitaUsersService.h"
 
 static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewCell";
 
@@ -91,6 +92,12 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     self.navigationItem.rightBarButtonItem = settingsButton;
     
     [self setLogoutBarButton];
+    
+    // 比較するユーザーを取得
+    [JANOtherQiitaUsersService retrieveOtherQiitaUsersWithSuccessHandler:^(NSArray *otherQiitaUsers) {
+        self.rivalsQiitaUserInfo = otherQiitaUsers;
+        [_qiitaListView reloadData];
+    } failedHandler:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -149,7 +156,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     if (section == 0) {
         return 1;
     }
-    return 10;
+    return _rivalsQiitaUserInfo.count;
 }
 - (void)viewDidLayoutSubviews
 {
@@ -165,7 +172,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     }
     
-//    if (indexPath.section == 0) {
+    if (indexPath.section == 0) {
         if (self.myQiitaUserInfo) {
             cell.accountNameLabel.text = self.myQiitaUserInfo.qiitaId;
             [cell setStockCount:[self.myQiitaStocks count]];
@@ -182,7 +189,23 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
                                          }];
             [cell layoutIfNeeded];
         }
-//    } else {
+    } else {
+        JANQiitaUserInfo *qiitaUserInfo = [_rivalsQiitaUserInfo objectAtIndex:indexPath.row];
+        
+        cell.accountNameLabel.text = qiitaUserInfo.qiitaId;
+//        [cell setStockCount:[qiitaUserInfo count]];
+        [cell setFolloeesCount:qiitaUserInfo.followeesCount];
+        [cell setContributeCount:qiitaUserInfo.itemsCount];
+        
+//        [cell setTotalValue:self.myPoint.totalPoint];
+        
+//        [cell setGaugePercentValue:self.myPoint.gaugePersentValue];
+        [cell.userImageView sd_setImageWithURL:[NSURL URLWithString:qiitaUserInfo.profileImageUrl]
+                              placeholderImage:nil
+                                     completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
+                                         [cell.userImageView setImage:image];
+                                     }];
+        [cell layoutIfNeeded];
 //        cell.accountNameLabel.text = @"ging";
 //        [cell setStockCount:12];
 //        [cell setFolloeesCount:3];
@@ -190,7 +213,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 //        
 //        [cell setTotalValue:22];
 //        [cell.userImageView setImage:[UIImage imageNamed:@"icon.jpg"]];
-//    }
+    }
     
     return cell;
 }
