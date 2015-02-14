@@ -30,9 +30,32 @@
                                  timeoutInterval:TIMEOUT_INTERVAL
                                      cachePolicy:NSURLRequestUseProtocolCachePolicy
                                          success:^(NSHTTPURLResponse *response, id responseObject) {
-//                                             NSLog(@"%@", responseObject);
+                                             // HeaderからLinkを取得
+                                             NSString* pattern = @"(<)(.*?)(>; rel=\")(.*?)(\")";
+                                             NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
+                                             NSString *link = [response.allHeaderFields objectForKey:@"Link"];
+                                             NSMutableDictionary *links = [NSMutableDictionary dictionary];
+                                             if (link) {
+                                                 NSArray *ls = [link componentsSeparatedByString:@","];
+                                                 for (NSString *l in ls) {
+                                                     NSTextCheckingResult *match= [regex firstMatchInString:l options:NSMatchingReportProgress range:NSMakeRange(0, l.length)];
+                                                     NSString *key = [l substringWithRange:[match rangeAtIndex:4]];
+                                                     NSString *value = [l substringWithRange:[match rangeAtIndex:2]];
+                                                     if (key && value)
+                                                         [links setObject:value forKey:key];
+                                                 }
+                                             }
+                                             NSInteger maxPage = 0;
+                                             NSString *lastLink = [links objectForKey:@"last"];
+                                             if (lastLink) {
+                                                 NSLog(@"last link : %@", lastLink);
+                                                 NSString* pattern = @"(^)(.*?)(page=)(.*?)(&.*?)";
+                                                 NSRegularExpression* regex = [NSRegularExpression regularExpressionWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
+                                                 NSTextCheckingResult *match= [regex firstMatchInString:lastLink options:NSMatchingReportProgress range:NSMakeRange(0, lastLink.length)];
+                                                 maxPage = [[lastLink substringWithRange:[match rangeAtIndex:4]] integerValue];
+                                             }
                                              if (successHandler) {
-                                                 successHandler([NSArray arrayWithArray:responseObject]);
+                                                 successHandler([NSArray arrayWithArray:responseObject], maxPage);
                                              }
                                          } failure:^(NSHTTPURLResponse *response, NSError *error) {
                                              if (failedHandler) {

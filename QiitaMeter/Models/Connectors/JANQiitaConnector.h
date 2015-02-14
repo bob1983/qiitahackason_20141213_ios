@@ -12,7 +12,7 @@
 
 typedef void(^JANQiitaConnectorSuccessHandler)();
 
-typedef void(^JANQiitaConnectorStocksSuccessHandler)(NSArray *);
+typedef void(^JANQiitaConnectorStocksSuccessHandler)(NSArray *, NSInteger);
 typedef void(^JANQiitaConnectorFailedHandler)();
 
 typedef void(^JANQiitaConnectorUserInfoSuccessHandler)(NSDictionary *);
