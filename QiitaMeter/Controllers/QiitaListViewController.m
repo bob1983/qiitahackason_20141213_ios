@@ -33,22 +33,10 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 @property (nonatomic, strong) JANQiitaUserInfoService *userInfoService;
 @property (nonatomic, strong) JANStockService *stockService;
 @property (nonatomic, strong) NSMutableDictionary *rivalsStocks;
-//@property (nonatomic, assign) NSInteger myPoint;
 @property (strong, nonatomic) IBOutlet UITableView *qiitaListView;
 @end
 
 @implementation QiitaListViewController
-
-//- (instancetype)init
-//{
-//    self = [super init];
-//    if (self) {
-//        self.userInfoService = [[JANQiitaUserInfoService alloc] init];
-//        self.stockService    = [[JANStockService alloc] init];
-//        
-//    }
-//    return self;
-//}
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
@@ -59,7 +47,6 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
         self.myQiitaUserInfo = [JANQiitaUserInfoService lastQiitaUserInfo];
         self.myQiitaStocks = [JANStockService lastStock];
         self.myPoint = [JANPointService makePointWithLastCount:[[JANQiitaCount alloc] initWithQiitaUserInfo:_myQiitaUserInfo stocks:_myQiitaStocks] secondCount:nil];
-//        self.rivalsQiitaUserInfo = [JANOtherQiitaUsersService lastOtherQittaUserInfos];
         self.rivalsStocks = [NSMutableDictionary dictionary];
     }
     return self;
@@ -99,11 +86,6 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 
 //    [self setLogoutBarButton];
     
-    // 比較するユーザーを取得
-//    [JANOtherQiitaUsersService retrieveOtherQiitaUsersWithSuccessHandler:^(NSArray *otherQiitaUsers) {
-//        self.rivalsQiitaUserInfo = otherQiitaUsers;
-//        [_qiitaListView reloadData];
-//    } failedHandler:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -181,6 +163,8 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
         cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     }
     
+    [cell reset];
+    
     if (indexPath.section == 0) {
         if (self.myQiitaUserInfo) {
             cell.accountNameLabel.text = self.myQiitaUserInfo.qiitaId;
@@ -203,7 +187,8 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
         
         cell.accountNameLabel.text = qiitaUserInfo.qiitaId;
         JANStock *stock = [self.rivalsStocks objectForKey:qiitaUserInfo.qiitaId];
-        [cell setStockCount:stock.count];
+        if (stock)
+            [cell setStockCount:stock.count];
         [cell setFolloeesCount:qiitaUserInfo.followeesCount];
         [cell setContributeCount:qiitaUserInfo.itemsCount];
         
@@ -216,13 +201,6 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
                                          [cell.userImageView setImage:image];
                                      }];
         [cell layoutIfNeeded];
-//        cell.accountNameLabel.text = @"ging";
-//        [cell setStockCount:12];
-//        [cell setFolloeesCount:3];
-//        [cell setContributeCount:7];
-//        
-//        [cell setTotalValue:22];
-//        [cell.userImageView setImage:[UIImage imageNamed:@"icon.jpg"]];
     }
     
     return cell;

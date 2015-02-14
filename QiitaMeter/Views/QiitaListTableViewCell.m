@@ -28,6 +28,14 @@
     frame.size.width = _contributeCountLabel.frame.size.width;
     frame.size.height = _contributeCountLabel.frame.size.height;
     [_contributeCountBackImageView setFrame:frame];
+    [self reset];
+}
+
+- (void)reset
+{
+    self.stockCountLabel.text =
+    self.folloeesCountLavel.text =
+    self.contributeCountLabel.text = @"-";
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
