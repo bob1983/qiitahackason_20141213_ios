@@ -56,10 +56,10 @@
     [self saveUser:user];
 }
 
-+ (void)saveAccountName:(NSString *)accountName
++ (void)saveQiitaId:(NSString *)qiitaId
 {
     JANUser *user = [self loadUser];
-    user.accountName = accountName;
+    user.qiitaId = qiitaId;
     [self saveUser:user];
 }
 

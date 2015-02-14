@@ -142,7 +142,7 @@
     
     AFHTTPRequestOperation *operation = [manager HTTPRequestOperationWithRequest:request
                                                                          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                                                                             NSLog(@"response: %@", responseObject);
+//                                                                             NSLog(@"response: %@", responseObject);
                                                                              if (success) {
                                                                                  success([operation response], responseObject);
                                                                              }

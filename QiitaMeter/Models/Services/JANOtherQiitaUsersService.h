@@ -15,5 +15,4 @@ typedef void(^JANOtherQiitaUsersServiceRetrieveSuccessHandler)();
 
 + (void)retrieveOtherQiitaUsersWithSuccessHandler:(JANOtherQiitaUsersServiceRetrieveQiitaUserInfoSuccessHandler)successHandler
                                failedHandler:(JANOtherQiitaUsersServiceRetrieveSuccessHandler)failedHandler;
-
 @end

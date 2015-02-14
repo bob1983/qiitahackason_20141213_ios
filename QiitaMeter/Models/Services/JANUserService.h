@@ -26,7 +26,7 @@ typedef void(^JANUserServiceFailedHandler)();
 + (void)retrieveDeleteAccessTokensWithSuccessHandler:(JANUserServiceRetrieveSuccessHandler)successHandler
                                        failedHandler:(JANUserServiceFailedHandler)failedHandler;
 
-+ (void)saveAccountName:(NSString *)accountName;
++ (void)saveQiitaId:(NSString *)qiitaId;
 + (void)saveAccessTokens:(NSString *)accessTokens;
 //+ (void)saveOauthCode:(NSString *)oauthCode;
 + (void)saveUser:(JANUser *)user;

@@ -19,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *contributeCountBackImageView;
 @property (weak, nonatomic) IBOutlet JANGaugeView *gaugeView;
 
+- (void)reset;
+
 - (void)setStockCount:(NSInteger)stockCount;
 - (void)setFolloeesCount:(NSInteger)folloeesCount;
 - (void)setContributeCount:(NSInteger)contributeCount;

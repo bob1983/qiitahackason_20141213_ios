@@ -92,7 +92,7 @@
                                       timeoutInterval:TIMEOUT_INTERVAL
                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
                                               success:^(NSHTTPURLResponse *response, id responseObject) {
-                                                  NSLog(@"%@",responseObject);
+//                                                  NSLog(@"%@",responseObject);
                                                   NSDictionary *dic = [NSDictionary dictionaryWithDictionary:responseObject];
                                                   
                                                   if (successHandler){
