@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface JANUser : NSObject
-@property (nonatomic, copy) NSString *accountName;
+@property (nonatomic, copy) NSString *qiitaId;
 @property (nonatomic, copy) NSString *accessTokens;
 @end

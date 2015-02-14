@@ -18,7 +18,7 @@ typedef void(^StockServiceFailedHandler)();
                           failedHandler:(StockServiceFailedHandler)failedHandler;
 
 + (JANStock *)janStockFromRetrievedArray :(NSArray *)stocks;
-+ (void)saveStock:(JANStock*) stock;
++ (void)saveStock:(JANStock*)stock;
 + (JANStock *)lastStock;
 + (NSArray *)loadStocks;
 + (void)saveStocks:(NSArray*)stocks;

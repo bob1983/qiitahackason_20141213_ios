@@ -12,6 +12,7 @@
 #import "JANQiitaUserInfo.h"
 #import "JANQiitaUserInfoService.h"
 #import "JANConfig.h"
+#import "JANQiitaUserInfoService.h"
 
 @implementation JANOtherQiitaUsersService
 
@@ -33,4 +34,5 @@
         } failedHandler:failedHandler];
     }
 }
+
 @end

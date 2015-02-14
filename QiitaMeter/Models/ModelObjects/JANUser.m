@@ -11,13 +11,13 @@
 @implementation JANUser
 - (id)initWithCoder:(NSCoder *)coder {
     if (self = [super init]) {
-        self.accountName = [coder decodeObjectForKey:@"accountName"];
+        self.qiitaId = [coder decodeObjectForKey:@"qiitaId"];
         self.accessTokens = [coder decodeObjectForKey:@"accessTokens"];
     }
     return self;
 }
 - (void)encodeWithCoder:(NSCoder *)coder {
-    [coder encodeObject:_accountName forKey:@"accountName"];
+    [coder encodeObject:_qiitaId forKey:@"qiitaId"];
     [coder encodeObject:_accessTokens forKey:@"accessTokens"];
 }
 @end
