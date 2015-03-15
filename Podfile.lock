@@ -25,10 +25,10 @@ PODS:
   - GoogleAnalytics-iOS-SDK (3.10):
     - GoogleAnalytics-iOS-SDK/Core (= 3.10)
   - GoogleAnalytics-iOS-SDK/Core (3.10)
-  - NSURL+QueryDictionary (1.0.3)
-  - Realm (0.90.5):
-    - Realm/Headers (= 0.90.5)
-  - Realm/Headers (0.90.5)
+  - NSURL+QueryDictionary (1.1.0)
+  - Realm (0.91.1):
+    - Realm/Headers (= 0.91.1)
+  - Realm/Headers (0.91.1)
   - SDWebImage (3.7.1):
     - SDWebImage/Core (= 3.7.1)
   - SDWebImage/Core (3.7.1)
@@ -49,8 +49,8 @@ SPEC CHECKSUMS:
   Colours: ecbcbb168f7e6190b76b34df1b477c103cb638eb
   DateTools: 7df78f0c4719eb28cfd2d58a90fafd036e73156c
   GoogleAnalytics-iOS-SDK: f422062075d9ccb1ea8d783fc5ba3829461e9502
-  NSURL+QueryDictionary: 1ad81be60c10e3f4d80c5c4beb7125de96aaec5e
-  Realm: aea25534b97be77995650c2339aa6ed010dfcc8a
+  NSURL+QueryDictionary: 14fc00cab003a53230ec4bef6a5e2d28ce777614
+  Realm: 81adfc7f43f9301f40bbc46d5e8a10aaf71b9504
   SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
   UIView+JMFrame: f23f3dcad8a6192f83600c586f59a89e63bd20a8
 
