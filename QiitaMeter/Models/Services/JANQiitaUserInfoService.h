@@ -20,11 +20,9 @@ typedef void(^QiitaUserInfoServiceRetrieveFailedHandler)();
                           failedHandler:(QiitaUserInfoServiceRetrieveFailedHandler)failedHandler;
 
 + (JANQiitaUserInfo *)janQiitaUserInfoFromRetrievedDictionary :(NSDictionary *)dic;
-+ (void)saveQiitaUserInfo:(JANQiitaUserInfo*) qiitaUserInfo;
-+ (JANQiitaUserInfo*)lastQiitaUserInfo;
 
-
-+ (NSArray *)loadQiitaUserInfos;
-+ (void)saveQiitaUserInfos:(NSArray*)QiitaUserInfos;
-
+/**
+ *  QiitaIdからJANQiitaUserInfoを検索してくる
+ */
++ (JANQiitaUserInfo *)qiitaUserInfoWithQiitaId:(NSString *)qiitaId;
 @end
