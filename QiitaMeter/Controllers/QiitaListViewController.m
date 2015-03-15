@@ -25,7 +25,7 @@
 static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewCell";
 
 @interface QiitaListViewController () <UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic, strong) JANUser *user;
+
 @property (nonatomic, strong) JANQiitaUserInfo *myQiitaUserInfo;
 @property (nonatomic, strong) NSArray *rivalsQiitaUserInfo;
 @property (nonatomic, strong) JANStock *myQiitaStocks;
@@ -44,10 +44,6 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     if (self) {
         self.userInfoService = [[JANQiitaUserInfoService alloc] init];
         self.stockService    = [[JANStockService alloc] init];
-        NSString *myQiitaId = [[JANUserService loadUser] qiitaId];
-        self.myQiitaUserInfo = [JANQiitaUserInfoService qiitaUserInfoWithQiitaId:myQiitaId];
-        self.myQiitaStocks = [JANStockService lastStock];
-        self.myPoint = [JANPointService makePointWithLastCount:[[JANQiitaCount alloc] initWithQiitaUserInfo:_myQiitaUserInfo stocks:_myQiitaStocks] secondCount:nil];
         self.rivalsStocks = [NSMutableDictionary dictionary];
     }
     return self;
@@ -58,6 +54,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     [super awakeFromNib];
     
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.

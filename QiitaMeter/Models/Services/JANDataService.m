@@ -83,10 +83,8 @@
                                            
                                            [[NSNotificationCenter defaultCenter] postNotification:n];
                                        }
-                                        failedHandler:^{}];
-        } failedHandler:^{
-            
-        }];
+                                        failedHandler:nil];
+        } failedHandler:nil];
     }
 }
 

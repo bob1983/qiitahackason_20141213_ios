@@ -43,6 +43,7 @@
     [realm transactionWithBlock:^{
         [realm addOrUpdateObject:qiitaUserInfo];
     }];
+    
     return qiitaUserInfo;
 }
 
