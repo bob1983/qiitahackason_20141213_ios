@@ -9,6 +9,14 @@
 #import "JANQiitaUserInfo.h"
 
 @implementation JANQiitaUserInfo
+
+#pragma mark - override Realm
++ (NSString *)primaryKey
+{
+    return @"qiitaId";
+}
+
+#pragma mark - serialize and deserialize
 - (id)initWithCoder:(NSCoder *)coder {
     if (self = [super init]) {
         self.name = [coder decodeObjectForKey:@"name"];
