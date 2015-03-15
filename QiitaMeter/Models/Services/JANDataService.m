@@ -70,7 +70,6 @@
 {
     if ([[JANUserService loadUser] accessTokens]) {
         [JANUserService retrieveQiitaUserInfoWithSuccessHandler:^(JANQiitaUserInfo *qiitaUserInfo) {
-            [JANQiitaUserInfoService saveQiitaUserInfo:qiitaUserInfo];
             [JANUserService saveQiitaId:qiitaUserInfo.qiitaId];
             
             NSNotification *n = [NSNotification notificationWithName:QIITA_USER_INFO_VIEW_UPDATE object:self userInfo:@{QIITA_USER_INFO_NOTIFICATION_KEY:qiitaUserInfo}];

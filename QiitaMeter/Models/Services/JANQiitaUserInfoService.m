@@ -9,6 +9,7 @@
 #import "JANQiitaUserInfoService.h"
 #import "JANQiitaUserInfo.h"
 #import "JANQiitaConnector.h"
+#import <Realm/Realm.h>
 
 #define QIITA_USER_INFO @"QIITA_USER_INFO"
 
@@ -37,43 +38,18 @@
     qiitaUserInfo.followersCount = [dic[@"followers_count"] integerValue];
     qiitaUserInfo.followeesCount = [dic[@"followees_count"] integerValue];
     qiitaUserInfo.itemsCount = [dic[@"items_count"] integerValue];
+    
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm transactionWithBlock:^{
+        [realm addOrUpdateObject:qiitaUserInfo];
+    }];
     return qiitaUserInfo;
 }
 
-+ (void)saveQiitaUserInfo:(JANQiitaUserInfo*) qiitaUserInfo
++ (JANQiitaUserInfo *)qiitaUserInfoWithQiitaId:(NSString *)qiitaId
 {
-    NSData* data = [NSKeyedArchiver archivedDataWithRootObject:qiitaUserInfo];
-    
-    NSMutableArray *qiitaUserInfos = [NSMutableArray arrayWithArray:[self loadQiitaUserInfos]];
-    [qiitaUserInfos addObject:data];
-    [self saveQiitaUserInfos:qiitaUserInfos];
-    
-}
-
-+ (JANQiitaUserInfo *)lastQiitaUserInfo
-{
-    NSArray *qiitaUserInfos = [self loadQiitaUserInfos];
-    NSData* data = (NSData*)[qiitaUserInfos lastObject];
-    if (data) {
-        return [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    }
-    return [[JANQiitaUserInfo alloc] init];
-}
-
-+ (NSArray *)loadQiitaUserInfos
-{
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSArray *qiitaUserInfos = [userDefaults objectForKey:QIITA_USER_INFO];
-    if (qiitaUserInfos) {
-        return [userDefaults objectForKey:QIITA_USER_INFO];
-    }
-    return [NSArray array];
-}
-
-+ (void)saveQiitaUserInfos:(NSArray*)qiitaUserInfos
-{
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:qiitaUserInfos forKey:QIITA_USER_INFO];
-    [userDefaults synchronize];
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    RLMResults *results = [JANQiitaUserInfo objectsInRealm:realm where:@"qiitaId = %@", qiitaId];
+    return results.firstObject;
 }
 @end

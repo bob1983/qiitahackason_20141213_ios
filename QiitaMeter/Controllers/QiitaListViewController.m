@@ -45,7 +45,8 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     if (self) {
         self.userInfoService = [[JANQiitaUserInfoService alloc] init];
         self.stockService    = [[JANStockService alloc] init];
-        self.myQiitaUserInfo = [JANQiitaUserInfoService lastQiitaUserInfo];
+        NSString *myQiitaId = [[JANUserService loadUser] qiitaId];
+        self.myQiitaUserInfo = [JANQiitaUserInfoService qiitaUserInfoWithQiitaId:myQiitaId];
         self.myQiitaStocks = [JANStockService lastStock];
         self.myPoint = [JANPointService makePointWithLastCount:[[JANQiitaCount alloc] initWithQiitaUserInfo:_myQiitaUserInfo stocks:_myQiitaStocks] secondCount:nil];
         self.rivalsStocks = [NSMutableDictionary dictionary];
