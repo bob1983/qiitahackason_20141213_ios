@@ -13,14 +13,20 @@
 #import "JANUserService.h"
 
 @implementation JANOauthViewController
+
+#pragma mark - view life cycle
+
 - (void)viewDidLoad
 {
     NSURL *url = [JANConfig oauthApiUrl];
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
-    [_oauthWebView loadRequest:req];
+    [self.oauthWebView loadRequest:req];
 }
+
+#pragma mark - UIWebView delegate
 // ページ読込開始時にインジケータをくるくるさせる
--(void)webViewDidStartLoad:(UIWebView*)webView{
+- (void)webViewDidStartLoad:(UIWebView*)webView
+{
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 }
 
@@ -28,22 +34,31 @@
 -(void)webViewDidFinishLoad:(UIWebView*)webView{
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+
+- (BOOL)webView:(UIWebView *)webView
+        shouldStartLoadWithRequest:(NSURLRequest *)request
+        navigationType:(UIWebViewNavigationType)navigationType
 {
     if ([request.URL.host isEqualToString:[JANConfig oauthRedirectUrlString]]) {
         NSString *code = [request.URL.uq_queryDictionary valueForKey:@"code"];
-        [JANQiitaConnector retrieveQiitaAccessTokensWithCode:code successHandler:^(NSString *accessToekns){
+        __weak typeof(self) weakSelf = self;
+        [JANQiitaConnector retrieveQiitaAccessTokensWithCode:code
+                                              successHandler:^(NSString *accessToekns) {
             [JANUserService saveAccessTokens:accessToekns];
-            [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
-        } failedHandler:^(){
-            
-        }];
+            [weakSelf.presentingViewController dismissViewControllerAnimated:YES
+                                                              completion:nil];
+                                              }
+                                               failedHandler:nil];
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         return NO;
     }
     return YES;
 }
-- (IBAction)oauthCancel:(id)sender {
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+
+- (IBAction)oauthCancel:(id)sender
+{
+    [self.presentingViewController dismissViewControllerAnimated:YES
+                                                      completion:nil];
 }
+
 @end
