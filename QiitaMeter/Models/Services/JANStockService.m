@@ -20,7 +20,7 @@
 {
     [self _retrieveStocksWithUserId:userId
                                page:1
-                            perPage:1
+                            perPage:100
                      successHandler:successHandler
                       failedHandler:failedHandler];
 }
@@ -38,28 +38,28 @@
                             perPage:perPage
                      successHandler:^(NSArray *stocks, NSInteger maxPage) {
                          NSLog(@"maxPage:%ld", (long)maxPage);
-//                         // ページングを行って最大値を取得する場合 
-//                         if (page == 1) {
-//                             stockary = [NSMutableArray arrayWithArray:stocks];
-//                         } else {
-//                             [stockary addObjectsFromArray:stocks];
-//                         }
-//                         NSLog(@"count:%ld", stocks.count);
-//                         if (stocks.count == perPage) {
-//                             NSLog(@"%ld以上", perPage * page);
-//                             [self _retrieveStocksWithUserId:userId
-//                                                        page:page+1
-//                                                     perPage:perPage
-//                                              successHandler:successHandler
-//                                               failedHandler:failedHandler];
-//                             
-//                         } else {
+                         // ページングを行って最大値を取得する場合 
+                         if (page == 1) {
+                             stockary = [NSMutableArray arrayWithArray:stocks];
+                         } else {
+                             [stockary addObjectsFromArray:stocks];
+                         }
+                         NSLog(@"count:%ld", stocks.count);
+                         if (stocks.count == perPage) {
+                             NSLog(@"%ld以上", perPage * page);
+                             [self _retrieveStocksWithUserId:userId
+                                                        page:page+1
+                                                     perPage:perPage
+                                              successHandler:successHandler
+                                               failedHandler:failedHandler];
+                             
+                         } else {
                              if (successHandler) {
                                  JANStock *stock = [self janStockFromRetrievedArray:stockary];
-                                 stock.count = maxPage * perPage;
+//                                 stock.count = maxPage * perPage;
                                  successHandler(stock);
                              }
-//                         }
+                         }
                      }
                       failedHandler:failedHandler];
 }
