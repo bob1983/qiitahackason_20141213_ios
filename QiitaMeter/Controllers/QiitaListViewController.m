@@ -55,62 +55,37 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
     
-    //self.title = [self.myQiitaUserInfo accountName];
     self.navigationItem.title = @"元気？";
     
+    UIImage *settingImage = [[UIImage imageNamed:@"gear"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc]
-                                       initWithImage:[[UIImage imageNamed:@"gear"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+                                       initWithImage:settingImage
                                        style:UIBarButtonItemStylePlain
                                        target:self
                                        action:@selector(updateQiitaListRequest)]; //設定画面への遷移イベントとする
-    
-    [settingsButton setBackgroundImage:[UIImage new] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [settingsButton setBackgroundImage:[[UIImage alloc] init]
+                              forState:UIControlStateNormal
+                            barMetrics:UIBarMetricsDefault];
 
-    //以下リロード処理。別途再利用する
-/*
-    UIBarButtonItem* dataUpdateButton = [[UIBarButtonItem alloc]
-                                         initWithTitle:@"更新"
-                                         style:UIBarButtonItemStylePlain
-                                         target:self
-                                         action:@selector(updateQiitaListRequest)];
-
-    self.navigationItem.rightBarButtonItem = dataUpdateButton;
-*/
     self.navigationItem.leftBarButtonItem = settingsButton;
-
-//    [self setLogoutBarButton];
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
     [JANDataService setViewUpdateToObserver:self];
     [JANDataService dataUpdateRequest:nil];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-//ログアウトボタンは設定画面に設置する
-/*
-- (void)setLogoutBarButton
+- (void)didReceiveMemoryWarning
 {
-    UIBarButtonItem *leftBtn = [[UIBarButtonItem alloc]
-                   initWithTitle:@"Logout"
-                   style:UIBarButtonItemStylePlain
-                   target:self
-                   action:@selector(logout)];
-
-    self.navigationItem.leftBarButtonItem = leftBtn;
+    [super didReceiveMemoryWarning];
 }
-*/
 
 - (void)logout
 {
@@ -123,12 +98,14 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+- (CGFloat)tableView:(UITableView *)tableView
+           heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 116;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+- (NSString *)tableView:(UITableView *)tableView
+              titleForHeaderInSection:(NSInteger)section
 {
     if (section == 0) {
         return @"今日のGenQi";
@@ -140,17 +117,21 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 {
     return 2;
 }
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+
+- (NSInteger)tableView:(UITableView *)tableView
+ numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
         return 1;
     }
     return _rivalsQiitaUserInfo.count;
 }
+
 - (void)viewDidLayoutSubviews
 {
     
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
