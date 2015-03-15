@@ -12,6 +12,7 @@
 #import "JANUserService.h"
 #import "JANUser.h"
 #import "JANOtherQiitaUsersService.h"
+#import "JANStock.h"
 
 #define QIITA_USER_INFO_VIEW_UPDATE @"Qiita_User_Info_View_Update"
 #define STOCK_VIEW_UPDATE @"Stock_View_Update"
@@ -72,16 +73,19 @@
         [JANUserService retrieveQiitaUserInfoWithSuccessHandler:^(JANQiitaUserInfo *qiitaUserInfo) {
             [JANUserService saveQiitaId:qiitaUserInfo.qiitaId];
             
+            NSString *qiitaId = [qiitaUserInfo.qiitaId copy];
             NSNotification *n = [NSNotification notificationWithName:QIITA_USER_INFO_VIEW_UPDATE object:self userInfo:@{QIITA_USER_INFO_NOTIFICATION_KEY:qiitaUserInfo}];
             
             [[NSNotificationCenter defaultCenter] postNotification:n];
             [JANStockService retrieveStocksWithUserId:qiitaUserInfo.qiitaId
                                        successHandler:^(JANStock *stock) {
-                                           [JANStockService saveStock:stock];
-                                           
                                            NSNotification *n = [NSNotification notificationWithName:STOCK_VIEW_UPDATE object:self userInfo:@{STOCK_NOTIFICATION_KEY:stock}];
                                            
                                            [[NSNotificationCenter defaultCenter] postNotification:n];
+                                           JANQiitaUserInfo *qiitaUserInfo = [JANQiitaUserInfoService qiitaUserInfoWithQiitaId:qiitaId];
+                                           [[RLMRealm defaultRealm] transactionWithBlock:^{
+                                               qiitaUserInfo.stocksCount = stock.count;
+                                           }];
                                        }
                                         failedHandler:nil];
         } failedHandler:nil];
