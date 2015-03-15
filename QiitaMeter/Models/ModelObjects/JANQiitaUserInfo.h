@@ -6,14 +6,19 @@
 //  Copyright (c) 2014年 janehouse. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Realm/Realm.h>
 
-@interface JANQiitaUserInfo : NSObject
-@property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *qiitaId;
-@property (nonatomic, copy) NSString *profileImageUrl;
-@property (nonatomic)       NSUInteger followersCount;
-@property (nonatomic)       NSUInteger followeesCount;
-@property (nonatomic)       NSUInteger itemsCount;
+/**
+ * Qiitaのユーザを表す
+ */
+@interface JANQiitaUserInfo : RLMObject
+
+@property NSString *name;
+@property NSString *qiitaId;
+@property NSString *profileImageUrl;
+@property NSInteger followersCount;
+@property NSInteger followeesCount;
+@property NSInteger itemsCount;
 - (NSString *)accountName;
+
 @end
