@@ -21,6 +21,7 @@
 #import "JANOtherQiitaUsersService.h"
 #import "JANUserService.h"
 #import "JANConfig.h"
+#import "JANSettingViewController.h"
 
 static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewCell";
 
@@ -68,7 +69,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
                                        initWithImage:[[UIImage imageNamed:@"gear"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
                                        style:UIBarButtonItemStylePlain
                                        target:self
-                                       action:@selector(updateQiitaListRequest)]; //設定画面への遷移イベントとする
+                                       action:@selector(openListViewController)]; //設定画面への遷移イベントとする
     
     [settingsButton setBackgroundImage:[UIImage new] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 
@@ -274,5 +275,14 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     if ([[UIApplication sharedApplication] canOpenURL:url]) {
         [[UIApplication sharedApplication] openURL:url];
     }
+}
+
+#pragma -
+-(void)openListViewController{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"SettingViewController"
+                                                         bundle:[NSBundle mainBundle]];
+    JANSettingViewController *controller = [storyboard instantiateInitialViewController];
+    [self.navigationController pushViewController:controller
+                                         animated:NO];
 }
 @end
