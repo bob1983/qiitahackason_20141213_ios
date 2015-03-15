@@ -72,14 +72,14 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
                               forState:UIControlStateNormal
                             barMetrics:UIBarMetricsDefault];
 
-    self.navigationItem.leftBarButtonItem = settingsButton;
+    self.navigationItem.rightBarButtonItem = settingsButton;
     UIBarButtonItem *reloadButton = [[UIBarButtonItem alloc]
                                        initWithTitle:@"Reload"
                                        style:UIBarButtonItemStylePlain
                                        target:self
                                        action:@selector(updateQiitaListRequest)];
     
-    self.navigationItem.rightBarButtonItem = reloadButton;
+    self.navigationItem.leftBarButtonItem = reloadButton;
 }
 
 - (void)viewWillAppear:(BOOL)animated
