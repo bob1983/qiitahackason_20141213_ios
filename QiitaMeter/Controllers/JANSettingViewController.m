@@ -11,6 +11,8 @@
 
 @interface JANSettingViewController ()<UITableViewDataSource, UITableViewDelegate, JANDataServiceViewUpdateObserver>
 
+@property (weak, nonatomic) IBOutlet UITableView *userTableView;
+@property (nonatomic, strong) RLMResults *userList;
 @end
 
 @implementation JANSettingViewController

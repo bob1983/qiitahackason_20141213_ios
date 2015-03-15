@@ -10,7 +10,4 @@
 #import "JANQiitaUserInfoService.h"
 
 @interface JANSettingViewController : UIViewController
-
-@property (weak, nonatomic) IBOutlet UITableView *userTableView;
-@property (nonatomic, strong) RLMResults *userList;
 @end
