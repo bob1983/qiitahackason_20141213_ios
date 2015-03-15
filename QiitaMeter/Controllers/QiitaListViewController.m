@@ -30,20 +30,17 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 @property (nonatomic, strong) NSArray *rivalsQiitaUserInfo;
 @property (nonatomic, strong) JANStock *myQiitaStocks;
 @property (nonatomic, strong) JANPoint *myPoint;
-@property (nonatomic, strong) JANQiitaUserInfoService *userInfoService;
-@property (nonatomic, strong) JANStockService *stockService;
 @property (nonatomic, strong) NSMutableDictionary *rivalsStocks;
 @property (strong, nonatomic) IBOutlet UITableView *qiitaListView;
 @end
 
 @implementation QiitaListViewController
 
+#pragma mark - lifecycle
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.userInfoService = [[JANQiitaUserInfoService alloc] init];
-        self.stockService    = [[JANStockService alloc] init];
         self.rivalsStocks = [NSMutableDictionary dictionary];
     }
     return self;
@@ -82,11 +79,17 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     [JANDataService dataUpdateRequest:nil];
 }
 
+- (void)viewDidLayoutSubviews
+{
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark -
 - (void)logout
 {
     [JANDataService setViewUpdateToObserver:self];
@@ -97,6 +100,8 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+#pragma mark - TableView
 
 - (CGFloat)tableView:(UITableView *)tableView
            heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -125,11 +130,6 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
         return 1;
     }
     return _rivalsQiitaUserInfo.count;
-}
-
-- (void)viewDidLayoutSubviews
-{
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -184,13 +184,31 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     
     return cell;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *selectedQiitaUserId;
+    if( indexPath.section == 0 ) {
+        if( indexPath.row == 0 ) {
+            //自分のQiitaページ
+            selectedQiitaUserId = self.myQiitaUserInfo.qiitaId;
+        }
+    } else {
+        JANQiitaUserInfo *selectedQiitaUserInfo = [self.rivalsQiitaUserInfo objectAtIndex:indexPath.row];
+        selectedQiitaUserId = selectedQiitaUserInfo.qiitaId;
+    }
+    // Safariで指定したURLを開く
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat: @"http://qiita.com/%@", selectedQiitaUserId]];
+    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+        [[UIApplication sharedApplication] openURL:url];
+    }
+}
 
 - (void)updateQiitaListRequest
 {
     [JANDataService dataUpdateRequest:nil];
 }
 
-#pragma -
+#pragma - Notifications
 - (void)updateViewWithQiitaUserInfo:(NSNotification *)dic
 {
     JANQiitaUserInfo *qiitaUserInfo = [[dic userInfo] objectForKey:QIITA_USER_INFO_NOTIFICATION_KEY];
@@ -233,25 +251,5 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     NSString *qiitaId = [[dic userInfo] objectForKey:QIITA_ID_NOTIFICATION_KEY];
     [self.rivalsStocks setObject:stock forKey:qiitaId];
     [self.qiitaListView reloadData];
-}
-
-#pragma -
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSString *selectedQiitaUserId;
-    if( indexPath.section == 0 ) {
-        if( indexPath.row == 0 ) {
-            //自分のQiitaページ
-            selectedQiitaUserId = self.myQiitaUserInfo.qiitaId;
-        }
-    } else {
-        JANQiitaUserInfo *selectedQiitaUserInfo = [self.rivalsQiitaUserInfo objectAtIndex:indexPath.row];
-        selectedQiitaUserId = selectedQiitaUserInfo.qiitaId;
-    }
-    // Safariで指定したURLを開く
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat: @"http://qiita.com/%@", selectedQiitaUserId]];
-    if ([[UIApplication sharedApplication] canOpenURL:url]) {
-        [[UIApplication sharedApplication] openURL:url];
-    }
 }
 @end
