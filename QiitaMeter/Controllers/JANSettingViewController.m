@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _count = 1;
+    self.userList = [JANQiitaUserInfoService qiitaUserInfosWithoutOwn];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -26,33 +26,25 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 #pragma -
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _count;
+    return [self.userList count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld - %ld", (long)indexPath.section, (long)indexPath.row];
+   JANQiitaUserInfo *userInfo = [self.userList objectAtIndex:indexPath.row];
+    cell.textLabel.text = userInfo.accountName;
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        _count--;
+        JANQiitaUserInfo *qiitaUserInfo = [self.userList objectAtIndex:indexPath.row];
+        [JANQiitaUserInfoService deleteQiitaUserInfoWithQiitaId:qiitaUserInfo.qiitaId];
         [self.userTableView beginUpdates];
         [self.userTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
         [self.userTableView endUpdates];
@@ -110,11 +102,25 @@
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex==1) {
-        _count++;
-        NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:_count-1 inSection:0];
-        [self.userTableView beginUpdates];
-        [self.userTableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationMiddle];
-        [self.userTableView endUpdates];
+        NSString *inputText = [[alertView textFieldAtIndex:0] text];
+        [JANQiitaUserInfoService retrieveQiitaUserInfoWithUserId:inputText successHandler:^(JANQiitaUserInfo *userInfo) {
+            // 保存済み
+            // データの順番を取得し，arrayを更新して，表示を更新
+            self.userList = [JANQiitaUserInfoService qiitaUserInfosWithoutOwn];
+            NSUInteger row = [self.userList indexOfObjectWhere:@"qiitaId = %@", userInfo.qiitaId];
+            NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:row inSection:0];
+            [self.userTableView beginUpdates];
+            [self.userTableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+            [self.userTableView endUpdates];
+
+        } failedHandler:^{
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"ID Error"
+                                                              message:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Cancel"
+                                                    otherButtonTitles:nil];
+            [message show];
+        }];
     }
 }
 @end

@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JANQiitaUserInfoService.h"
 
 @interface JANSettingViewController : UIViewController
-{
-    NSInteger _count;
-}
 
 @property (weak, nonatomic) IBOutlet UITableView *userTableView;
+@property (nonatomic, strong) RLMResults *userList;
 @end
