@@ -27,7 +27,7 @@
     CGRect frame = _contributeCountBackImageView.frame;
     frame.size.width = _contributeCountLabel.frame.size.width;
     frame.size.height = _contributeCountLabel.frame.size.height;
-    [_contributeCountBackImageView setFrame:frame];
+//    [_contributeCountBackImageView setFrame:frame];
     [self reset];
 }
 
