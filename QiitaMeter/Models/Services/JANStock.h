@@ -11,5 +11,5 @@
 @interface JANStock : NSObject
 // TODO: モデルをちゃんと作る
 @property (nonatomic, copy) id data;
-@property (nonatomic, assign) NSUInteger count;
+@property (nonatomic, assign) NSInteger count;
 @end

@@ -19,6 +19,8 @@
 @property NSInteger followersCount;
 @property NSInteger followeesCount;
 @property NSInteger itemsCount;
+@property NSInteger stocksCount;
+
 - (NSString *)accountName;
 
 @end
