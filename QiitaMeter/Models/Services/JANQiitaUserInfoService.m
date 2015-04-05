@@ -32,6 +32,7 @@
     [JANQiitaConnector retrieveQiitaUserInfoWithUserId:userId
                                         successHandler:^(NSDictionary *userInfo) {
                                             JANQiitaUserInfo *qiitaUserInfo = [JANQiitaUserInfoService janQiitaUserInfoFromRetrievedDictionary:userInfo];
+                                            [JANQiitaUserInfoService saveWithQiitaUserinfo:qiitaUserInfo];
                                             if (qiitaUserInfo) {
                                                 if (successHandler){
                                                     successHandler(qiitaUserInfo);
