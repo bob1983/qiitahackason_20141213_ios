@@ -6,9 +6,10 @@
 //  Copyright (c) 2015年 bob. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <Realm/Realm.h>
 
-@interface JANPoint : NSObject
-@property (nonatomic, assign) NSInteger totalPoint;
-@property (nonatomic, assign) float gaugePersentValue;
+@interface JANPoint : RLMObject
+@property NSString *qiitaId;
+@property NSInteger totalPoint;
+@property float gaugePersentValue;
 @end

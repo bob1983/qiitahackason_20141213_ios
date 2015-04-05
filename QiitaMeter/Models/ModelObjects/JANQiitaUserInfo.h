@@ -20,7 +20,7 @@
 @property NSInteger followeesCount;
 @property NSInteger itemsCount;
 @property NSInteger stocksCount;
-
+@property NSDate *lastUpdate;
 - (NSString *)accountName;
 
 @end

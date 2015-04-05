@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@class JANQiitaCount, JANPoint;
+@class JANQiitaUserInfo, JANPoint;
 
 @interface JANPointService : NSObject
-+ (JANPoint *)makePointWithLastCount:(JANQiitaCount *)lastCount secondCount:(JANQiitaCount *)seccondCounts;
++ (void)makePointWithLastUserInfo:(JANQiitaUserInfo *)lastUserInfo newUserInfo:(JANQiitaUserInfo *)newUserInfo;
 @end

@@ -10,6 +10,7 @@
 #import "JANQiitaUserInfo.h"
 #import "JANQiitaConnector.h"
 #import <Realm/Realm.h>
+#import "JANPointService.h"
 
 #define QIITA_USER_INFO @"QIITA_USER_INFO"
 
@@ -39,6 +40,12 @@
     qiitaUserInfo.followeesCount = [dic[@"followees_count"] integerValue];
     qiitaUserInfo.itemsCount = [dic[@"items_count"] integerValue];
     
+    // ポイントを生成
+    JANQiitaUserInfo *lastUserInfo = [self qiitaUserInfoWithQiitaId:qiitaUserInfo.qiitaId];
+    [JANPointService makePointWithLastUserInfo:lastUserInfo newUserInfo:qiitaUserInfo];
+    
+    
+    qiitaUserInfo.lastUpdate = [NSDate date];
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm transactionWithBlock:^{
         [realm addOrUpdateObject:qiitaUserInfo];

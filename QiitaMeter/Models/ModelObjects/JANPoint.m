@@ -9,6 +9,12 @@
 #import "JANPoint.h"
 
 @implementation JANPoint
+#pragma mark - override Realm
++ (NSString *)primaryKey
+{
+    return @"qiitaId";
+}
+
 - (id)initWithCoder:(NSCoder *)coder {
     if (self = [super init]) {
         self.totalPoint = [coder decodeIntegerForKey:@"totalPoint"];
