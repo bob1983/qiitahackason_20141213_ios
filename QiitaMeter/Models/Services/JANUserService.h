@@ -17,12 +17,9 @@ typedef void(^JANUserServiceRetrieveAccessTokensSuccessHandler)(NSString *);
 typedef void(^JANUserServiceFailedHandler)();
 
 @interface JANUserService : NSObject
-+ (void)retrieveAccessTokensWithCode:(NSString *)code
-                  successHandler:(JANUserServiceRetrieveAccessTokensSuccessHandler)successHandler
-                   failedHandler:(JANUserServiceFailedHandler)failedHandler;
 
 + (void)retrieveQiitaUserInfoWithSuccessHandler:(JANUserServiceRetrieveQiitaUserInfoSuccessHandler)successHandler
-                          failedHandler:(JANUserServiceFailedHandler)failedHandler;
+                                  failedHandler:(JANUserServiceFailedHandler)failedHandler;
 + (void)retrieveDeleteAccessTokensWithSuccessHandler:(JANUserServiceRetrieveSuccessHandler)successHandler
                                        failedHandler:(JANUserServiceFailedHandler)failedHandler;
 

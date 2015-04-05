@@ -16,13 +16,6 @@
 
 @implementation JANUserService
 
-+ (void)retrieveAccessTokensWithCode:(NSString *)code
-                      successHandler:(JANUserServiceRetrieveAccessTokensSuccessHandler)successHandler
-                       failedHandler:(JANUserServiceFailedHandler)failedHandler
-{
-    [JANQiitaConnector retrieveQiitaAccessTokensWithCode:code successHandler:successHandler failedHandler:failedHandler];
-}
-
 + (void)retrieveQiitaUserInfoWithSuccessHandler:(JANUserServiceRetrieveQiitaUserInfoSuccessHandler)successHandler
                                   failedHandler:(JANUserServiceFailedHandler)failedHandler
 {
