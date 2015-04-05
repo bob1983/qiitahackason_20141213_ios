@@ -29,6 +29,7 @@
 		BF67D9D41A3C2834004B53B5 /* stockIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9D11A3C2834004B53B5 /* stockIcon@2x.png */; };
 		BF67D9D81A3C2AC7004B53B5 /* postArticleIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9D71A3C2AC7004B53B5 /* postArticleIcon@2x.png */; };
 		BF67D9DB1A3C2B0F004B53B5 /* QiitaListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF67D9DA1A3C2B0F004B53B5 /* QiitaListTableViewCell.m */; };
+		E407AD8F1AD101FB00F1EF18 /* JANQiitaUserViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E407AD8E1AD101FB00F1EF18 /* JANQiitaUserViewModel.m */; };
 		E41710261A497EA7005D86A9 /* JANBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E41710251A497EA7005D86A9 /* JANBaseViewController.m */; };
 		E41710291A498133005D86A9 /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E41710281A498133005D86A9 /* IntroductionViewController.m */; };
 		E417102B1A4981D1005D86A9 /* IntroductionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E417102A1A4981D1005D86A9 /* IntroductionViewController.storyboard */; };
@@ -93,6 +94,8 @@
 		BF67D9D71A3C2AC7004B53B5 /* postArticleIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "postArticleIcon@2x.png"; sourceTree = "<group>"; };
 		BF67D9D91A3C2B0F004B53B5 /* QiitaListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiitaListTableViewCell.h; sourceTree = "<group>"; };
 		BF67D9DA1A3C2B0F004B53B5 /* QiitaListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiitaListTableViewCell.m; sourceTree = "<group>"; };
+		E407AD8D1AD101FB00F1EF18 /* JANQiitaUserViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANQiitaUserViewModel.h; sourceTree = "<group>"; };
+		E407AD8E1AD101FB00F1EF18 /* JANQiitaUserViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANQiitaUserViewModel.m; sourceTree = "<group>"; };
 		E41710241A497EA7005D86A9 /* JANBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANBaseViewController.h; sourceTree = "<group>"; };
 		E41710251A497EA7005D86A9 /* JANBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANBaseViewController.m; sourceTree = "<group>"; };
 		E41710271A498133005D86A9 /* IntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionViewController.h; sourceTree = "<group>"; };
@@ -210,6 +213,8 @@
 				BF61B5991A63CEF9004B914E /* JANPoint.m */,
 				BF61B59B1A63CF15004B914E /* JANQiitaCount.h */,
 				BF61B59C1A63CF15004B914E /* JANQiitaCount.m */,
+				E407AD8D1AD101FB00F1EF18 /* JANQiitaUserViewModel.h */,
+				E407AD8E1AD101FB00F1EF18 /* JANQiitaUserViewModel.m */,
 			);
 			path = ModelObjects;
 			sourceTree = "<group>";
@@ -489,6 +494,7 @@
 				BF63809D1A738BCF00986789 /* JANOtherQiitaUsersService.m in Sources */,
 				BF53DAAA1A4995AA00BE276C /* JANNetworkInterface.m in Sources */,
 				BF53DAAB1A4995AA00BE276C /* JANQiitaConnector.m in Sources */,
+				E407AD8F1AD101FB00F1EF18 /* JANQiitaUserViewModel.m in Sources */,
 				BF61B5901A636377004B914E /* JANOauthViewController.m in Sources */,
 				E4BE16E71A3C1E61000FE3BE /* JANQiitaUserInfo.m in Sources */,
 				BF67D9DB1A3C2B0F004B53B5 /* QiitaListTableViewCell.m in Sources */,
