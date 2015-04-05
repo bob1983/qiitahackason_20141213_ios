@@ -33,12 +33,6 @@
     [self userDataUpdateRequest];
     [self otherUserDataUpdateRequest];
 }
-+ (void)viewUpdateRequest
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-    });
-}
 
 + (void)logoutRequest:(JANDataServiceFinishHandler)finishHnadler
 {

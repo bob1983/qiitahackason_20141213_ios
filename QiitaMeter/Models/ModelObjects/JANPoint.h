@@ -10,5 +10,5 @@
 
 @interface JANPoint : NSObject
 @property (nonatomic, assign) NSInteger totalPoint;
-@property (nonatomic, assign) float gaugePersentValue;
+@property (nonatomic, assign) CGFloat gaugePersentValue;
 @end
