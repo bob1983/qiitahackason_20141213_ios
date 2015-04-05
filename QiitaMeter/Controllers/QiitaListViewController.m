@@ -258,7 +258,18 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     JANQiitaUserInfo *otherQiitaUser = [[dic userInfo] objectForKey:OTHER_QIITA_USER_INFOS_NOTIFICATION_KEY];
     if (self.rivalsQiitaUserInfo) {
         NSMutableArray *tempRivals = [self.rivalsQiitaUserInfo mutableCopy];
-        [tempRivals addObject:otherQiitaUser];
+        __block NSInteger index = NSNotFound;
+        [tempRivals enumerateObjectsUsingBlock:^(JANQiitaUserInfo *qiitaUserInfo, NSUInteger idx, BOOL *stop) {
+            if ([qiitaUserInfo.qiitaId isEqualToString:otherQiitaUser.qiitaId]) {
+                index = idx;
+                *stop = YES;
+            }
+        }];
+        if (index == NSNotFound) {
+            [tempRivals addObject:otherQiitaUser];
+        } else {
+            [tempRivals replaceObjectAtIndex:index withObject:otherQiitaUser];
+        }
         self.rivalsQiitaUserInfo = tempRivals;
     } else {
         self.rivalsQiitaUserInfo = @[otherQiitaUser];
