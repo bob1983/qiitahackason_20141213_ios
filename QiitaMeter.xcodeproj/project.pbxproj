@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1BE2E2DD77D51FCA65AA0189 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2A0CA0E3E7C0DAAE6614BA /* libPods.a */; };
+		7EBE67CE4BA22851EE21DAD6 /* libPods-QiitaMeterTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 066594C8BDDAEA125F679712 /* libPods-QiitaMeterTests.a */; };
 		BF1AC2321AB52ABE007BFF79 /* SettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1AC2311AB52ABE007BFF79 /* SettingViewController.storyboard */; };
 		BF1AC2351AB52BFC007BFF79 /* JANSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1AC2341AB52BFC007BFF79 /* JANSettingViewController.m */; };
 		BF53DA9B1A494CAE00BE276C /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF53DA9A1A494CAE00BE276C /* LoginViewController.storyboard */; };
@@ -30,6 +31,7 @@
 		BF67D9D81A3C2AC7004B53B5 /* postArticleIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9D71A3C2AC7004B53B5 /* postArticleIcon@2x.png */; };
 		BF67D9DB1A3C2B0F004B53B5 /* QiitaListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF67D9DA1A3C2B0F004B53B5 /* QiitaListTableViewCell.m */; };
 		E407AD8F1AD101FB00F1EF18 /* JANQiitaUserViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E407AD8E1AD101FB00F1EF18 /* JANQiitaUserViewModel.m */; };
+		E407AD911AD1089400F1EF18 /* JanQiitaUserViewModelTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = E407AD901AD1089400F1EF18 /* JanQiitaUserViewModelTestCase.m */; };
 		E41710261A497EA7005D86A9 /* JANBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E41710251A497EA7005D86A9 /* JANBaseViewController.m */; };
 		E41710291A498133005D86A9 /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E41710281A498133005D86A9 /* IntroductionViewController.m */; };
 		E417102B1A4981D1005D86A9 /* IntroductionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E417102A1A4981D1005D86A9 /* IntroductionViewController.storyboard */; };
@@ -59,6 +61,7 @@
 
 /* Begin PBXFileReference section */
 		01D3BC911A73A85700448DE8 /* QiitaMeter_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiitaMeter_Prefix.pch; sourceTree = "<group>"; };
+		066594C8BDDAEA125F679712 /* libPods-QiitaMeterTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QiitaMeterTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6766AF90B45CBB888ADD6844 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BF1AC2311AB52ABE007BFF79 /* SettingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingViewController.storyboard; sourceTree = "<group>"; };
 		BF1AC2331AB52BFC007BFF79 /* JANSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANSettingViewController.h; sourceTree = "<group>"; };
@@ -96,6 +99,7 @@
 		BF67D9DA1A3C2B0F004B53B5 /* QiitaListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QiitaListTableViewCell.m; sourceTree = "<group>"; };
 		E407AD8D1AD101FB00F1EF18 /* JANQiitaUserViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANQiitaUserViewModel.h; sourceTree = "<group>"; };
 		E407AD8E1AD101FB00F1EF18 /* JANQiitaUserViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANQiitaUserViewModel.m; sourceTree = "<group>"; };
+		E407AD901AD1089400F1EF18 /* JanQiitaUserViewModelTestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JanQiitaUserViewModelTestCase.m; sourceTree = "<group>"; };
 		E41710241A497EA7005D86A9 /* JANBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANBaseViewController.h; sourceTree = "<group>"; };
 		E41710251A497EA7005D86A9 /* JANBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANBaseViewController.m; sourceTree = "<group>"; };
 		E41710271A498133005D86A9 /* IntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionViewController.h; sourceTree = "<group>"; };
@@ -142,6 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EBE67CE4BA22851EE21DAD6 /* libPods-QiitaMeterTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				BF2A0CA0E3E7C0DAAE6614BA /* libPods.a */,
+				066594C8BDDAEA125F679712 /* libPods-QiitaMeterTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -270,6 +276,14 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
+		E407AD921AD1089800F1EF18 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E407AD901AD1089400F1EF18 /* JanQiitaUserViewModelTestCase.m */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
 		E4BE16A41A3C1CF6000FE3BE = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +334,7 @@
 			children = (
 				E4BE16CC1A3C1CF6000FE3BE /* QiitaMeterTests.m */,
 				E4BE16CA1A3C1CF6000FE3BE /* Supporting Files */,
+				E407AD921AD1089800F1EF18 /* ViewModels */,
 			);
 			path = QiitaMeterTests;
 			sourceTree = "<group>";
@@ -369,9 +384,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4BE16D31A3C1CF6000FE3BE /* Build configuration list for PBXNativeTarget "QiitaMeterTests" */;
 			buildPhases = (
+				6208B8FBEDC20532F2045057 /* Check Pods Manifest.lock */,
 				E4BE16C21A3C1CF6000FE3BE /* Sources */,
 				E4BE16C31A3C1CF6000FE3BE /* Frameworks */,
 				E4BE16C41A3C1CF6000FE3BE /* Resources */,
+				2F5F3109BEC0F2CF47A9D819 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -465,6 +482,36 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		2F5F3109BEC0F2CF47A9D819 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QiitaMeterTests/Pods-QiitaMeterTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6208B8FBEDC20532F2045057 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		7123023C18E3BD4BCAF356A1 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -519,6 +566,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E407AD911AD1089400F1EF18 /* JanQiitaUserViewModelTestCase.m in Sources */,
 				E4BE16CD1A3C1CF6000FE3BE /* QiitaMeterTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
