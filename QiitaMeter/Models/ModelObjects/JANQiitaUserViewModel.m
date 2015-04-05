@@ -22,7 +22,7 @@
     if (self) {
         _qiitaId            = qiitaUserInfo.qiitaId;
         _profileImageURL    = qiitaUserInfo.profileImageUrl;
-        _name               = qiitaUserInfo.name;
+        _name               = [qiitaUserInfo accountName];
         _itemsCount         = qiitaUserInfo.itemsCount;
         _stocksCount        = qiitaUserInfo.stocksCount;
         _foloweesCount      = qiitaUserInfo.followeesCount;
