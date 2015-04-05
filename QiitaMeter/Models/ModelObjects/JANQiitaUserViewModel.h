@@ -19,6 +19,9 @@
 - (instancetype)initWithQiitaUserInfo:(JANQiitaUserInfo *)qiitaUserInfo
                                 point:(JANPoint *)point;
 
+/// Qiita ID
+@property (nonatomic) NSString *qiitaId;
+
 /// アイコンのパス
 @property (nonatomic) NSString *profileImageURL;
 /// 表示名
