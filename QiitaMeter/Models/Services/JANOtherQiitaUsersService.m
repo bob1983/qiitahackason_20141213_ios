@@ -21,13 +21,12 @@
     
     __block NSMutableArray *users = [NSMutableArray array];
 
-    //現状は，開発者の一覧を返す
-    NSArray *specailUsers = [JANConfig specialUsers];
+    RLMResults *otherUsers = [JANQiitaUserInfoService qiitaUserInfosWithoutOwn];
     
-    for (NSString *userId in specailUsers) {
-        [JANQiitaUserInfoService retrieveQiitaUserInfoWithUserId:userId successHandler:^(JANQiitaUserInfo *qiitaUserInfo) {
+    for (JANQiitaUserInfo *userInfo in otherUsers) {
+        [JANQiitaUserInfoService retrieveQiitaUserInfoWithUserId:userInfo.qiitaId successHandler:^(JANQiitaUserInfo *qiitaUserInfo) {
             [users addObject:qiitaUserInfo];
-            if (users.count == specailUsers.count) {
+            if (users.count == otherUsers.count) {
                 successHandler(users);
             }
             

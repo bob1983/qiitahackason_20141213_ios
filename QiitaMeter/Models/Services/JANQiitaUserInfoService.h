@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "JANQiitaUserInfo.h"
+#import <Realm/Realm.h>
 
 typedef void(^QiitaUserInfoServiceRetrieveSuccessHandler)(JANQiitaUserInfo *);
 typedef void(^QiitaUserInfoServiceRetrieveFailedHandler)();
@@ -25,4 +26,7 @@ typedef void(^QiitaUserInfoServiceRetrieveFailedHandler)();
  *  QiitaIdからJANQiitaUserInfoを検索してくる
  */
 + (JANQiitaUserInfo *)qiitaUserInfoWithQiitaId:(NSString *)qiitaId;
+
++ (RLMResults *)qiitaUserInfosWithoutOwn;
++ (void)deleteQiitaUserInfoWithQiitaId:(NSString *)qiitaId;
 @end

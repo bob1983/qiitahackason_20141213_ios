@@ -38,9 +38,9 @@
 }
 - (NSString *)accountName
 {
-    if ([_name length]) {
-        return _name;
+    if ([self.name length]) {
+        return self.name;
     }
-    return _qiitaId;
+    return self.qiitaId;
 }
 @end

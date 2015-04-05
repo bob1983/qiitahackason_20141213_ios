@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1BE2E2DD77D51FCA65AA0189 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF2A0CA0E3E7C0DAAE6614BA /* libPods.a */; };
+		BF1AC2321AB52ABE007BFF79 /* SettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF1AC2311AB52ABE007BFF79 /* SettingViewController.storyboard */; };
+		BF1AC2351AB52BFC007BFF79 /* JANSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1AC2341AB52BFC007BFF79 /* JANSettingViewController.m */; };
 		BF53DA9B1A494CAE00BE276C /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF53DA9A1A494CAE00BE276C /* LoginViewController.storyboard */; };
 		BF53DA9D1A494CD800BE276C /* QiitaListController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF53DA9C1A494CD800BE276C /* QiitaListController.storyboard */; };
 		BF53DAAA1A4995AA00BE276C /* JANNetworkInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = BF53DAA71A4995AA00BE276C /* JANNetworkInterface.m */; };
@@ -57,6 +59,9 @@
 /* Begin PBXFileReference section */
 		01D3BC911A73A85700448DE8 /* QiitaMeter_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QiitaMeter_Prefix.pch; sourceTree = "<group>"; };
 		6766AF90B45CBB888ADD6844 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		BF1AC2311AB52ABE007BFF79 /* SettingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingViewController.storyboard; sourceTree = "<group>"; };
+		BF1AC2331AB52BFC007BFF79 /* JANSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANSettingViewController.h; sourceTree = "<group>"; };
+		BF1AC2341AB52BFC007BFF79 /* JANSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANSettingViewController.m; sourceTree = "<group>"; };
 		BF2A0CA0E3E7C0DAAE6614BA /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF53DA9A1A494CAE00BE276C /* LoginViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
 		BF53DA9C1A494CD800BE276C /* QiitaListController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QiitaListController.storyboard; sourceTree = "<group>"; };
@@ -168,6 +173,7 @@
 				BF61B58C1A636285004B914E /* OauthViewController.storyboard */,
 				BF61B59E1A63E1A8004B914E /* JANGaugeView.h */,
 				BF61B59F1A63E1A8004B914E /* JANGaugeView.m */,
+				BF1AC2311AB52ABE007BFF79 /* SettingViewController.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,6 +191,8 @@
 				E43AC9BA1A3C2438003A2DFD /* QiitaListViewController.m */,
 				BF61B58E1A636377004B914E /* JANOauthViewController.h */,
 				BF61B58F1A636377004B914E /* JANOauthViewController.m */,
+				BF1AC2331AB52BFC007BFF79 /* JANSettingViewController.h */,
+				BF1AC2341AB52BFC007BFF79 /* JANSettingViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -414,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF61B5971A6372A2004B914E /* config.plist in Resources */,
+				BF1AC2321AB52ABE007BFF79 /* SettingViewController.storyboard in Resources */,
 				BF67D9D41A3C2834004B53B5 /* stockIcon@2x.png in Resources */,
 				E417102B1A4981D1005D86A9 /* IntroductionViewController.storyboard in Resources */,
 				BF67D9D81A3C2AC7004B53B5 /* postArticleIcon@2x.png in Resources */,
@@ -476,6 +485,7 @@
 				BF61B5951A63690B004B914E /* JANConfig.m in Sources */,
 				E4BE16E11A3C1E3D000FE3BE /* JANUserService.m in Sources */,
 				E41710261A497EA7005D86A9 /* JANBaseViewController.m in Sources */,
+				BF1AC2351AB52BFC007BFF79 /* JANSettingViewController.m in Sources */,
 				BF63809D1A738BCF00986789 /* JANOtherQiitaUsersService.m in Sources */,
 				BF53DAAA1A4995AA00BE276C /* JANNetworkInterface.m in Sources */,
 				BF53DAAB1A4995AA00BE276C /* JANQiitaConnector.m in Sources */,
@@ -610,6 +620,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = genqi;
+				PROVISIONING_PROFILE = "03f9c3ee-90c7-4ef1-8428-d531fb029bba";
 			};
 			name = Debug;
 		};

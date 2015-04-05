@@ -21,6 +21,7 @@
 #import "JANOtherQiitaUsersService.h"
 #import "JANUserService.h"
 #import "JANConfig.h"
+#import "JANSettingViewController.h"
 
 static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewCell";
 
@@ -63,12 +64,19 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
                                        initWithImage:settingImage
                                        style:UIBarButtonItemStylePlain
                                        target:self
-                                       action:@selector(updateQiitaListRequest)]; //設定画面への遷移イベントとする
+                                       action:@selector(openSettingViewController)]; //設定画面への遷移イベントとする
     [settingsButton setBackgroundImage:[[UIImage alloc] init]
                               forState:UIControlStateNormal
                             barMetrics:UIBarMetricsDefault];
 
-    self.navigationItem.leftBarButtonItem = settingsButton;
+    self.navigationItem.rightBarButtonItem = settingsButton;
+    UIBarButtonItem *reloadButton = [[UIBarButtonItem alloc]
+                                       initWithTitle:@"Reload"
+                                       style:UIBarButtonItemStylePlain
+                                       target:self
+                                       action:@selector(updateQiitaListRequest)];
+    
+    self.navigationItem.leftBarButtonItem = reloadButton;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -208,6 +216,14 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     [JANDataService dataUpdateRequest:nil];
 }
 
+-(void)openSettingViewController{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"SettingViewController"
+                                                         bundle:[NSBundle mainBundle]];
+    JANSettingViewController *controller = [storyboard instantiateInitialViewController];
+    [self.navigationController pushViewController:controller
+                                         animated:NO];
+}
+
 #pragma - Notifications
 - (void)updateViewWithQiitaUserInfo:(NSNotification *)dic
 {
@@ -252,4 +268,5 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     [self.rivalsStocks setObject:stock forKey:qiitaId];
     [self.qiitaListView reloadData];
 }
+
 @end
