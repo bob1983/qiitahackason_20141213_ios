@@ -16,7 +16,7 @@
 
 @implementation JANPointService
 
-+ (void)makePointWithLastUserInfo:(JANQiitaUserInfo *)lastUserInfo newUserInfo:(JANQiitaUserInfo *)newUserInfo
++ (JANPoint *)makePointWithLastUserInfo:(JANQiitaUserInfo *)lastUserInfo newUserInfo:(JANQiitaUserInfo *)newUserInfo
 {
     JANPoint *point = [[JANPoint alloc] init];
     point.qiitaId = newUserInfo.qiitaId;
@@ -46,7 +46,6 @@
             gaugePersentValue = newTotalPoint/(lastTotalPoint*2);
         }
         
-        //point.totalPoint = (newUserInfo.itemsCount - lastUserInfo.itemsCount)*50 + (newUserInfo.followeesCount - lastUserInfo.followeesCount)*10 + (newUserInfo.stocksCount - lastUserInfo.stocksCount)*1;
         point.totalPoint = newTotalPoint;
         point.gaugePersentValue = gaugePersentValue;
         
@@ -62,18 +61,21 @@
             gaugePersentValue = newTotalPoint/(lastTotalPoint*2);
         }
         
-        //point.totalPoint = (newUserInfo.itemsCount - lastUserInfo.itemsCount)*50 + (newUserInfo.followeesCount - lastUserInfo.followeesCount)*10 + (newUserInfo.stocksCount - lastUserInfo.stocksCount)*1;
         point.totalPoint = newTotalPoint;
         point.gaugePersentValue = gaugePersentValue;
         
     }
     
-    // ポイントを更新し保存
+    return point;
+
+}
+
++ (void)saveWithPoint:(JANPoint *)point
+{
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm transactionWithBlock:^{
         [realm addOrUpdateObject:point];
     }];
-
 }
 
 + (JANPoint *)pointWithQiitaId:(NSString *)qiitaId

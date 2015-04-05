@@ -8,11 +8,14 @@
 
 #import "JANDataService.h"
 #import "JANStockService.h"
+#import "JANPointService.h"
+#import "JANQiitaUserInfo.h"
 #import "JANQiitaUserInfoService.h"
 #import "JANUserService.h"
 #import "JANUser.h"
 #import "JANOtherQiitaUsersService.h"
 #import "JANStock.h"
+#import "JANQiitaUserViewModel.h"
 
 #define QIITA_USER_INFO_VIEW_UPDATE @"Qiita_User_Info_View_Update"
 #define STOCK_VIEW_UPDATE @"Stock_View_Update"
@@ -76,17 +79,33 @@
             [[NSNotificationCenter defaultCenter] postNotification:n];
             [JANStockService retrieveStocksWithUserId:qiitaUserInfo.qiitaId
                                        successHandler:^(JANStock *stock) {
+                                           //ポイントを計算
+                                           JANQiitaUserInfo *lastUserInfo = [self qiitaUserInfoWithQiitaId:qiitaUserInfo.qiitaId];
+                                           qiitaUserInfo.stocksCount = stock.count;
+                                           JANPoint *point = [JANPointService makePointWithLastUserInfo:lastUserInfo newUserInfo:qiitaUserInfo];
+                                           
+                                           //UserInfoとPointを保存
+                                           [JANQiitaUserInfoService saveWithQiitaUserinfo:qiitaUserInfo];
+                                           [JANPointService saveWithPoint:point];
+                                           
+                                           //JANQiitaUserViewModelを生成
+                                           JANQiitaUserViewModel *qiitaUserViewModel = [[JANQiitaUserViewModel alloc] initWithQiitaUserInfo:qiitaUserInfo point:point];
+                                           
+                                           //JANQiitaUserViewModelをわたす //かんちゃん
                                            NSNotification *n = [NSNotification notificationWithName:STOCK_VIEW_UPDATE object:self userInfo:@{STOCK_NOTIFICATION_KEY:stock}];
                                            
                                            [[NSNotificationCenter defaultCenter] postNotification:n];
-                                           JANQiitaUserInfo *qiitaUserInfo = [JANQiitaUserInfoService qiitaUserInfoWithQiitaId:qiitaId];
-                                           [[RLMRealm defaultRealm] transactionWithBlock:^{
-                                               qiitaUserInfo.stocksCount = stock.count;
-                                           }];
                                        }
                                         failedHandler:nil];
         } failedHandler:nil];
     }
+}
+
++ (JANQiitaUserInfo *)qiitaUserInfoWithQiitaId:(NSString *)qiitaId
+{
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    RLMResults *results = [JANQiitaUserInfo objectsInRealm:realm where:@"qiitaId = %@", qiitaId];
+    return results.firstObject;
 }
 
 + (void)otherUserDataUpdateRequest
@@ -132,4 +151,6 @@
     }
     
 }
+
+
 @end

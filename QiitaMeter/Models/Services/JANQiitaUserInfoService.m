@@ -59,17 +59,19 @@
     qiitaUserInfo.itemsCount = [dic[@"items_count"] integerValue];
     
     // ポイントを生成
-    JANQiitaUserInfo *lastUserInfo = [self qiitaUserInfoWithQiitaId:qiitaUserInfo.qiitaId];
-    [JANPointService makePointWithLastUserInfo:lastUserInfo newUserInfo:qiitaUserInfo];
+    //JANQiitaUserInfo *lastUserInfo = [self qiitaUserInfoWithQiitaId:qiitaUserInfo.qiitaId];
+    //[JANPointService makePointWithLastUserInfo:lastUserInfo newUserInfo:qiitaUserInfo];
     
-    
+    return qiitaUserInfo;
+}
+
++ (void)saveWithQiitaUserinfo:(JANQiitaUserInfo *)qiitaUserInfo
+{
     qiitaUserInfo.lastUpdate = [NSDate date];
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm transactionWithBlock:^{
         [realm addOrUpdateObject:qiitaUserInfo];
     }];
-    
-    return qiitaUserInfo;
 }
 
 + (JANQiitaUserInfo *)qiitaUserInfoWithQiitaId:(NSString *)qiitaId
