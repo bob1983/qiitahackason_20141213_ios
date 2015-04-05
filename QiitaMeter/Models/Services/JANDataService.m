@@ -20,6 +20,7 @@
 #define LOGOUT_VIEW_UPDATE @"logout_view_update"
 #define OTHER_QIITA_USER_INFO_VIEW_UPDATE @"Other_Qiita_User_Info_View_Update"
 #define OTHER_USER_STOCK_VIEW_UPDATE @"Other_User_Stock_View_Update"
+#define DELETE_ALL_OTHER_USER_UPDATE @"Delete_All_Other_User_Update"
 
 @interface JANDataService()
 + (void)userDataUpdateRequest;
@@ -32,6 +33,7 @@
     [self userDataUpdateRequest];
     [self otherUserDataUpdateRequest];
 }
+
 + (void)logoutRequest:(JANDataServiceFinishHandler)finishHnadler
 {
     [JANUserService retrieveDeleteAccessTokensWithSuccessHandler:^{
@@ -58,6 +60,8 @@
         [nc addObserver:observer selector:@selector(updateViewWithOtherQiitaUserInfos:) name:OTHER_QIITA_USER_INFO_VIEW_UPDATE object:nil];
     if ([observer respondsToSelector:@selector(updateViewWithOtherUserStock:)])
         [nc addObserver:observer selector:@selector(updateViewWithOtherUserStock:) name:OTHER_USER_STOCK_VIEW_UPDATE object:nil];
+    if ([observer respondsToSelector:@selector(updateViewforDeleteAllOtherUsers)])
+        [nc addObserver:observer selector:@selector(updateViewforDeleteAllOtherUsers) name:DELETE_ALL_OTHER_USER_UPDATE object:nil];
 }
 
 + (void)userDataUpdateRequest
@@ -89,31 +93,42 @@
 {
     // accessToken無い=ログインしていない場合は，取得しない
     if ([[JANUserService loadUser] accessTokens]) {
-        [JANOtherQiitaUsersService retrieveOtherQiitaUsersWithSuccessHandler:^(NSArray *otherQiitaUsers) {
-            //比較ユーザーのデータ取得完了を通知
-            NSNotification *n = [NSNotification notificationWithName:OTHER_QIITA_USER_INFO_VIEW_UPDATE
+        
+        RLMResults *otherUsers = [JANQiitaUserInfoService qiitaUserInfosWithoutOwn];
+        // 設定画面で，比較ユーザーをすべて消した後に，比較画面を更新するために追加
+        // TODO: 他の方法にすべき
+        if (otherUsers.count == 0) {
+            NSNotification *n = [NSNotification notificationWithName:DELETE_ALL_OTHER_USER_UPDATE
                                                               object:self
-                                                            userInfo:@{
-                                                                       OTHER_QIITA_USER_INFOS_NOTIFICATION_KEY:otherQiitaUsers
-                                                                       }];
-            
+                                                            userInfo:nil];
             [[NSNotificationCenter defaultCenter] postNotification:n];
-            for (JANQiitaUserInfo *qiitaUserInfo in otherQiitaUsers) {
-                [JANStockService retrieveStocksWithUserId:qiitaUserInfo.qiitaId successHandler:^(JANStock *stock) {
-                    //比較ユーザーのSstockデータ取得完了を通知
-                    NSNotification *n = [NSNotification notificationWithName:OTHER_USER_STOCK_VIEW_UPDATE
-                                                                      object:self
-                                                                    userInfo:@{
-                                                                               STOCK_NOTIFICATION_KEY:stock,
-                                                                               QIITA_ID_NOTIFICATION_KEY:qiitaUserInfo.qiitaId
-                                                                               }];
-                    
-                    [[NSNotificationCenter defaultCenter] postNotification:n];
-                } failedHandler:^{
-                    
-                }];
-            }
-        } failedHandler:nil];
+        } else {
+            [JANOtherQiitaUsersService retrieveOtherQiitaUsersWithSuccessHandler:^(NSArray *otherQiitaUsers) {
+                //比較ユーザーのデータ取得完了を通知
+                NSNotification *n = [NSNotification notificationWithName:OTHER_QIITA_USER_INFO_VIEW_UPDATE
+                                                                  object:self
+                                                                userInfo:@{
+                                                                           OTHER_QIITA_USER_INFOS_NOTIFICATION_KEY:otherQiitaUsers
+                                                                           }];
+                
+                [[NSNotificationCenter defaultCenter] postNotification:n];
+                for (JANQiitaUserInfo *qiitaUserInfo in otherQiitaUsers) {
+                    [JANStockService retrieveStocksWithUserId:qiitaUserInfo.qiitaId successHandler:^(JANStock *stock) {
+                        //比較ユーザーのSstockデータ取得完了を通知
+                        NSNotification *n = [NSNotification notificationWithName:OTHER_USER_STOCK_VIEW_UPDATE
+                                                                          object:self
+                                                                        userInfo:@{
+                                                                                   STOCK_NOTIFICATION_KEY:stock,
+                                                                                   QIITA_ID_NOTIFICATION_KEY:qiitaUserInfo.qiitaId
+                                                                                   }];
+                        
+                        [[NSNotificationCenter defaultCenter] postNotification:n];
+                    } failedHandler:^{
+                        
+                    }];
+                }
+            } failedHandler:nil];
+        }
     }
     
 }
