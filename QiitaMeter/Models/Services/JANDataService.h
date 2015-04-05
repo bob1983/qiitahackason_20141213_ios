@@ -25,6 +25,7 @@ typedef void(^JANDataServiceFinishHandler)();
 - (void)updateViewWithOtherUserStock:(NSNotification *)dic;
 - (void)updateViewWithPoint:(NSNotification *)dic;
 - (void)updateViewWithLogout:(NSNotification *)dic;
+- (void)updateViewforDeleteAllOtherUsers;
 @end
 
 @interface JANDataService : NSObject
