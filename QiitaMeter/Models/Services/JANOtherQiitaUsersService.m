@@ -24,13 +24,14 @@
     RLMResults *otherUsers = [JANQiitaUserInfoService qiitaUserInfosWithoutOwn];
     
     for (JANQiitaUserInfo *userInfo in otherUsers) {
-        [JANQiitaUserInfoService retrieveQiitaUserInfoWithUserId:userInfo.qiitaId successHandler:^(JANQiitaUserInfo *qiitaUserInfo) {
-            [users addObject:qiitaUserInfo];
-            if (users.count == otherUsers.count) {
-                successHandler(users);
-            }
-            
-        } failedHandler:failedHandler];
+        [JANQiitaUserInfoService retrieveQiitaUserInfoWithUserId:userInfo.qiitaId
+                                                  successHandler:^(JANQiitaUserInfo *qiitaUserInfo) {
+                                                      [users addObject:qiitaUserInfo];
+                                                      if (users.count == otherUsers.count) {
+                                                          successHandler(users);
+                                                      }
+                                                      
+                                                  } failedHandler:failedHandler];
     }
 }
 

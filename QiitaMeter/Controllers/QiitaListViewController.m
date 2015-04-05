@@ -256,8 +256,14 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 
 - (void)updateViewWithOtherQiitaUserInfos:(NSNotification *)dic
 {
-    NSArray *otherQiitaUsers = [[dic userInfo] objectForKey:OTHER_QIITA_USER_INFOS_NOTIFICATION_KEY];
-    self.rivalsQiitaUserInfo = otherQiitaUsers;
+    JANQiitaUserInfo *otherQiitaUser = [[dic userInfo] objectForKey:OTHER_QIITA_USER_INFOS_NOTIFICATION_KEY];
+    if (self.rivalsQiitaUserInfo) {
+        NSMutableArray *tempRivals = [self.rivalsQiitaUserInfo mutableCopy];
+        [tempRivals addObject:otherQiitaUser];
+        self.rivalsQiitaUserInfo = tempRivals;
+    } else {
+        self.rivalsQiitaUserInfo = @[otherQiitaUser];
+    }
     [self.qiitaListView reloadData];
 }
 
