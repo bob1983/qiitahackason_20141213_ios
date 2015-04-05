@@ -19,18 +19,19 @@
 - (instancetype)initWithQiitaUserInfo:(JANQiitaUserInfo *)qiitaUserInfo
                                 point:(JANPoint *)point;
 
-
 /// アイコンのパス
-@property (nonatomic, readonly) NSURL *iconPath;
+@property (nonatomic) NSString *profileImageURL;
 /// 表示名
-@property (nonatomic, readonly) NSString *name;
+@property (nonatomic) NSString *name;
 /// 投稿数
-@property (nonatomic, readonly) NSString *itemsCount;
+@property (nonatomic) NSInteger itemsCount;
 /// ストック数
-@property (nonatomic, readonly) NSString *stocksCount;
+@property (nonatomic) NSInteger stocksCount;
 /// フォローされている数
-@property (nonatomic, readonly) NSString *foloweesCount;
+@property (nonatomic) NSInteger foloweesCount;
 /// ポイント
-@property (nonatomic, readonly) NSString *point;
+@property (nonatomic) NSInteger totalPoint;
+/// 表示のパーセンテージ
+@property (nonatomic) CGFloat gaugePersentValue;
 
 @end

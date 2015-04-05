@@ -7,7 +7,28 @@
 //
 
 #import "JANQiitaUserViewModel.h"
+#import "JANQiitaUserInfo.h"
+#import "JANPoint.h"
+
+@interface JANQiitaUserViewModel ()
+@end
 
 @implementation JANQiitaUserViewModel
 
+- (instancetype)initWithQiitaUserInfo:(JANQiitaUserInfo *)qiitaUserInfo
+                                point:(JANPoint *)point
+{
+    self = [super init];
+    if (self) {
+        _profileImageURL    = qiitaUserInfo.profileImageUrl;
+        _name               = qiitaUserInfo.name;
+        _itemsCount         = qiitaUserInfo.itemsCount;
+        _stocksCount        = qiitaUserInfo.stocksCount;
+        _foloweesCount      = qiitaUserInfo.followeesCount;
+        _totalPoint         = point.totalPoint;
+        _gaugePersentValue  = point.gaugePersentValue;
+        
+    }
+    return self;
+}
 @end

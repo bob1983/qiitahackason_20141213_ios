@@ -32,6 +32,12 @@
 		BF67D9DB1A3C2B0F004B53B5 /* QiitaListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF67D9DA1A3C2B0F004B53B5 /* QiitaListTableViewCell.m */; };
 		E407AD8F1AD101FB00F1EF18 /* JANQiitaUserViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E407AD8E1AD101FB00F1EF18 /* JANQiitaUserViewModel.m */; };
 		E407AD911AD1089400F1EF18 /* JanQiitaUserViewModelTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = E407AD901AD1089400F1EF18 /* JanQiitaUserViewModelTestCase.m */; };
+		E407AD931AD10F2100F1EF18 /* JANStock.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BE16D91A3C1E3D000FE3BE /* JANStock.m */; };
+		E407AD941AD10F2400F1EF18 /* JANQiitaUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BE16E41A3C1E61000FE3BE /* JANQiitaUserInfo.m */; };
+		E407AD951AD10F2700F1EF18 /* JANUser.m in Sources */ = {isa = PBXBuildFile; fileRef = E4BE16E61A3C1E61000FE3BE /* JANUser.m */; };
+		E407AD961AD10F2B00F1EF18 /* JANPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = BF61B5991A63CEF9004B914E /* JANPoint.m */; };
+		E407AD971AD10F2E00F1EF18 /* JANQiitaCount.m in Sources */ = {isa = PBXBuildFile; fileRef = BF61B59C1A63CF15004B914E /* JANQiitaCount.m */; };
+		E407AD981AD10F3000F1EF18 /* JANQiitaUserViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E407AD8E1AD101FB00F1EF18 /* JANQiitaUserViewModel.m */; };
 		E41710261A497EA7005D86A9 /* JANBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E41710251A497EA7005D86A9 /* JANBaseViewController.m */; };
 		E41710291A498133005D86A9 /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E41710281A498133005D86A9 /* IntroductionViewController.m */; };
 		E417102B1A4981D1005D86A9 /* IntroductionViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E417102A1A4981D1005D86A9 /* IntroductionViewController.storyboard */; };
@@ -370,6 +376,7 @@
 				E4BE16AA1A3C1CF6000FE3BE /* Frameworks */,
 				E4BE16AB1A3C1CF6000FE3BE /* Resources */,
 				7123023C18E3BD4BCAF356A1 /* Copy Pods Resources */,
+				E407AD991AD111C600F1EF18 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -415,7 +422,6 @@
 					};
 					E4BE16C51A3C1CF6000FE3BE = {
 						CreatedOnToolsVersion = 6.1;
-						TestTargetID = E4BE16AC1A3C1CF6000FE3BE;
 					};
 				};
 			};
@@ -527,6 +533,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E407AD991AD111C600F1EF18 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "env > env.txt";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -567,7 +586,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E407AD911AD1089400F1EF18 /* JanQiitaUserViewModelTestCase.m in Sources */,
+				E407AD941AD10F2400F1EF18 /* JANQiitaUserInfo.m in Sources */,
+				E407AD971AD10F2E00F1EF18 /* JANQiitaCount.m in Sources */,
+				E407AD931AD10F2100F1EF18 /* JANStock.m in Sources */,
 				E4BE16CD1A3C1CF6000FE3BE /* QiitaMeterTests.m in Sources */,
+				E407AD961AD10F2B00F1EF18 /* JANPoint.m in Sources */,
+				E407AD981AD10F3000F1EF18 /* JANQiitaUserViewModel.m in Sources */,
+				E407AD951AD10F2700F1EF18 /* JANUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -698,7 +723,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = EA4E0CD543FDFC62F867C042 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -708,7 +732,6 @@
 				INFOPLIST_FILE = "QiitaMeterTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = QiitaMeterTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QiitaMeter.app/QiitaMeter";
 			};
 			name = Debug;
 		};
@@ -716,13 +739,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6766AF90B45CBB888ADD6844 /* Pods.release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "QiitaMeterTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = QiitaMeterTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QiitaMeter.app/QiitaMeter";
 			};
 			name = Release;
 		};
