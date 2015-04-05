@@ -26,6 +26,7 @@ PODS:
     - GoogleAnalytics-iOS-SDK/Core (= 3.10)
   - GoogleAnalytics-iOS-SDK/Core (3.10)
   - NSURL+QueryDictionary (1.1.0)
+  - OCMock (3.1.2)
   - Realm (0.91.1):
     - Realm/Headers (= 0.91.1)
   - Realm/Headers (0.91.1)
@@ -40,18 +41,20 @@ DEPENDENCIES:
   - DateTools
   - GoogleAnalytics-iOS-SDK (~> 3.10)
   - NSURL+QueryDictionary
+  - OCMock
   - Realm
   - SDWebImage
   - UIView+JMFrame
 
 SPEC CHECKSUMS:
-  AFNetworking: 8bee59492a6ff15d69130efa4d0dc67e0094a52a
-  Colours: ecbcbb168f7e6190b76b34df1b477c103cb638eb
-  DateTools: 7df78f0c4719eb28cfd2d58a90fafd036e73156c
-  GoogleAnalytics-iOS-SDK: f422062075d9ccb1ea8d783fc5ba3829461e9502
-  NSURL+QueryDictionary: 14fc00cab003a53230ec4bef6a5e2d28ce777614
-  Realm: 81adfc7f43f9301f40bbc46d5e8a10aaf71b9504
-  SDWebImage: 116e88633b5b416ea0ca4b334a4ac59cf72dd38d
-  UIView+JMFrame: f23f3dcad8a6192f83600c586f59a89e63bd20a8
+  AFNetworking: 10e85a00bb0f475124e4ff2677bf15693b2c1523
+  Colours: cad6964a7c178253356403d206eef600a3dc59c8
+  DateTools: b93a2c2017747329c6077c7d7e8a75106e23d0d7
+  GoogleAnalytics-iOS-SDK: 4f98a376c1d61e6ac4ca47951655820314856eef
+  NSURL+QueryDictionary: dd0a5fec689a9b4780b6fa0e0225c01ca3ea653e
+  OCMock: a10ea9f0a6e921651f96f78b6faee95ebc813b92
+  Realm: b9c1fd9defa26aa7276ce938a8df52ec81f24528
+  SDWebImage: ed3095af2ff88b436426037444979b917f6c5575
+  UIView+JMFrame: a907974c9d34b1c300aef85ae2a1a5af746f2b8a
 
 COCOAPODS: 0.36.0
