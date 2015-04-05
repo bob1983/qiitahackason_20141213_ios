@@ -27,7 +27,8 @@
 @end
 
 @implementation JANDataService
-+ (void)dataUpdateRequest:(JANDataServiceFinishHandler)finishHandler
+
++ (void)dataUpdateRequest
 {
     [self userDataUpdateRequest];
     [self otherUserDataUpdateRequest];

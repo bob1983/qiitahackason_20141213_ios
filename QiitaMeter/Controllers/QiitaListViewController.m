@@ -84,7 +84,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     [super viewWillAppear:animated];
     
     [JANDataService setViewUpdateToObserver:self];
-    [JANDataService dataUpdateRequest:nil];
+    [JANDataService dataUpdateRequest];
 }
 
 - (void)viewDidLayoutSubviews
@@ -213,7 +213,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 
 - (void)updateQiitaListRequest
 {
-    [JANDataService dataUpdateRequest:nil];
+    [JANDataService dataUpdateRequest];
 }
 
 -(void)openSettingViewController{

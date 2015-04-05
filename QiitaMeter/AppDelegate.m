@@ -35,7 +35,7 @@
     
     [self.window makeKeyAndVisible];
     
-    [JANDataService dataUpdateRequest:nil];
+    [JANDataService dataUpdateRequest];
     
     // Override point for customization after application launch.
     return YES;

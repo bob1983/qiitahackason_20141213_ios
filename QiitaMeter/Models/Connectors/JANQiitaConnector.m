@@ -14,6 +14,7 @@
 #define TIMEOUT_INTERVAL 10.0
 
 @implementation JANQiitaConnector
+
 + (void)retrieveStocksWithUserId:(NSString *)userId
                             page:(NSInteger)page
                          perPage:(NSInteger)perPage

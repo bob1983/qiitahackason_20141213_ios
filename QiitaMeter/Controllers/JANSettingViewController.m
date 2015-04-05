@@ -56,7 +56,7 @@
         [self.userTableView beginUpdates];
         [self.userTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
         [self.userTableView endUpdates];
-        [JANDataService dataUpdateRequest:nil];
+        [JANDataService dataUpdateRequest];
     }
 }
 

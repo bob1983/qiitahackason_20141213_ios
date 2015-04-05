@@ -28,8 +28,7 @@ typedef void(^JANDataServiceFinishHandler)();
 @end
 
 @interface JANDataService : NSObject
-// 更新完了はNSNotificationCenterで行われる
-+ (void)dataUpdateRequest:(JANDataServiceFinishHandler)finishHandler;
++ (void)dataUpdateRequest;
 + (void)setViewUpdateToObserver:(id<JANDataServiceViewUpdateObserver>)observer;
 + (void)logoutRequest:(JANDataServiceFinishHandler)finishHnadler;
 @end
