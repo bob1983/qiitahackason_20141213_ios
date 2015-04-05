@@ -22,15 +22,14 @@
 #import "JANUserService.h"
 #import "JANConfig.h"
 #import "JANSettingViewController.h"
+#import "JANQiitaUserViewModel.h"
 
 static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewCell";
 
 @interface QiitaListViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, strong) JANQiitaUserInfo *myQiitaUserInfo;
+@property (nonatomic, strong) JANQiitaUserViewModel *myQiitaUserInfo;
 @property (nonatomic, strong) NSArray *rivalsQiitaUserInfo;
-@property (nonatomic, strong) JANStock *myQiitaStocks;
-@property (nonatomic, strong) JANPoint *myPoint;
 @property (nonatomic, strong) NSMutableDictionary *rivalsStocks;
 @property (strong, nonatomic) IBOutlet UITableView *qiitaListView;
 @end
@@ -154,15 +153,15 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     
     if (indexPath.section == 0) {
         if (self.myQiitaUserInfo) {
-            cell.accountNameLabel.text = self.myQiitaUserInfo.qiitaId;
-            [cell setStockCount:[self.myQiitaStocks count]];
-            [cell setFolloeesCount:self.myQiitaUserInfo.followeesCount];
+            cell.accountNameLabel.text = self.myQiitaUserInfo.name;
+            [cell setStockCount:self.myQiitaUserInfo.stocksCount];
+            [cell setFolloeesCount:self.myQiitaUserInfo.foloweesCount];
             [cell setContributeCount:self.myQiitaUserInfo.itemsCount];
             
-            [cell setTotalValue:self.myPoint.totalPoint];
+            [cell setTotalValue:self.myQiitaUserInfo.totalPoint];
             
-            [cell setGaugePercentValue:self.myPoint.gaugePersentValue];
-            [cell.userImageView sd_setImageWithURL:[NSURL URLWithString:self.myQiitaUserInfo.profileImageUrl]
+            [cell setGaugePercentValue:self.myQiitaUserInfo.gaugePersentValue];
+            [cell.userImageView sd_setImageWithURL:[NSURL URLWithString:self.myQiitaUserInfo.profileImageURL]
                                   placeholderImage:nil
                                          completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
                                              [cell.userImageView setImage:image];
@@ -227,29 +226,8 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 #pragma - Notifications
 - (void)updateViewWithQiitaUserInfo:(NSNotification *)dic
 {
-    JANQiitaUserInfo *qiitaUserInfo = [[dic userInfo] objectForKey:QIITA_USER_INFO_NOTIFICATION_KEY];
+    JANQiitaUserViewModel *qiitaUserInfo = [[dic userInfo] objectForKey:QIITA_USER_INFO_NOTIFICATION_KEY];
     self.myQiitaUserInfo = qiitaUserInfo;
-    
-    //self.myPoint = [JANPointService makePointWithLastCount:[[JANQiitaCount alloc] initWithQiitaUserInfo:_myQiitaUserInfo stocks:_myQiitaStocks] secondCount:nil];
-    
-    //self.title = [self.myQiitaUserInfo accountName];
-    self.navigationItem.title = @"元気？";
-    
-    [self.qiitaListView reloadData];
-}
-- (void)updateViewWithStock:(NSNotification *)dic
-{
-    JANStock *stock = [[dic userInfo] objectForKey:STOCK_NOTIFICATION_KEY];
-    self.myQiitaStocks = stock;
-    
-    //self.myPoint = [JANPointService makePointWithLastCount:[[JANQiitaCount alloc] initWithQiitaUserInfo:_myQiitaUserInfo stocks:_myQiitaStocks] secondCount:nil];
-    
-    [self.qiitaListView reloadData];
-}
-- (void)updateViewWithPoint:(NSNotification *)dic
-{
-    
-    //self.myPoint = [JANPointService makePointWithLastCount:[[JANQiitaCount alloc] initWithQiitaUserInfo:_myQiitaUserInfo stocks:_myQiitaStocks] secondCount:nil];
     
     [self.qiitaListView reloadData];
 }
@@ -258,12 +236,6 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 {
     NSArray *otherQiitaUsers = [[dic userInfo] objectForKey:OTHER_QIITA_USER_INFOS_NOTIFICATION_KEY];
     self.rivalsQiitaUserInfo = otherQiitaUsers;
-    [self.qiitaListView reloadData];
-}
-
-- (void)updateViewforDeleteAllOtherUsers
-{
-    self.rivalsQiitaUserInfo = @[];
     [self.qiitaListView reloadData];
 }
 

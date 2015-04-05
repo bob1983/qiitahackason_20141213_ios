@@ -20,6 +20,7 @@
 {
     self = [super init];
     if (self) {
+        _qiitaId            = qiitaUserInfo.qiitaId;
         _profileImageURL    = qiitaUserInfo.profileImageUrl;
         _name               = qiitaUserInfo.name;
         _itemsCount         = qiitaUserInfo.itemsCount;
