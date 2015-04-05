@@ -32,7 +32,6 @@
     [self userDataUpdateRequest];
     [self otherUserDataUpdateRequest];
 }
-
 + (void)logoutRequest:(JANDataServiceFinishHandler)finishHnadler
 {
     [JANUserService retrieveDeleteAccessTokensWithSuccessHandler:^{

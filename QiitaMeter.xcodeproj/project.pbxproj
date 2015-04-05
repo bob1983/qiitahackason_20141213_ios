@@ -113,8 +113,8 @@
 		E4BE16CC1A3C1CF6000FE3BE /* QiitaMeterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QiitaMeterTests.m; sourceTree = "<group>"; };
 		E4BE16D61A3C1E3D000FE3BE /* JANQiitaUserInfoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANQiitaUserInfoService.h; sourceTree = "<group>"; };
 		E4BE16D71A3C1E3D000FE3BE /* JANQiitaUserInfoService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANQiitaUserInfoService.m; sourceTree = "<group>"; };
-		E4BE16D81A3C1E3D000FE3BE /* JANStock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANStock.h; sourceTree = "<group>"; };
-		E4BE16D91A3C1E3D000FE3BE /* JANStock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANStock.m; sourceTree = "<group>"; };
+		E4BE16D81A3C1E3D000FE3BE /* JANStock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JANStock.h; path = ../Services/JANStock.h; sourceTree = "<group>"; };
+		E4BE16D91A3C1E3D000FE3BE /* JANStock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JANStock.m; path = ../Services/JANStock.m; sourceTree = "<group>"; };
 		E4BE16DA1A3C1E3D000FE3BE /* JANStockService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANStockService.h; sourceTree = "<group>"; };
 		E4BE16DB1A3C1E3D000FE3BE /* JANStockService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANStockService.m; sourceTree = "<group>"; };
 		E4BE16DC1A3C1E3D000FE3BE /* JANUserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANUserService.h; sourceTree = "<group>"; };
@@ -200,6 +200,8 @@
 		BF53DA981A49483C00BE276C /* ModelObjects */ = {
 			isa = PBXGroup;
 			children = (
+				E4BE16D81A3C1E3D000FE3BE /* JANStock.h */,
+				E4BE16D91A3C1E3D000FE3BE /* JANStock.m */,
 				E4BE16E31A3C1E61000FE3BE /* JANQiitaUserInfo.h */,
 				E4BE16E41A3C1E61000FE3BE /* JANQiitaUserInfo.m */,
 				E4BE16E51A3C1E61000FE3BE /* JANUser.h */,
@@ -217,8 +219,6 @@
 			children = (
 				E4BE16D61A3C1E3D000FE3BE /* JANQiitaUserInfoService.h */,
 				E4BE16D71A3C1E3D000FE3BE /* JANQiitaUserInfoService.m */,
-				E4BE16D81A3C1E3D000FE3BE /* JANStock.h */,
-				E4BE16D91A3C1E3D000FE3BE /* JANStock.m */,
 				E4BE16DA1A3C1E3D000FE3BE /* JANStockService.h */,
 				E4BE16DB1A3C1E3D000FE3BE /* JANStockService.m */,
 				E4BE16DC1A3C1E3D000FE3BE /* JANUserService.h */,
