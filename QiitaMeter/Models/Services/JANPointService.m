@@ -12,7 +12,6 @@
 #import "JANStockService.h"
 #import "JANStock.h"
 #import "JANPoint.h"
-#import "JANQiitaCount.h"
 
 @implementation JANPointService
 

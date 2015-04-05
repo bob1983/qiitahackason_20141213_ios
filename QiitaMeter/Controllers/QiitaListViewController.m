@@ -16,7 +16,6 @@
 #import "JANDataService.h"
 #import "JANStock.h"
 #import "JANPointService.h"
-#import "JANQiitaCount.h"
 #import "JANPoint.h"
 #import "JANUserService.h"
 #import "JANConfig.h"
