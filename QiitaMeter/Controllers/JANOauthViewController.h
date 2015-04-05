@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "JANBaseViewController.h"
 @interface JANOauthViewController : JANBaseViewController<UIWebViewDelegate>
+
 @property (weak, nonatomic) IBOutlet UIWebView *oauthWebView;
 
 @end
