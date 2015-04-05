@@ -21,6 +21,7 @@
 #import "JANOtherQiitaUsersService.h"
 #import "JANUserService.h"
 #import "JANConfig.h"
+#import "JANSettingViewController.h"
 
 static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewCell";
 
@@ -30,20 +31,17 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 @property (nonatomic, strong) NSArray *rivalsQiitaUserInfo;
 @property (nonatomic, strong) JANStock *myQiitaStocks;
 @property (nonatomic, strong) JANPoint *myPoint;
-@property (nonatomic, strong) JANQiitaUserInfoService *userInfoService;
-@property (nonatomic, strong) JANStockService *stockService;
 @property (nonatomic, strong) NSMutableDictionary *rivalsStocks;
 @property (strong, nonatomic) IBOutlet UITableView *qiitaListView;
 @end
 
 @implementation QiitaListViewController
 
+#pragma mark - lifecycle
 - (instancetype)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.userInfoService = [[JANQiitaUserInfoService alloc] init];
-        self.stockService    = [[JANStockService alloc] init];
         self.rivalsStocks = [NSMutableDictionary dictionary];
     }
     return self;
@@ -66,12 +64,19 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
                                        initWithImage:settingImage
                                        style:UIBarButtonItemStylePlain
                                        target:self
-                                       action:@selector(updateQiitaListRequest)]; //設定画面への遷移イベントとする
+                                       action:@selector(openSettingViewController)]; //設定画面への遷移イベントとする
     [settingsButton setBackgroundImage:[[UIImage alloc] init]
                               forState:UIControlStateNormal
                             barMetrics:UIBarMetricsDefault];
 
-    self.navigationItem.leftBarButtonItem = settingsButton;
+    self.navigationItem.rightBarButtonItem = settingsButton;
+    UIBarButtonItem *reloadButton = [[UIBarButtonItem alloc]
+                                       initWithTitle:@"Reload"
+                                       style:UIBarButtonItemStylePlain
+                                       target:self
+                                       action:@selector(updateQiitaListRequest)];
+    
+    self.navigationItem.leftBarButtonItem = reloadButton;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -82,11 +87,17 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     [JANDataService dataUpdateRequest:nil];
 }
 
+- (void)viewDidLayoutSubviews
+{
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
 }
 
+#pragma mark -
 - (void)logout
 {
     [JANDataService setViewUpdateToObserver:self];
@@ -97,6 +108,8 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+#pragma mark - TableView
 
 - (CGFloat)tableView:(UITableView *)tableView
            heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -125,11 +138,6 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
         return 1;
     }
     return _rivalsQiitaUserInfo.count;
-}
-
-- (void)viewDidLayoutSubviews
-{
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
@@ -184,13 +192,39 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     
     return cell;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *selectedQiitaUserId;
+    if( indexPath.section == 0 ) {
+        if( indexPath.row == 0 ) {
+            //自分のQiitaページ
+            selectedQiitaUserId = self.myQiitaUserInfo.qiitaId;
+        }
+    } else {
+        JANQiitaUserInfo *selectedQiitaUserInfo = [self.rivalsQiitaUserInfo objectAtIndex:indexPath.row];
+        selectedQiitaUserId = selectedQiitaUserInfo.qiitaId;
+    }
+    // Safariで指定したURLを開く
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat: @"http://qiita.com/%@", selectedQiitaUserId]];
+    if ([[UIApplication sharedApplication] canOpenURL:url]) {
+        [[UIApplication sharedApplication] openURL:url];
+    }
+}
 
 - (void)updateQiitaListRequest
 {
     [JANDataService dataUpdateRequest:nil];
 }
 
-#pragma -
+-(void)openSettingViewController{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"SettingViewController"
+                                                         bundle:[NSBundle mainBundle]];
+    JANSettingViewController *controller = [storyboard instantiateInitialViewController];
+    [self.navigationController pushViewController:controller
+                                         animated:NO];
+}
+
+#pragma - Notifications
 - (void)updateViewWithQiitaUserInfo:(NSNotification *)dic
 {
     JANQiitaUserInfo *qiitaUserInfo = [[dic userInfo] objectForKey:QIITA_USER_INFO_NOTIFICATION_KEY];
@@ -235,23 +269,4 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     [self.qiitaListView reloadData];
 }
 
-#pragma -
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    NSString *selectedQiitaUserId;
-    if( indexPath.section == 0 ) {
-        if( indexPath.row == 0 ) {
-            //自分のQiitaページ
-            selectedQiitaUserId = self.myQiitaUserInfo.qiitaId;
-        }
-    } else {
-        JANQiitaUserInfo *selectedQiitaUserInfo = [self.rivalsQiitaUserInfo objectAtIndex:indexPath.row];
-        selectedQiitaUserId = selectedQiitaUserInfo.qiitaId;
-    }
-    // Safariで指定したURLを開く
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat: @"http://qiita.com/%@", selectedQiitaUserId]];
-    if ([[UIApplication sharedApplication] canOpenURL:url]) {
-        [[UIApplication sharedApplication] openURL:url];
-    }
-}
 @end

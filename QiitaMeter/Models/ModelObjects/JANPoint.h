@@ -11,5 +11,5 @@
 @interface JANPoint : RLMObject
 @property NSString *qiitaId;
 @property NSInteger totalPoint;
-@property float gaugePersentValue;
+@property CGFloat gaugePersentValue;
 @end

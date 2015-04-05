@@ -11,6 +11,8 @@
 #import "JANQiitaConnector.h"
 #import <Realm/Realm.h>
 #import "JANPointService.h"
+#import "JANUserService.h"
+#import "JANUser.h"
 
 #define QIITA_USER_INFO @"QIITA_USER_INFO"
 
@@ -59,5 +61,21 @@
     RLMRealm *realm = [RLMRealm defaultRealm];
     RLMResults *results = [JANQiitaUserInfo objectsInRealm:realm where:@"qiitaId = %@", qiitaId];
     return results.firstObject;
+}
+
++ (RLMResults *)qiitaUserInfosWithoutOwn
+{
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    JANUser *user = [JANUserService loadUser];
+    return [JANQiitaUserInfo objectsInRealm:realm where:@"qiitaId <> %@", user.qiitaId];
+}
+
++ (void)deleteQiitaUserInfoWithQiitaId:(NSString *)qiitaId
+{
+    JANQiitaUserInfo *qiitaUserInfo = [self qiitaUserInfoWithQiitaId:qiitaId];
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    [realm deleteObject:qiitaUserInfo];
+    [realm commitWriteTransaction];
 }
 @end

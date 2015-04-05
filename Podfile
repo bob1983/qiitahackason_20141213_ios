@@ -12,4 +12,9 @@ pod 'Colours'
 pod 'DateTools'
 pod 'GoogleAnalytics-iOS-SDK', '~> 3.10'
 
+
 link_with :QiitaMeter
+
+target :QiitaMeterTests do
+  pod 'OCMock'
+end

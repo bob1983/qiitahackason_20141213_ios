@@ -14,12 +14,14 @@
 
 @implementation JANBaseViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     LogBlue(@"%s line:%d", __PRETTY_FUNCTION__, __LINE__);
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     
 }
