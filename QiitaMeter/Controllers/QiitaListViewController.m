@@ -64,7 +64,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
                                        initWithImage:settingImage
                                        style:UIBarButtonItemStylePlain
                                        target:self
-                                       action:@selector(openListViewController)]; //設定画面への遷移イベントとする
+                                       action:@selector(openSettingViewController)]; //設定画面への遷移イベントとする
     [settingsButton setBackgroundImage:[[UIImage alloc] init]
                               forState:UIControlStateNormal
                             barMetrics:UIBarMetricsDefault];
@@ -216,7 +216,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     [JANDataService dataUpdateRequest:nil];
 }
 
--(void)openListViewController{
+-(void)openSettingViewController{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"SettingViewController"
                                                          bundle:[NSBundle mainBundle]];
     JANSettingViewController *controller = [storyboard instantiateInitialViewController];

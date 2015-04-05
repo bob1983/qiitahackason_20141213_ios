@@ -10,6 +10,11 @@
 #import "JANDataService.h"
 #import "JANQiitaUserInfoService.h"
 
+/**
+ *  設定画面のviewController
+ *  - ライバルのユーザの追加削除ができる
+ *  - ログアウトが出来る
+ */
 @interface JANSettingViewController ()<UITableViewDataSource, UITableViewDelegate, JANDataServiceViewUpdateObserver>
 
 @property (weak, nonatomic) IBOutlet UITableView *userTableView;
@@ -67,7 +72,7 @@
 }
 
 - (IBAction)addUser:(id)sender {
-    [self addUserAlert];
+    [self showAddUserAlert];
 }
 
 - (IBAction)editMode:(UIButton *)sender {
@@ -81,7 +86,7 @@
 }
 
 #pragma -
-- (void)addUserAlert{
+- (void)showAddUserAlert{
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"比較ユーザーを追加"
                                                       message:nil
                                                      delegate:self
