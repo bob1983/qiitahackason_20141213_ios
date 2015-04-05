@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JANQiitaUserInfoService.h"
 
 @interface JANSettingViewController : UIViewController
 @end

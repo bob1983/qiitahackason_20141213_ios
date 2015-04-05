@@ -8,6 +8,7 @@
 
 #import "JANSettingViewController.h"
 #import "JANDataService.h"
+#import "JANQiitaUserInfoService.h"
 
 @interface JANSettingViewController ()<UITableViewDataSource, UITableViewDelegate, JANDataServiceViewUpdateObserver>
 
