@@ -56,6 +56,7 @@
 //                         } else {
                              if (successHandler) {
                                  JANStock *stock = [self janStockFromRetrievedArray:stockary];
+                                 // 1 stock per page なら page数 = stock数 になる
                                  stock.count = maxPage * perPage;
                                  successHandler(stock);
                              }
