@@ -8,11 +8,13 @@
 
 #import "JANDataService.h"
 #import "JANStockService.h"
+#import "JANPointService.h"
+#import "JANQiitaUserInfo.h"
 #import "JANQiitaUserInfoService.h"
 #import "JANUserService.h"
 #import "JANUser.h"
-#import "JANOtherQiitaUsersService.h"
 #import "JANStock.h"
+#import "JANQiitaUserViewModel.h"
 
 #define QIITA_USER_INFO_VIEW_UPDATE @"Qiita_User_Info_View_Update"
 #define STOCK_VIEW_UPDATE @"Stock_View_Update"
@@ -76,17 +78,34 @@
             [[NSNotificationCenter defaultCenter] postNotification:n];
             [JANStockService retrieveStocksWithUserId:qiitaUserInfo.qiitaId
                                        successHandler:^(JANStock *stock) {
-                                           NSNotification *n = [NSNotification notificationWithName:STOCK_VIEW_UPDATE object:self userInfo:@{STOCK_NOTIFICATION_KEY:stock}];
+                                           //ポイントを計算
+                                           JANQiitaUserInfo *lastUserInfo = [self qiitaUserInfoWithQiitaId:qiitaUserInfo.qiitaId];
+                                           qiitaUserInfo.stocksCount = stock.count;
+                                           JANPoint *point = [JANPointService makePointWithLastUserInfo:lastUserInfo newUserInfo:qiitaUserInfo];
+                                           
+                                           //UserInfoとPointを保存
+                                           [JANQiitaUserInfoService saveWithQiitaUserinfo:qiitaUserInfo];
+                                           [JANPointService saveWithPoint:point];
+                                           
+                                           //JANQiitaUserViewModelを生成
+                                           JANQiitaUserViewModel *qiitaUserViewModel = [[JANQiitaUserViewModel alloc] initWithQiitaUserInfo:qiitaUserInfo point:point];
+                                           
+                                           //JANQiitaUserViewModelをわたす //かんちゃん
+                                           NSNotification *n = [NSNotification notificationWithName:STOCK_VIEW_UPDATE object:self
+                                                                                           userInfo:@{STOCK_NOTIFICATION_KEY:stock}];
                                            
                                            [[NSNotificationCenter defaultCenter] postNotification:n];
-                                           JANQiitaUserInfo *qiitaUserInfo = [JANQiitaUserInfoService qiitaUserInfoWithQiitaId:qiitaId];
-                                           [[RLMRealm defaultRealm] transactionWithBlock:^{
-                                               qiitaUserInfo.stocksCount = stock.count;
-                                           }];
                                        }
                                         failedHandler:nil];
         } failedHandler:nil];
     }
+}
+
++ (JANQiitaUserInfo *)qiitaUserInfoWithQiitaId:(NSString *)qiitaId
+{
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    RLMResults *results = [JANQiitaUserInfo objectsInRealm:realm where:@"qiitaId = %@", qiitaId];
+    return results.firstObject;
 }
 
 + (void)otherUserDataUpdateRequest
@@ -103,33 +122,33 @@
                                                             userInfo:nil];
             [[NSNotificationCenter defaultCenter] postNotification:n];
         } else {
-            [JANOtherQiitaUsersService retrieveOtherQiitaUsersWithSuccessHandler:^(NSArray *otherQiitaUsers) {
-                //比較ユーザーのデータ取得完了を通知
-                NSNotification *n = [NSNotification notificationWithName:OTHER_QIITA_USER_INFO_VIEW_UPDATE
-                                                                  object:self
-                                                                userInfo:@{
-                                                                           OTHER_QIITA_USER_INFOS_NOTIFICATION_KEY:otherQiitaUsers
-                                                                           }];
-                
-                [[NSNotificationCenter defaultCenter] postNotification:n];
-                for (JANQiitaUserInfo *qiitaUserInfo in otherQiitaUsers) {
-                    [JANStockService retrieveStocksWithUserId:qiitaUserInfo.qiitaId successHandler:^(JANStock *stock) {
-                        //比較ユーザーのSstockデータ取得完了を通知
-                        NSNotification *n = [NSNotification notificationWithName:OTHER_USER_STOCK_VIEW_UPDATE
-                                                                          object:self
-                                                                        userInfo:@{
-                                                                                   STOCK_NOTIFICATION_KEY:stock,
-                                                                                   QIITA_ID_NOTIFICATION_KEY:qiitaUserInfo.qiitaId
-                                                                                   }];
-                        
-                        [[NSNotificationCenter defaultCenter] postNotification:n];
-                    } failedHandler:^{
-                        
-                    }];
-                }
-            } failedHandler:nil];
+            for (JANQiitaUserInfo *qiitaUserInfo in otherUsers) {
+                [JANQiitaUserInfoService retrieveQiitaUserInfoWithUserId:qiitaUserInfo.qiitaId
+                                                          successHandler:^(JANQiitaUserInfo *qiitaUserInfo) {
+                                                              NSNotification *n = [NSNotification notificationWithName:OTHER_QIITA_USER_INFO_VIEW_UPDATE
+                                                                                                                object:self
+                                                                                                              userInfo:@{
+                                                                                                                         OTHER_QIITA_USER_INFOS_NOTIFICATION_KEY:qiitaUserInfo
+                                                                                                                         }];
+                                                              [[NSNotificationCenter defaultCenter] postNotification:n];
+                                                              [JANStockService retrieveStocksWithUserId:qiitaUserInfo.qiitaId
+                                                                                         successHandler:^(JANStock *stock) {
+                                                                                             //比較ユーザーのSstockデータ取得完了を通知
+                                                                                             NSNotification *n = [NSNotification notificationWithName:OTHER_USER_STOCK_VIEW_UPDATE
+                                                                                                                                               object:self
+                                                                                                                                             userInfo:@{
+                                                                                                                                                        STOCK_NOTIFICATION_KEY:stock,
+                                                                                                                                                        QIITA_ID_NOTIFICATION_KEY:qiitaUserInfo.qiitaId
+                                                                                                                                                        }];
+                                                                                             
+                                                                                             [[NSNotificationCenter defaultCenter] postNotification:n];
+                                                                                         } failedHandler:nil];
+                                                          } failedHandler:^{}];
+            }
         }
     }
     
 }
+
+
 @end

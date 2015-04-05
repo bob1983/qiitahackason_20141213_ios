@@ -11,5 +11,8 @@
 @class JANQiitaUserInfo, JANPoint;
 
 @interface JANPointService : NSObject
-+ (void)makePointWithLastUserInfo:(JANQiitaUserInfo *)lastUserInfo newUserInfo:(JANQiitaUserInfo *)newUserInfo;
++ (JANPoint *)makePointWithLastUserInfo:(JANQiitaUserInfo *)lastUserInfo newUserInfo:(JANQiitaUserInfo *)newUserInfo;
+
++ (void)saveWithPoint:(JANPoint *)point;
+
 @end

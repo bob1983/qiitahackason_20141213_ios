@@ -22,6 +22,8 @@ typedef void(^QiitaUserInfoServiceRetrieveFailedHandler)();
 
 + (JANQiitaUserInfo *)janQiitaUserInfoFromRetrievedDictionary :(NSDictionary *)dic;
 
++ (void)saveWithQiitaUserinfo:(JANQiitaUserInfo *)qiitaUserInfo;
+
 /**
  *  QiitaIdからJANQiitaUserInfoを検索してくる
  */
