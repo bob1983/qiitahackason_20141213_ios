@@ -25,7 +25,6 @@
 		BF61B59D1A63CF15004B914E /* JANQiitaCount.m in Sources */ = {isa = PBXBuildFile; fileRef = BF61B59C1A63CF15004B914E /* JANQiitaCount.m */; };
 		BF61B5A01A63E1A8004B914E /* JANGaugeView.m in Sources */ = {isa = PBXBuildFile; fileRef = BF61B59F1A63E1A8004B914E /* JANGaugeView.m */; };
 		BF61B5A21A63E828004B914E /* config.tmp.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF61B5A11A63E828004B914E /* config.tmp.plist */; };
-		BF63809D1A738BCF00986789 /* JANOtherQiitaUsersService.m in Sources */ = {isa = PBXBuildFile; fileRef = BF63809C1A738BCF00986789 /* JANOtherQiitaUsersService.m */; };
 		BF67D9D21A3C2834004B53B5 /* followerIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9CF1A3C2834004B53B5 /* followerIcon@2x.png */; };
 		BF67D9D41A3C2834004B53B5 /* stockIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9D11A3C2834004B53B5 /* stockIcon@2x.png */; };
 		BF67D9D81A3C2AC7004B53B5 /* postArticleIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BF67D9D71A3C2AC7004B53B5 /* postArticleIcon@2x.png */; };
@@ -96,8 +95,6 @@
 		BF61B59E1A63E1A8004B914E /* JANGaugeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANGaugeView.h; sourceTree = "<group>"; };
 		BF61B59F1A63E1A8004B914E /* JANGaugeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANGaugeView.m; sourceTree = "<group>"; };
 		BF61B5A11A63E828004B914E /* config.tmp.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.tmp.plist; sourceTree = "<group>"; };
-		BF63809B1A738BCF00986789 /* JANOtherQiitaUsersService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JANOtherQiitaUsersService.h; sourceTree = "<group>"; };
-		BF63809C1A738BCF00986789 /* JANOtherQiitaUsersService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JANOtherQiitaUsersService.m; sourceTree = "<group>"; };
 		BF67D9CF1A3C2834004B53B5 /* followerIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "followerIcon@2x.png"; sourceTree = "<group>"; };
 		BF67D9D11A3C2834004B53B5 /* stockIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stockIcon@2x.png"; sourceTree = "<group>"; };
 		BF67D9D71A3C2AC7004B53B5 /* postArticleIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "postArticleIcon@2x.png"; sourceTree = "<group>"; };
@@ -244,8 +241,6 @@
 				BF61B5711A624A63004B914E /* JANDataService.m */,
 				BF61B5891A628158004B914E /* JANPointService.h */,
 				BF61B58A1A628158004B914E /* JANPointService.m */,
-				BF63809B1A738BCF00986789 /* JANOtherQiitaUsersService.h */,
-				BF63809C1A738BCF00986789 /* JANOtherQiitaUsersService.m */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -557,7 +552,6 @@
 				E4BE16E11A3C1E3D000FE3BE /* JANUserService.m in Sources */,
 				E41710261A497EA7005D86A9 /* JANBaseViewController.m in Sources */,
 				BF1AC2351AB52BFC007BFF79 /* JANSettingViewController.m in Sources */,
-				BF63809D1A738BCF00986789 /* JANOtherQiitaUsersService.m in Sources */,
 				BF53DAAA1A4995AA00BE276C /* JANNetworkInterface.m in Sources */,
 				BF53DAAB1A4995AA00BE276C /* JANQiitaConnector.m in Sources */,
 				E407AD8F1AD101FB00F1EF18 /* JANQiitaUserViewModel.m in Sources */,

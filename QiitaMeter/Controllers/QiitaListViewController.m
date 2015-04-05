@@ -18,7 +18,6 @@
 #import "JANPointService.h"
 #import "JANQiitaCount.h"
 #import "JANPoint.h"
-#import "JANOtherQiitaUsersService.h"
 #import "JANUserService.h"
 #import "JANConfig.h"
 #import "JANSettingViewController.h"

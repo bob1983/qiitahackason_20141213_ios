@@ -13,7 +13,6 @@
 #import "JANQiitaUserInfoService.h"
 #import "JANUserService.h"
 #import "JANUser.h"
-#import "JANOtherQiitaUsersService.h"
 #import "JANStock.h"
 #import "JANQiitaUserViewModel.h"
 
