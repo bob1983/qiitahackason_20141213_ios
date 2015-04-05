@@ -22,11 +22,24 @@
                          successHandler:(QiitaUserInfoServiceRetrieveSuccessHandler)successHandler
                           failedHandler:(QiitaUserInfoServiceRetrieveFailedHandler)failedHandler
 {
+    JANUser *user = [JANUserService loadUser];
+    if ([user.qiitaId isEqualToString:userId]) {
+        if (failedHandler) {
+            failedHandler();
+        }
+        return;
+    }
     [JANQiitaConnector retrieveQiitaUserInfoWithUserId:userId
                                         successHandler:^(NSDictionary *userInfo) {
                                             JANQiitaUserInfo *qiitaUserInfo = [JANQiitaUserInfoService janQiitaUserInfoFromRetrievedDictionary:userInfo];
-                                            if (successHandler){
-                                                successHandler(qiitaUserInfo);
+                                            if (qiitaUserInfo) {
+                                                if (successHandler){
+                                                    successHandler(qiitaUserInfo);
+                                                }
+                                            } else {
+                                                if (failedHandler) {
+                                                    failedHandler();
+                                                }
                                             }
                                         }
                                          failedHandler:failedHandler];
@@ -34,6 +47,9 @@
 
 + (JANQiitaUserInfo *)janQiitaUserInfoFromRetrievedDictionary :(NSDictionary *)dic
 {
+    if (!dic[@"id"]) {
+        return nil;
+    }
     JANQiitaUserInfo *qiitaUserInfo = [[JANQiitaUserInfo alloc] init];
     qiitaUserInfo.name = dic[@"name"];
     qiitaUserInfo.qiitaId = dic[@"id"];
@@ -67,7 +83,16 @@
 {
     RLMRealm *realm = [RLMRealm defaultRealm];
     JANUser *user = [JANUserService loadUser];
+    if (!user.qiitaId) {
+        return [self qiitaUserInfos];
+    }
     return [JANQiitaUserInfo objectsInRealm:realm where:@"qiitaId <> %@", user.qiitaId];
+}
+
++ (RLMResults *)qiitaUserInfos
+{
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    return [JANQiitaUserInfo objectsInRealm:realm where:nil];
 }
 
 + (void)deleteQiitaUserInfoWithQiitaId:(NSString *)qiitaId

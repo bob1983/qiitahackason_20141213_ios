@@ -261,6 +261,12 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     [self.qiitaListView reloadData];
 }
 
+- (void)updateViewforDeleteAllOtherUsers
+{
+    self.rivalsQiitaUserInfo = @[];
+    [self.qiitaListView reloadData];
+}
+
 - (void)updateViewWithOtherUserStock:(NSNotification *)dic
 {
     JANStock *stock = [[dic userInfo] objectForKey:STOCK_NOTIFICATION_KEY];

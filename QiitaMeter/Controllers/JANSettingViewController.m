@@ -112,16 +112,27 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex==1) {
         NSString *inputText = [[alertView textFieldAtIndex:0] text];
+        
+        self.userList = [JANQiitaUserInfoService qiitaUserInfosWithoutOwn];
+        NSUInteger row = [self.userList indexOfObjectWhere:@"qiitaId = %@", inputText];
+        if (row != NSNotFound) {
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"ID Exists"
+                                                              message:nil
+                                                             delegate:self
+                                                    cancelButtonTitle:@"Close"
+                                                    otherButtonTitles:nil];
+            [message show];
+            return;
+        }
+        
         [JANQiitaUserInfoService retrieveQiitaUserInfoWithUserId:inputText successHandler:^(JANQiitaUserInfo *userInfo) {
             // 保存済み
             // データの順番を取得し，arrayを更新して，表示を更新
             self.userList = [JANQiitaUserInfoService qiitaUserInfosWithoutOwn];
             NSUInteger row = [self.userList indexOfObjectWhere:@"qiitaId = %@", userInfo.qiitaId];
             NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:row inSection:0];
-            [self.userTableView beginUpdates];
             [self.userTableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationMiddle];
-            [self.userTableView endUpdates];
-
+            [JANDataService dataUpdateRequest:nil];
         } failedHandler:^{
             UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"ID Error"
                                                               message:nil
