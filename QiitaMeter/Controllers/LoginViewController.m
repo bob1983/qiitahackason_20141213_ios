@@ -18,22 +18,30 @@
 
 @implementation LoginViewController
 
+#pragma mark - view life cycle
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 }
 
--(void)viewWillAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
     [self setUpnavigationBarButton];
     
     if ([[JANUserService loadUser] accessTokens]) {
-        [self openListViewController:nil];
+        [self openListViewController];
     }
 }
 
-//カメラボタンが押されたときに呼ばれるメソッド
--(void)openListViewController:(UIBarButtonItem*)b{
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+}
+
+#pragma mark - page transition
+
+-(void)openListViewController
+{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"QiitaListController"
                                                          bundle:[NSBundle mainBundle]];
     QiitaListViewController *controller = [storyboard instantiateInitialViewController];
@@ -56,11 +64,13 @@
     [JANDataService logoutRequest:nil];
 }
 
+#pragma mark - notification
 - (void)updateViewWithLogout:(NSNotification *)dic
 {
     [self setUpnavigationBarButton];
 }
 
+#pragma mark - view
 - (void)setUpnavigationBarButton
 {
     UIBarButtonItem *rightBtn;
@@ -69,7 +79,7 @@
         rightBtn = [[UIBarButtonItem alloc]
                     initWithTitle:@"List"
                     style:UIBarButtonItemStylePlain
-                    target:self action:@selector(openListViewController:)];
+                    target:self action:@selector(openListViewController)];
         leftBtn = [[UIBarButtonItem alloc]
                    initWithTitle:@"Logout"
                    style:UIBarButtonItemStylePlain
@@ -83,11 +93,6 @@
     }
     self.navigationItem.rightBarButtonItem = rightBtn;
     self.navigationItem.leftBarButtonItem = leftBtn;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
