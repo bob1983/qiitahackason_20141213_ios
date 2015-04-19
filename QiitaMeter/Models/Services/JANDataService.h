@@ -12,6 +12,8 @@
 #define OTHER_QIITA_USER_INFOS_NOTIFICATION_KEY @"other_qiita_user_infos_notification_key"
 #define STOCK_NOTIFICATION_KEY @"stock_notification_key"
 #define QIITA_ID_NOTIFICATION_KEY @"qiita_id_notification_key"
+#define OTHER_QIITA_USER_INFOS_NOTIFICATION_KEY @"other_qiita_user_infos_notification_key"
+#define DELETE_OTHER_QIITA_USER_INFO_ID_NOTIFICATION_KEY @"delete_other_qiita_user_info_id_notification_key"
 
 @class JANQiitaUserInfo, JANStock;
 
@@ -23,6 +25,7 @@ typedef void(^JANDataServiceFinishHandler)();
 - (void)updateViewWithOtherQiitaUserInfos:(NSNotification *)dic;
 - (void)updateViewWithOtherUserStock:(NSNotification *)dic;
 - (void)updateViewWithLogout:(NSNotification *)dic;
+- (void)updateViewWithDeleteOtherQiitaUserInfoId:(NSNotification *)dic;
 @end
 
 @interface JANDataService : NSObject
@@ -30,4 +33,6 @@ typedef void(^JANDataServiceFinishHandler)();
 + (void)dataUpdateRequest:(JANDataServiceFinishHandler)finishHandler;
 + (void)setViewUpdateToObserver:(id<JANDataServiceViewUpdateObserver>)observer;
 + (void)logoutRequest:(JANDataServiceFinishHandler)finishHnadler;
++ (void)deleteOtherQiitaUserInfoWithQiitaId:(NSString *)qiitaId
+                              finishHnadler:(JANDataServiceFinishHandler)finishHnadler;
 @end

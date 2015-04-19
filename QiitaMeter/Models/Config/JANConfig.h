@@ -29,3 +29,7 @@
 
 + (NSArray *)specialUsers;
 @end
+
+@interface UIColor(Common)
++ (UIColor *)commonColor;
+@end
