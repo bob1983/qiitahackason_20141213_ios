@@ -27,8 +27,6 @@
     float newTotalPoint = 0;
     float gaugePersentValue = 0;
     
-    newUserInfo.itemsCount = lastUserInfo.itemsCount +1;
-    
     if (!lastUserInfo || lastUserInfo.qiitaId.length < 1 || lastTotalPoint == 0 ){
         point.totalPoint = 0;
         point.gaugePersentValue = 0.5;

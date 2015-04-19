@@ -67,6 +67,6 @@
 - (void)setGaugePercentValue:(float)percentValue
 {
     [_gaugeView setPersentValue:percentValue];
-    [_gaugeView setNeedsLayout];
+    [_gaugeView setNeedsDisplay];
 }
 @end
