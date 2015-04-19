@@ -43,7 +43,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-   JANQiitaUserInfo *userInfo = [self.userList objectAtIndex:indexPath.row];
+    JANQiitaUserInfo *userInfo = [self.userList objectAtIndex:indexPath.row];
     cell.textLabel.text = userInfo.accountName;
     return cell;
 }
@@ -126,12 +126,18 @@
         }
         
         [JANQiitaUserInfoService retrieveQiitaUserInfoWithUserId:inputText successHandler:^(JANQiitaUserInfo *userInfo) {
-            // 保存済み
-            // データの順番を取得し，arrayを更新して，表示を更新
+            // 保存
+            [JANQiitaUserInfoService saveWithQiitaUserinfo:userInfo];
+
+            // リストの取得
             self.userList = [JANQiitaUserInfoService qiitaUserInfosWithoutOwn];
+
+            // 表示の更新
             NSUInteger row = [self.userList indexOfObjectWhere:@"qiitaId = %@", userInfo.qiitaId];
             NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:row inSection:0];
             [self.userTableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationMiddle];
+
+            // 変更通知
             [JANDataService dataUpdateRequest:nil];
         } failedHandler:^{
             UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"ID Error"
