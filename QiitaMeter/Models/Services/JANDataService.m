@@ -116,8 +116,6 @@
         for (JANQiitaUserInfo *qiitaUserInfo in otherUsers) {
             [JANQiitaUserInfoService retrieveQiitaUserInfoWithUserId:qiitaUserInfo.qiitaId
                                                       successHandler:^(JANQiitaUserInfo *qiitaUserInfo) {
-                                                          [JANUserService saveQiitaId:qiitaUserInfo.qiitaId];
-                                                          
                                                           [JANStockService retrieveStocksWithUserId:qiitaUserInfo.qiitaId
                                                                                      successHandler:^(JANStock *stock) {
                                                                                          //ポイントを計算
