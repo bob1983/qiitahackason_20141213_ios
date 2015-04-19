@@ -68,9 +68,9 @@
 
 + (void)saveWithQiitaUserinfo:(JANQiitaUserInfo *)qiitaUserInfo
 {
-    qiitaUserInfo.lastUpdate = [NSDate date];
     RLMRealm *realm = [RLMRealm defaultRealm];
     [realm transactionWithBlock:^{
+        qiitaUserInfo.lastUpdate = [NSDate date];
         [realm addOrUpdateObject:qiitaUserInfo];
     }];
 }

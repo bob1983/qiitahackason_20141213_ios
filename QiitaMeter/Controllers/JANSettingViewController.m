@@ -52,7 +52,7 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         JANQiitaUserInfo *qiitaUserInfo = [self.userList objectAtIndex:indexPath.row];
-        [JANQiitaUserInfoService deleteQiitaUserInfoWithQiitaId:qiitaUserInfo.qiitaId];
+        [JANDataService deleteOtherQiitaUserInfoWithQiitaId:qiitaUserInfo.qiitaId finishHnadler:nil];
         [self.userTableView beginUpdates];
         [self.userTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationMiddle];
         [self.userTableView endUpdates];

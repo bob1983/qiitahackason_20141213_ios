@@ -175,19 +175,19 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
             [cell layoutIfNeeded];
         }
     } else {
-        JANQiitaUserInfo *qiitaUserInfo = [_rivalsQiitaUserInfo objectAtIndex:indexPath.row];
+        JANQiitaUserViewModel *qiitaUserInfo = [_rivalsQiitaUserInfo objectAtIndex:indexPath.row];
         
         cell.accountNameLabel.text = qiitaUserInfo.qiitaId;
         JANStock *stock = [self.rivalsStocks objectForKey:qiitaUserInfo.qiitaId];
         if (stock)
             [cell setStockCount:stock.count];
-        [cell setFolloeesCount:qiitaUserInfo.followeesCount];
+        [cell setFolloeesCount:qiitaUserInfo.foloweesCount];
         [cell setContributeCount:qiitaUserInfo.itemsCount];
         
-//        [cell setTotalValue:self.myPoint.totalPoint];
+        [cell setTotalValue:qiitaUserInfo.totalPoint];
         
-//        [cell setGaugePercentValue:self.myPoint.gaugePersentValue];
-        [cell.userImageView sd_setImageWithURL:[NSURL URLWithString:qiitaUserInfo.profileImageUrl]
+        [cell setGaugePercentValue:qiitaUserInfo.gaugePersentValue];
+        [cell.userImageView sd_setImageWithURL:[NSURL URLWithString:qiitaUserInfo.profileImageURL]
                               placeholderImage:nil
                                      completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
                                          [cell.userImageView setImage:image];
@@ -245,11 +245,11 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 
 - (void)updateViewWithOtherQiitaUserInfos:(NSNotification *)dic
 {
-    JANQiitaUserInfo *otherQiitaUser = [[dic userInfo] objectForKey:OTHER_QIITA_USER_INFOS_NOTIFICATION_KEY];
+    JANQiitaUserViewModel *otherQiitaUser = [[dic userInfo] objectForKey:OTHER_QIITA_USER_INFOS_NOTIFICATION_KEY];
     if (self.rivalsQiitaUserInfo) {
         NSMutableArray *tempRivals = [self.rivalsQiitaUserInfo mutableCopy];
         __block NSInteger index = NSNotFound;
-        [tempRivals enumerateObjectsUsingBlock:^(JANQiitaUserInfo *qiitaUserInfo, NSUInteger idx, BOOL *stop) {
+        [tempRivals enumerateObjectsUsingBlock:^(JANQiitaUserViewModel *qiitaUserInfo, NSUInteger idx, BOOL *stop) {
             if ([qiitaUserInfo.qiitaId isEqualToString:otherQiitaUser.qiitaId]) {
                 index = idx;
                 *stop = YES;
@@ -265,6 +265,19 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
         self.rivalsQiitaUserInfo = @[otherQiitaUser];
     }
     [self.qiitaListView reloadData];
+}
+
+- (void)updateViewWithDeleteOtherQiitaUserInfoId:(NSNotification *)dic
+{
+    NSString *deleteOtherQiitaUserId = [[dic userInfo] objectForKey:DELETE_OTHER_QIITA_USER_INFO_ID_NOTIFICATION_KEY];
+    if (self.rivalsQiitaUserInfo) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", @"qiitaId", deleteOtherQiitaUserId];
+        JANQiitaUserViewModel *deletedOtherQiitaUser = [[self.rivalsQiitaUserInfo filteredArrayUsingPredicate:predicate] firstObject];
+        
+        NSMutableArray *ary = [self.rivalsQiitaUserInfo mutableCopy];
+        [ary removeObject:deletedOtherQiitaUser];
+        self.rivalsQiitaUserInfo = ary;
+    }
 }
 
 - (void)updateViewWithOtherUserStock:(NSNotification *)dic
