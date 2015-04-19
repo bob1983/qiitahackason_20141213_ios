@@ -173,6 +173,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
                                              [cell.userImageView setImage:image];
                                          }];
             [cell layoutIfNeeded];
+            
         }
     } else {
         JANQiitaUserInfo *qiitaUserInfo = [_rivalsQiitaUserInfo objectAtIndex:indexPath.row];
