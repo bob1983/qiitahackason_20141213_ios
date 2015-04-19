@@ -15,7 +15,6 @@
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
-    
     self.backgroundColor2 = [UIColor commonColor];
     self.backgroundColor = [UIColor whiteColor];
     
