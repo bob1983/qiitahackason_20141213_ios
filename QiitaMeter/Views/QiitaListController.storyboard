@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TFo-oS-jNN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TFo-oS-jNN">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -15,11 +15,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Yxj-5B-3nM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="5qq-47-hq2">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="116" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3Zv-sD-vh4">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="QiitaListTableViewCell" rowHeight="116" id="6AA-se-cfB" customClass="QiitaListTableViewCell">
@@ -97,8 +97,8 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Qi." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UW-zu-UGo">
-                                                    <rect key="frame" x="155" y="83" width="20" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qi." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1UW-zu-UGo">
+                                                    <rect key="frame" x="187" y="83" width="11" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="ps2-Ke-hdU"/>
                                                     </constraints>
@@ -124,9 +124,10 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.71999999999999997" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLt-le-AXK">
-                                                    <rect key="frame" x="124" y="71" width="25" height="38"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="254" verticalHuggingPriority="251" text="99999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLt-le-AXK">
+                                                    <rect key="frame" x="124" y="71" width="61" height="38"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="61" id="4P1-Dq-RD5"/>
                                                         <constraint firstAttribute="height" constant="38" id="j4s-X0-GaY"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -141,11 +142,11 @@
                                                     </constraints>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ggQ-M1-9lm" customClass="JANGaugeView">
-                                                    <rect key="frame" x="164" y="77" width="177" height="27"/>
+                                                    <rect key="frame" x="200" y="77" width="112" height="27"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="27" id="URR-KY-M6Z"/>
-                                                        <constraint firstAttribute="width" priority="998" constant="177" id="eUO-QC-trc"/>
+                                                        <constraint firstAttribute="width" priority="998" constant="112" id="eUO-QC-trc"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -301,6 +302,7 @@
                                             <outlet property="contributeCountLabel" destination="0G4-Qd-GYd" id="LXb-t1-DyZ"/>
                                             <outlet property="folloeesCountLavel" destination="Ue0-hr-aPf" id="Vb2-0a-czO"/>
                                             <outlet property="gaugeView" destination="ggQ-M1-9lm" id="MvY-vw-j5B"/>
+                                            <outlet property="pointLabelWidthConstraint" destination="4P1-Dq-RD5" id="w5p-4r-UKl"/>
                                             <outlet property="stockCountLabel" destination="Rg1-dU-eI6" id="sQF-Nl-CWc"/>
                                             <outlet property="totalValueLabel" destination="OLt-le-AXK" id="s1c-pj-kuY"/>
                                             <outlet property="userImageView" destination="Y6c-Xb-eRZ" id="8ow-VS-78p"/>
@@ -312,8 +314,8 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qBu-dn-e8A" id="kaA-3c-ftC">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="はじめは気になるQittaユーザーを登録しよう" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="PXj-Ye-WwR">
-                                                    <rect key="frame" x="8" y="8" width="398" height="28"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="はじめは気になるQittaユーザーを登録しよう" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="PXj-Ye-WwR">
+                                                    <rect key="frame" x="8" y="8" width="304" height="27"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -342,14 +344,14 @@
                             <constraint firstItem="3Zv-sD-vh4" firstAttribute="leading" secondItem="5qq-47-hq2" secondAttribute="leadingMargin" constant="-16" id="a03-da-SRS"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="qiitaListView" destination="3Zv-sD-vh4" id="eys-yO-QJj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7JW-U3-C3f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="119" y="318"/>
+            <point key="canvasLocation" x="119" y="317"/>
         </scene>
     </scenes>
     <resources>

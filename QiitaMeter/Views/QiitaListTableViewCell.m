@@ -9,6 +9,10 @@
 #import "QiitaListTableViewCell.h"
 #import "UIView+JMFrame.h"
 
+@interface QiitaListTableViewCell()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *pointLabelWidthConstraint;
+@end
+
 @implementation QiitaListTableViewCell
 
 + (NSString *)identifier
@@ -61,7 +65,9 @@
 
 -(void)setTotalValue:(NSInteger)totalValue
 {
-    _totalValueLabel.text = [NSString stringWithFormat:@"%ld", (long)totalValue];
+    self.totalValueLabel.text = [NSString stringWithFormat:@"%ld", (long)totalValue];
+    CGSize size = [_totalValueLabel sizeThatFits:CGSizeMake(MAXFLOAT, _totalValueLabel.height)];
+    self.pointLabelWidthConstraint.constant = size.width;
 }
 
 - (void)setGaugePercentValue:(float)percentValue
