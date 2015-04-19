@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TFo-oS-jNN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1077" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TFo-oS-jNN">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -285,6 +285,27 @@
                                             <outlet property="userImageView" destination="Y6c-Xb-eRZ" id="8ow-VS-78p"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="NoRivalsUserMessageCell" rowHeight="44" id="qBu-dn-e8A">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qBu-dn-e8A" id="kaA-3c-ftC">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="最初に気になるQittaユーザーを登録しよう！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="PXj-Ye-WwR">
+                                                    <rect key="frame" x="8" y="8" width="398" height="28"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="PXj-Ye-WwR" firstAttribute="top" secondItem="kaA-3c-ftC" secondAttribute="top" constant="8" id="IqF-n5-ppO"/>
+                                                <constraint firstAttribute="trailing" secondItem="PXj-Ye-WwR" secondAttribute="trailing" constant="8" id="Y5t-kS-iZA"/>
+                                                <constraint firstAttribute="bottom" secondItem="PXj-Ye-WwR" secondAttribute="bottom" constant="8" id="e0t-SY-QXy"/>
+                                                <constraint firstItem="PXj-Ye-WwR" firstAttribute="leading" secondItem="kaA-3c-ftC" secondAttribute="leading" constant="8" id="s6n-gP-Pde"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="TFo-oS-jNN" id="61U-Ik-FY6"/>
@@ -308,6 +329,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7JW-U3-C3f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="119" y="318"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="yS6-Rr-tam">
+            <objects>
+                <viewController id="In3-dO-5BF" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b2W-7L-PxI"/>
+                        <viewControllerLayoutGuide type="bottom" id="MoP-m9-LeM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="V4d-3I-Tsg">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cin-iS-05K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

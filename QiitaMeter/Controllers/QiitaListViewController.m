@@ -111,6 +111,10 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 - (CGFloat)tableView:(UITableView *)tableView
            heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (_rivalsQiitaUserInfo.count == 0 && indexPath.section == 1) {
+        return 44;
+    }
+    
     return 116;
 }
 
@@ -134,18 +138,23 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     if (section == 0) {
         return 1;
     }
+    if (_rivalsQiitaUserInfo.count == 0) {
+        return 1;
+    }
     return _rivalsQiitaUserInfo.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (_rivalsQiitaUserInfo.count == 0 && indexPath.section == 1 && indexPath.row == 0) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NoRivalsUserMessageCell"];
+        return cell;
+    }
+    
     NSString *CellIdentifier = [QiitaListTableViewCell identifier];
     
-    QiitaListTableViewCell *cell = [self.qiitaListView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (!cell) {
-        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    }
+    QiitaListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     [cell reset];
     
@@ -191,6 +200,11 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (_rivalsQiitaUserInfo.count == 0 && indexPath.section == 1 && indexPath.row == 0) {
+        [self openSettingViewController];
+        return;
+    }
+        
     NSString *selectedQiitaUserId;
     if( indexPath.section == 0 ) {
         if( indexPath.row == 0 ) {
@@ -218,7 +232,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
                                                          bundle:[NSBundle mainBundle]];
     JANSettingViewController *controller = [storyboard instantiateInitialViewController];
     [self.navigationController pushViewController:controller
-                                         animated:NO];
+                                         animated:YES];
 }
 
 #pragma - Notifications
