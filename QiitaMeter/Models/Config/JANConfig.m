@@ -135,3 +135,12 @@ static NSString *qiitaClientSecret;
 }
 
 @end
+
+@implementation UIColor(Common)
+
++ (UIColor *)commonColor
+{
+    return [UIColor colorWithRed:85.0/255 green:189.0/255 blue:1.0/255 alpha:1.0];
+}
+
+@end

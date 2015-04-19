@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 
 #import "JANDataService.h"
+#import "JANConfig.h"
 
 @interface AppDelegate ()
 @end
@@ -31,7 +32,7 @@
                                                          bundle:[NSBundle mainBundle]];
     UIViewController *initialViewController = [storyboard instantiateInitialViewController];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:initialViewController];
-    [UINavigationBar appearance].barTintColor = [UIColor colorWithRed:0.332 green:0.738 blue:0.004 alpha:1.000];
+    [UINavigationBar appearance].barTintColor = [UIColor commonColor];
     [UINavigationBar appearance].tintColor = [UIColor whiteColor];
     [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor whiteColor]};
     self.window.rootViewController = navigationController;

@@ -7,6 +7,7 @@
 //
 
 #import "JANGaugeView.h"
+#import "JANConfig.h"
 
 @implementation JANGaugeView
 
@@ -15,7 +16,7 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     
-    self.backgroundColor2 = [UIColor colorWithRed:125.0/255 green:187.0/255 blue:45.0/255 alpha:1.0];
+    self.backgroundColor2 = [UIColor commonColor];
     self.backgroundColor = [UIColor whiteColor];
     
     CGContextRef context;
