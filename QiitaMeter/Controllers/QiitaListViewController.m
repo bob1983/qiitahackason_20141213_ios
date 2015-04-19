@@ -54,7 +54,7 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"元気？";
+    self.navigationItem.title = @"GenQi";
     
     UIImage *settingImage = [[UIImage imageNamed:@"gear"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIBarButtonItem *settingsButton = [[UIBarButtonItem alloc]

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="13F1066" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3Nl-4P-JMu">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="3Nl-4P-JMu">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -7,10 +7,10 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Setting-->
+        <!--設定-->
         <scene sceneID="JJI-n2-TEZ">
             <objects>
-                <viewController title="Setting" id="3Nl-4P-JMu" customClass="JANSettingViewController" sceneMemberID="viewController">
+                <viewController title="設定" id="3Nl-4P-JMu" customClass="JANSettingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cy8-4x-ZWv"/>
                         <viewControllerLayoutGuide type="bottom" id="tFm-AB-R0f"/>
@@ -41,7 +41,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="XHV-gE-vGv" secondAttribute="height" multiplier="1:1" id="OTA-Re-hsM"/>
                                 </constraints>
-                                <state key="normal" title="Log Out">
+                                <state key="normal" title="ログアウト">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -53,7 +53,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="9VM-Qq-Vkn" secondAttribute="height" multiplier="1:1" id="Jkd-7C-jW0"/>
                                 </constraints>
-                                <state key="normal" title="Edit Mode">
+                                <state key="normal" title="編集">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -65,7 +65,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="xqR-zF-aSd" secondAttribute="height" multiplier="1:1" id="CRD-0e-5mj"/>
                                 </constraints>
-                                <state key="normal" title="Add User">
+                                <state key="normal" title="ユーザを追加">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
