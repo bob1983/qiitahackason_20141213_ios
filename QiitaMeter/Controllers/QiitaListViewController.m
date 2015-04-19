@@ -156,44 +156,30 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
     QiitaListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     [cell reset];
-    
+    JANQiitaUserViewModel *qiitaUserInfo;
     if (indexPath.section == 0) {
         if (self.myQiitaUserInfo) {
-            cell.accountNameLabel.text = self.myQiitaUserInfo.name;
-            [cell setStockCount:self.myQiitaUserInfo.stocksCount];
-            [cell setFolloeesCount:self.myQiitaUserInfo.foloweesCount];
-            [cell setContributeCount:self.myQiitaUserInfo.itemsCount];
-            
-            [cell setTotalValue:self.myQiitaUserInfo.totalPoint];
-            
-            [cell setGaugePercentValue:self.myQiitaUserInfo.gaugePersentValue];
-            [cell.userImageView sd_setImageWithURL:[NSURL URLWithString:self.myQiitaUserInfo.profileImageURL]
-                                  placeholderImage:nil
-                                         completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
-                                             [cell.userImageView setImage:image];
-                                         }];
-            [cell layoutIfNeeded];
+            qiitaUserInfo = self.myQiitaUserInfo;
         }
     } else {
-        JANQiitaUserViewModel *qiitaUserInfo = [_rivalsQiitaUserInfo objectAtIndex:indexPath.row];
-        
-        cell.accountNameLabel.text = qiitaUserInfo.qiitaId;
-        JANStock *stock = [self.rivalsStocks objectForKey:qiitaUserInfo.qiitaId];
-        if (stock)
-            [cell setStockCount:stock.count];
-        [cell setFolloeesCount:qiitaUserInfo.foloweesCount];
-        [cell setContributeCount:qiitaUserInfo.itemsCount];
-        
-        [cell setTotalValue:qiitaUserInfo.totalPoint];
-        
-        [cell setGaugePercentValue:qiitaUserInfo.gaugePersentValue];
-        [cell.userImageView sd_setImageWithURL:[NSURL URLWithString:qiitaUserInfo.profileImageURL]
-                              placeholderImage:nil
-                                     completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
-                                         [cell.userImageView setImage:image];
-                                     }];
-        [cell layoutIfNeeded];
+        qiitaUserInfo = [_rivalsQiitaUserInfo objectAtIndex:indexPath.row];
     }
+    
+    cell.accountNameLabel.text = qiitaUserInfo.qiitaId;
+    
+    [cell setStockCount:qiitaUserInfo.stocksCount];
+    [cell setFolloeesCount:qiitaUserInfo.foloweesCount];
+    [cell setContributeCount:qiitaUserInfo.itemsCount];
+    
+    [cell setTotalValue:qiitaUserInfo.totalPoint];
+    
+    [cell setGaugePercentValue:qiitaUserInfo.gaugePersentValue];
+    [cell.userImageView sd_setImageWithURL:[NSURL URLWithString:qiitaUserInfo.profileImageURL]
+                          placeholderImage:nil
+                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL){
+                                     [cell.userImageView setImage:image];
+                                 }];
+    [cell layoutIfNeeded];
     
     return cell;
 }
