@@ -59,10 +59,6 @@
     qiitaUserInfo.followeesCount = [dic[@"followees_count"] integerValue];
     qiitaUserInfo.itemsCount = [dic[@"items_count"] integerValue];
     
-    // ポイントを生成
-    //JANQiitaUserInfo *lastUserInfo = [self qiitaUserInfoWithQiitaId:qiitaUserInfo.qiitaId];
-    //[JANPointService makePointWithLastUserInfo:lastUserInfo newUserInfo:qiitaUserInfo];
-    
     return qiitaUserInfo;
 }
 

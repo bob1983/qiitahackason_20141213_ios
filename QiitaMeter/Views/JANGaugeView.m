@@ -47,7 +47,7 @@
     
     startPoint = rect.origin;
 
-    endPoint = CGPointMake(rect.origin.x + rect.size.width * _persentValue, 0);
+    endPoint = CGPointMake(rect.origin.x + rect.size.width * self.persentValue, 0);
     
     // グラデーションをキャンバスに描画します。
     CGContextDrawLinearGradient(context, gradient, startPoint, endPoint, 0);
