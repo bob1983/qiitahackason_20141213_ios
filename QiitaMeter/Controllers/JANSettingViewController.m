@@ -78,20 +78,20 @@
 - (IBAction)editMode:(UIButton *)sender {
     if (self.userTableView.editing) {
         [self.userTableView setEditing:NO animated:YES];
-        [sender setTitle:@"Edit Mode" forState:UIControlStateNormal];
+        [sender setTitle:@"編集" forState:UIControlStateNormal];
     } else {
         [self.userTableView setEditing:YES animated:YES];
-        [sender setTitle:@"Cancel" forState:UIControlStateNormal];
+        [sender setTitle:@"キャンセル" forState:UIControlStateNormal];
     }
 }
 
 #pragma -
 - (void)showAddUserAlert{
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"比較ユーザーを追加"
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"ユーザーを追加"
                                                       message:nil
                                                      delegate:self
-                                            cancelButtonTitle:@"Cancel"
-                                            otherButtonTitles:@"Add", nil];
+                                            cancelButtonTitle:@"キャセル"
+                                            otherButtonTitles:@"追加", nil];
     [message setAlertViewStyle:UIAlertViewStylePlainTextInput];//１行で実装
     UITextField *textField = [message textFieldAtIndex:0];
     textField.placeholder = @"Qiita ID";
@@ -116,7 +116,7 @@
         self.userList = [JANQiitaUserInfoService qiitaUserInfosWithoutOwn];
         NSUInteger row = [self.userList indexOfObjectWhere:@"qiitaId = %@", inputText];
         if (row != NSNotFound) {
-            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"ID Exists"
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"IDは登録済みです"
                                                               message:nil
                                                              delegate:self
                                                     cancelButtonTitle:@"Close"
@@ -140,7 +140,7 @@
             // 変更通知
             [JANDataService dataUpdateRequest:nil];
         } failedHandler:^{
-            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"ID Error"
+            UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"IDがありませんでした"
                                                               message:nil
                                                              delegate:self
                                                     cancelButtonTitle:@"Cancel"
