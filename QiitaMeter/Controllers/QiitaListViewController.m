@@ -200,7 +200,6 @@ static NSString * const QiitaLIstTableViewCellIdentifier = @"QiitaLIstTableViewC
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     if (_rivalsQiitaUserInfo.count == 0 && indexPath.section == 1 && indexPath.row == 0) {
         [self openSettingViewController];
         return;
